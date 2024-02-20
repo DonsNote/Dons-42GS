@@ -1,17 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:55:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:02 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/01/25 11:52:28 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/01/25 11:57:26 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_div_mod(int a, int b, int *div, int *mod)
+#include <unistd.h>
+
+int	main(int ac, char **av)
 {
-    *div = a / b;
-    *mod = a % b;
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j] != '\0')
+		{
+			write(1, &av[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+		i++;
+	}
+	return (0);
 }

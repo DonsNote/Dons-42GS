@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:55:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:02 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/01 21:09:19 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/01 22:47:47 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_div_mod(int a, int b, int *div, int *mod)
-{
-    *div = a / b;
-    *mod = a % b;
-}
+#ifndef FT_ABS_H
+# define FT_ABS_H
+
+# define ABS(value) ((value) * ((value) > 0) - (value) * ((value) < 0))
+
+#endif

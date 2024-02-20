@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:55:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:02 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/03 17:51:09 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/03 17:55:07 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_div_mod(int a, int b, int *div, int *mod)
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
+
+typedef struct s_stock_str
 {
-    *div = a / b;
-    *mod = a % b;
-}
+	int		size;
+	char	*str;
+	char	*copy;
+}	t_stock_str;
+
+#endif

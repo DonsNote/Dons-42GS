@@ -1,17 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:55:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:02 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/01/25 11:02:11 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/01/25 11:18:30 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_div_mod(int a, int b, int *div, int *mod)
+int	ft_is_prime(int nb)
 {
-    *div = a / b;
-    *mod = a % b;
+	long long	i;
+
+	i = 2;
+	if (nb <= 1)
+		return (0);
+	while (i * i <= nb)
+	{
+		if (nb % i == 0)
+			return (0);
+		i++;
+	}
+	return (nb);
+}
+
+int	ft_find_next_prime(int nb)
+{
+	while (1)
+	{
+		if (ft_is_prime(nb))
+			return (nb);
+		nb++;
+	}
 }

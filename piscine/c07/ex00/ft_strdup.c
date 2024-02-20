@@ -1,28 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 15:19:15 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/20 16:26:48 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/01/26 10:07:14 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/01/30 11:27:50 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_iterative_factorial(int nb)
-{
-	int	i;
+#include <stdlib.h>
 
-	i = 1;
-    if (nb < 0)
+char	*ft_strdup(char *src)
+{
+	int		i;
+	char	*sol;
+
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	sol = (char *)malloc(sizeof(char) * (i + 1));
+	if (sol == 0)
 		return (0);
-    if (nb == 1)
-		return (1);
-    while (nb > 1)
+	i = 0;
+	while (src[i] != '\0')
 	{
-		i = i * nb;
-		nb--;
+		sol[i] = src[i];
+		i++;
 	}
-	return (i);
+	sol[i] = '\0';
+	return (sol);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char src[] = "abcdef";
+
+	char *sol = ft_strdup(src);
+	printf("%s", sol);
+	free(sol);
+	return (0);
+}
+*/

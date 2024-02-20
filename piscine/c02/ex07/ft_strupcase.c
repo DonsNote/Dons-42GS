@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:55:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:02 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/01/17 15:48:03 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/01/19 09:12:13 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_div_mod(int a, int b, int *div, int *mod)
+char	*ft_strupcase(char *str)
 {
-    *div = a / b;
-    *mod = a % b;
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] > 96 && str[i] < 123)
+			str[i] = str[i] - 32;
+		i++;
+	}
+	return (str);
 }

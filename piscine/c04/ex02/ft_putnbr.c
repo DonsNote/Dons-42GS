@@ -1,17 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:55:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/20 14:56:02 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/01/19 20:28:53 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/01/19 20:38:25 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_div_mod(int a, int b, int *div, int *mod)
+#include <unistd.h>
+
+void	ft_putnbr(int nb)
 {
-    *div = a / b;
-    *mod = a % b;
+	int		i;
+	char	nbr[10];
+
+	i = 0;
+	if (nb == 0)
+		write(1, "0", 1);
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = nb * -1;
+	}
+	while (nb > 0)
+	{
+		nbr[i] = nb % 10 + 48;
+		nb = nb / 10;
+		i++;
+	}
+	i = i - 1;
+	while (i >= 0)
+	{
+		write(1, &nbr[i], 1);
+		i--;
+	}
 }
