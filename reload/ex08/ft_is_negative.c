@@ -6,18 +6,23 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:34:22 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/22 15:34:47 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:10:13 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
 void	ft_is_negative(int n)
 {
+	char	a;
+	char	b;
+
+	a = 'P';
+	b = 'N';
 	if (n < 0)
-		write(1, "N", 1);
+		ft_putchar(b);
 	else
-		write(1, "P", 1);
+		ft_putchar(a);
 }
 /*
 #include <stdlib.h>
