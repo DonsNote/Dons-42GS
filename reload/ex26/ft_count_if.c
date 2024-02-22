@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/22 15:59:01 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/22 15:59:33 by dohyuki2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_count_if(char **tab, int (*f)(char*))
+int	ft_count_if(char **tab, int (*f)(char*))
 {
-    int i;
-    int sol;
+	int	i;
+	int	sol;
 
-    i = 0;
-    sol = 0;
-    while (tab[i] != '\0')
-    {
-        if (f(tab[i]) == 1)
-            sol++;
-        i++;
-    }
-    return (sol);
+	i = 0;
+	sol = 0;
+	while (tab[i] != '\0')
+	{
+		if (f(tab[i]) == 1)
+			sol++;
+		i++;
+	}
+	return (sol);
 }

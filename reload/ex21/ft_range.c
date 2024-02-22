@@ -1,24 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/22 15:54:38 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/22 15:55:34 by dohyuki2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
 
-int *ft_range(int min, int max)
+int	*ft_range(int min, int max)
 {
-    int i;
-    int nbr;
-    int *sol;
+	int	i;
+	int	nbr;
+	int	*sol;
 
-    i = 0;
-    nbr = min;
-    sol = (int *)malloc(sizeof(int) * (max - min + 1));
-    if (nbr == 0)
-        return (0);
-    while (i <= (max - min))
-    {
-        sol[i] = nbr;
-        nbr++;
-        i++;
-    }
-    return (sol);
+	i = 0;
+	nbr = min;
+	sol = (int *)malloc(sizeof(int) * (max - min + 1));
+	if (nbr == 0)
+		return (0);
+	while (i <= (max - min))
+	{
+		sol[i] = nbr;
+		nbr++;
+		i++;
+	}
+	return (sol);
 }
 /*
 #include <stdio.h>
