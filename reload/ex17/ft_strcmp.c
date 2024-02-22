@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:42:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/22 16:17:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:38:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (s1 != '\0')
+	while (s1[i] != '\0')
 	{
 		if (s1[i] != s2[i])
 			break ;

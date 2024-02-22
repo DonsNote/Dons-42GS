@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:29:57 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/22 16:16:10 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:48:49 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_sqrt(int nb)
 	i = 1;
 	while (i <= nb)
 	{
-		if (i == nb / i)
+		if (i * i == nb)
 			return (i);
 		i++;
 	}

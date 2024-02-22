@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:59:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/22 15:59:33 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:43:40 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_count_if(char **tab, int (*f)(char*))
 
 	i = 0;
 	sol = 0;
-	while (tab[i] != '\0')
+	while (tab[i] != 0)
 	{
 		if (f(tab[i]) == 1)
 			sol++;

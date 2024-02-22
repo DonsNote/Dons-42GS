@@ -6,13 +6,13 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:55:59 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/22 15:56:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:41:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
-# define ABS(Value) ((value) * ((value) > 0) - (value) * ((value) < 0))
+# define ABS(value) ((value) * ((value) > 0) - (value) * ((value) < 0))
 
 #endif

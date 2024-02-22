@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:54:38 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/22 15:55:34 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:50:35 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	*ft_range(int min, int max)
 
 	i = 0;
 	nbr = min;
-	sol = (int *)malloc(sizeof(int) * (max - min + 1));
+	sol = (int *)malloc(sizeof(int) * (max - min));
 	if (nbr == 0)
 		return (0);
-	while (i <= (max - min))
+	while (i < (max - min))
 	{
 		sol[i] = nbr;
 		nbr++;
