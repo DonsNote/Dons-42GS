@@ -3,18 +3,25 @@ NAME = ft_display_file
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c
+OBJS = $(SRCS:.c=.o)
 	
-$(NAME) :
-	$(CC) $(CFLAGS) -o $@ $(SRCS)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all : $(NAME)
 
 clean :
+	rm -f $(OBJS)
+
+fclean : 
+	$(MAKE) clean
 	rm -f $(NAME)
 
-fclean : clean
-	rm -f $(NAME)
-
-re : fclean all
+re :
+	$(MAKE) fclean
+	$(MAKE) all
 
 .PHONY : all clean fclean re

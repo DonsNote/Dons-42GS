@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:46:31 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/23 12:13:48 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:29:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ void	errmsg(int i)
 		write(2, "Cannot read file.\n", 18);
 }
 
-void	ft_print(int i)
+void	ft_print(int file)
 {
-	int		j;
+	int		i;
 	char	buff[1024];
 
 	while (1)
 	{
-		j = read (i, buff, 1024);
-		if (j > 0)
-			write(1, buff, j);
-		else if (j < 0)
+		i = read (file, buff, 1024);
+		if (i > 0)
+			write(1, buff, i);
+		else if (i < 0)
 		{
 			errmsg(3);
 			break ;
