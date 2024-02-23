@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:46:31 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/23 11:33:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:13:48 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	errmsg(int i)
 
 void	ft_print(int i)
 {
-	int	j;
+	int		j;
 	char	buff[1024];
 
 	while (1)
