@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:46:31 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/23 10:27:27 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:33:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,41 @@ void	errmsg(int i)
 		write(2, "Cannot read file.\n", 18);
 }
 
+void	ft_print(int i)
+{
+	int	j;
+	char	buff[1024];
+
+	while (1)
+	{
+		j = read (i, buff, 1024);
+		if (j > 0)
+			write(1, buff, j);
+		else if (j < 0)
+		{
+			errmsg(3);
+			break ;
+		}
+		else
+			break ;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	int		i;
 	int		file;
-	char	buff[1024];
 
 	i = 0;
-	file = open(av[1], O_RDWR);
 	if (ac <= 1)
 		errmsg(1);
 	else if (ac > 2)
 		errmsg(2);
 	else if (ac == 2)
 	{
-		if (file > 0)
-		{
-			read (file, buff, 1024);
-			while (buff[i] != '\0')
-				write (1, &buff[i++], 1);
-			close (file);
-		}
-		else
-			errmsg(3);
+		file = open(av[1], O_RDONLY);
+		ft_print(file);
+		close (file);
 	}
 	return (0);
 }
-/*
-    fd = open(av[1], O_RDWR);
-    while (read(fd, &c, 1) > 0)
-        write (1, &c, 1);
-*/
