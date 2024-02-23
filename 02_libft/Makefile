@@ -6,8 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = -rc
 
-INCS = ./includes/
-SRCS = ./srcs/ft_*.c
+INCS = libft.h
+SRCS = ft_*.c
 OBJS = $(SRCS:.c=.o)
 	
 $(NAME) : $(OBJS)
