@@ -1,13 +1,14 @@
 
-int ft_isalpha(int i)
+int ft_isalpha(int c)
 {
-    if ((i >= 65 && i <= 95) || (i >= 97 && i <= 122))
+    if ((c >= 65 && c <= 95) || (c >= 97 && c <= 122))
         return (1);
     return (0);
 }
 /*
 #include <ctype.h>
 #include <stdio.h>
+
 int main(void)
 {
     printf("%d\n", ft_isalpha(97));
