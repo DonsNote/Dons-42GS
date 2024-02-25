@@ -16,7 +16,7 @@ all : $(NAME)
 clean :
 	rm -f $(OBJS)
 
-fclean : 
+fclean :
 	$(MAKE) clean
 	rm -f $(NAME)
 
