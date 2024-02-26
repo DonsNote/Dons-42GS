@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 12:39:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/26 12:40:09 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/26 18:57:39 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/26 19:17:37 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
+	int		i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+		{
+			return (&((char *)s)[i]);
+			break ;
+		}
+		++i;
+	}
 	return (0);
 }
 /*
-#include <ctype.h>
+#include <string.h>
 #include <stdio.h>
 
 int	main(void)
 {
-	printf("%d\n", isdigit(5));
-	printf("%d\n", ft_isdigit(5));
+	char s[] = "hello";
+
+	char *a = ft_strchr(s, 108);
+	char *b = strchr(s, 108);
+
+	printf("%s\n", a);
+	printf("%s\n", b);
 	return (0);
 }
 */
