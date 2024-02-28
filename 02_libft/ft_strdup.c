@@ -1,27 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 19:48:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/28 11:57:55 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/28 13:49:10 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/28 15:40:25 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
+	int		i;
+	char	*sol;
 
+	i = (int)ft_strlen(s);
+	sol = (char *)malloc(sizeof(char) * (i + 1));
+	if (sol == 0)
+		return (0);
 	i = 0;
-	while (i < n)
+	while (s[i] != '\0')
 	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return (&((unsigned char *)s)[i]);
+		sol[i] = s[i];
 		++i;
 	}
-	return ((void *)0);
+	sol[i] = '\0';
+	return (sol);
 }
+/*
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	const char s[] = "hello, world";
+	char *a = ft_strdup(s);
+	char *b = strdup(s);
+
+	printf("%s\n", a);
+	printf("%s\n", b);
+	free(a);
+	free(b);
+	return (0);
+}
+*/
