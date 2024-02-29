@@ -17,7 +17,9 @@ char	*ft_strdup(const char *s)
 	int		i;
 	char	*sol;
 
-	i = (int)ft_strlen(s);
+	i = 0;
+	while (s[i] != '\0')
+		++i;
 	sol = (char *)malloc(sizeof(char) * (i + 1));
 	if (sol == 0)
 		return (0);
@@ -31,12 +33,12 @@ char	*ft_strdup(const char *s)
 	return (sol);
 }
 /*
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	const char s[] = "hello, world";
+	char s[] = "hello, world";
 	char *a = ft_strdup(s);
 	char *b = strdup(s);
 
