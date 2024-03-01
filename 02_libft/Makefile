@@ -14,7 +14,7 @@ $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
 %.o : %.c $(INCS)
-	$(CC) $(CFLAGS) -c $< -o $@ -I$(INCS)
+	$(CC) $(CFLAGS) -c $< $(INCS)
 
 all : $(NAME)
 
