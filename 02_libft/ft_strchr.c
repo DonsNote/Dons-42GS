@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:57:39 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/26 19:17:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/02 00:23:15 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strchr(const char *s, int c)
 		++i;
 	}
 	if (s[i] == (char)c)
-		return (((char *)s)[i]);
+		return (&((char *)s)[i]);
 	return ((char *)0);
 }
 /*

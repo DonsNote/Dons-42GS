@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:58:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/28 11:58:23 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/02 00:26:35 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		if (haystack[i] == needle[0])
 		{
 			if (check_needle(haystack, needle, i, len))
-				return (((char *)haystack)[i]);
+				return (&((char *)haystack)[i]);
 		}
 		++i;
 	}
