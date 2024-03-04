@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:18:08 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/02 00:00:27 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/02 00:46:19 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
