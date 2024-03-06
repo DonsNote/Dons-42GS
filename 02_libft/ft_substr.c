@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 20:33:28 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/29 20:33:33 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:04:00 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,22 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	j;
+	size_t	s_len;
 	char	*sol;
 
 	i = 0;
-	j = 0;
-	while (s[start] != '\0')
-	{
-		++start;
-		++i;
-	}
-	sol = (char *)malloc(sizeof(char) * (i + 1));
+	s_len = ft_strlen(s);
+	if (s_len <= start)
+		return ((char *)ft_calloc(1, sizeof(char)));
+	if (s_len - start < len)
+		len = s_len - start;
+	sol = (char *)ft_calloc(len + 1, sizeof(char));
 	if (sol == 0)
 		return (0);
-	while (j < len && i > 0)
+	while (i < len)
 	{
-		sol[j] = s[start];
-		++j;
-		++start;
-		--i;
+		sol[i] = s[i + start];
+		++i;
 	}
-	if (sol[j] != '\0')
-		sol[j] = '\0';
 	return (sol);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:37:57 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/04 12:41:40 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:37:41 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	input_num(int n, int i, char *sol)
+static void	input_num(long long n, int i, char *sol)
 {
 	if (n < 10)
 	{
@@ -23,7 +23,7 @@ static void	input_num(int n, int i, char *sol)
 	sol[i - 1] = (n % 10) + 48;
 }
 
-static int	make_mem(int *n, int *i, int *sign, char **sol)
+static int	make_mem(long long *n, int *i, int *sign, char **sol)
 {
 	if (*n < 0)
 	{
@@ -38,7 +38,7 @@ static int	make_mem(int *n, int *i, int *sign, char **sol)
 	return (1);
 }
 
-static int	check_l(int n)
+static int	check_l(long long n)
 {
 	int	i;
 
@@ -55,21 +55,23 @@ static int	check_l(int n)
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		sign;
-	char	*sol;
+	int			i;
+	int			sign;
+	char		*sol;
+	long long	nb;
 
-	i = check_l(n);
+	nb = (long long)n;
+	i = check_l(nb);
 	sign = 1;
 	sol = 0;
-	if (make_mem(&n, &i, &sign, &sol) == 0)
+	if (make_mem(&nb, &i, &sign, &sol) == 0)
 		return (0);
 	if (sign < 0)
 	{
 		sol[0] = '-';
-		input_num(n, i, &sol[1]);
+		input_num(nb, i, &sol[1]);
 	}
 	else
-		input_num(n, i, sol);
+		input_num(nb, i, sol);
 	return (sol);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 23:38:54 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/02 23:49:09 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:17:29 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,9 @@ static size_t	check_v(char const *s, char c, char **sol)
 static size_t	check_h(char const *s, char c)
 {
 	size_t	i;
-	size_t	check;
 	size_t	hsize;
 
 	i = 0;
-	check = 0;
 	hsize = 0;
 	while (s[i] != '\0')
 	{
@@ -91,13 +89,9 @@ static size_t	check_h(char const *s, char c)
 			++i;
 		while (s[i] != '\0' && s[i] != c)
 		{
+			if (s[i] == c)
+				++hsize;
 			++i;
-			++check;
-		}
-		if (check > 0)
-		{
-			++hsize;
-			check = 0;
 		}
 	}
 	return (hsize);

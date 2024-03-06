@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:04:56 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/05 21:04:59 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:22:15 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	re_put(int n, int fd)
+static void	re_put(long long n, int fd)
 {
 	if (n < 10)
 	{
@@ -30,5 +30,5 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 		n = n * -1;
 	}
-	re_put(n, fd);
+	re_put((long long)n, fd);
 }

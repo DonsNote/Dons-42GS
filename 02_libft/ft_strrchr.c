@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/26 19:33:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/06 10:49:03 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
-	int	temp;
+	int		i;
+	char	*temp;
 
 	i = 0;
-	temp = -1;
+	temp = (char *)0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			temp = i;
-		i++;
+		if (s[i] == (char)c)
+			temp = &((char *)s)[i];
+		++i;
 	}
-	if (temp >= 0)
-		return (&((char *)s)[temp]);
-	return (0);
+	if (s[i] == (char)c)
+		temp = &((char *)s)[i];
+	return (temp);
 }
 /*
 #include <stdio.h>
