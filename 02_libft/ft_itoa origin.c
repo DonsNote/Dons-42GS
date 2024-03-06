@@ -23,25 +23,23 @@ static void	input_num(long long n, int i, char *sol)
 	sol[i - 1] = (n % 10) + 48;
 }
 
-static char	*make_mem(long long *n, int *i, int *sign)
+static int	make_mem(long long *n, int *i, int *sign, char **sol)
 {
-	char	*sol;
-
 	if (*n < 0)
 	{
 		*sign = *sign * -1;
 		*n = *n * -1;
-		sol = (char *)malloc(sizeof(char) * (*i + 2));
-		sol[*i + 1] = '\0';
+		*sol = (char *)malloc(sizeof(char) * (*i + 2));
+		*sol[*i + 1] = '\0';
 	}
 	else
 	{
-		sol = (char *)malloc(sizeof(char) * (*i + 1));
-		sol[*i] = '\0';
+		*sol = (char *)malloc(sizeof(char) * (*i + 1));
+		*sol[*i] = '\0';
 	}
 	if (sol == 0)
 		return (0);
-	return (sol);
+	return (1);
 }
 
 static int	check_l(long long n)
@@ -69,8 +67,7 @@ char	*ft_itoa(int n)
 	nb = (long long)n;
 	i = check_l(nb);
 	sign = 1;
-	sol = make_mem(&nb, &i, &sign);
-	if (sol == 0)
+	if (make_mem(&nb, &i, &sign, &sol) == 0)
 		return (0);
 	if (sign < 0)
 	{

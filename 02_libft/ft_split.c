@@ -20,7 +20,6 @@ static void	f_all(char **sol, size_t h)
 	while (i < h)
 	{
 		free(sol[i]);
-		sol[i] = 0;
 		++i;
 	}
 	free(sol);
@@ -59,7 +58,7 @@ static size_t	check_v(char const *s, char c, char **sol)
 	vsize = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] != c)
+		while (s[i] == c)
 			++i;
 		while (s[i] != '\0' && s[i] != c)
 		{
@@ -79,19 +78,25 @@ static size_t	check_v(char const *s, char c, char **sol)
 static size_t	check_h(char const *s, char c)
 {
 	size_t	i;
+	size_t	j;
 	size_t	hsize;
 
 	i = 0;
+	j = 0;
 	hsize = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] != c)
+		while (s[i] == c)
 			++i;
 		while (s[i] != '\0' && s[i] != c)
 		{
-			if (s[i] == c)
-				++hsize;
 			++i;
+			++j;
+		}
+		if (j > 0)
+		{
+			++hsize;
+			j = 0;
 		}
 	}
 	return (hsize);

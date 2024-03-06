@@ -20,15 +20,18 @@ static void	re_put(long long n, int fd)
 		return ;
 	}
 	re_put(n / 10, fd);
-	ft_putchar_fd((char)(n % 10), fd);
+	ft_putchar_fd((char)((n % 10) + 48), fd);
 }
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n < 0)
+	long long	nb;
+
+	nb = (long long)n;
+	if (nb < 0)
 	{
 		write(fd, "-", 1);
-		n = n * -1;
+		nb = nb * -1;
 	}
-	re_put((long long)n, fd);
+	re_put(nb, fd);
 }
