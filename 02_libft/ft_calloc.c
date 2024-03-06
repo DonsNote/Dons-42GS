@@ -20,11 +20,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	i = 0;
 	total = nmemb * size;
-	if (nmemb <= 0 || size <= 0)
-		return ((void *)0);
-	sol = malloc(total);
+	sol = (void *)malloc(total);
 	if (sol == 0)
-		return ((void *)0);
+		return (0);
 	while (i < total)
 	{
 		((unsigned char *)sol)[i] = 0;
