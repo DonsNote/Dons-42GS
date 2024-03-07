@@ -1,4 +1,5 @@
 NAME = libft.a
+BONUS = .bonus
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -41,30 +42,44 @@ SRCS = ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c
+SRCSB = ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c
 
 OBJS = $(SRCS:.c=.o)
-	
+OBJSB = $(SRCSB:.c=.o)
+
+all : $(NAME)
+
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
+
+bonus : $(BONUS)
+
+$(BONUS) : $(OBJSB)
+	$(AR) $(ARFLAGS) $(NAME) $?
+	@touch .bonus
 
 %.o : %.c
 	$(CC) $(CFLAGS) $(INCS) -c $<
 
-all : $(NAME)
-
 clean :
 	rm -f $(OBJS)
+	rm -f $(OBJSB)
+	@rm -f $(BONUS)
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
 
-.PHONY : all clean fclean re
-
-
-
-
+.PHONY : all bonus clean fclean re
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
