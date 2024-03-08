@@ -80,7 +80,3 @@ fclean : clean
 re : fclean all
 
 .PHONY : all bonus clean fclean re
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)

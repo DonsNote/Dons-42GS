@@ -6,7 +6,7 @@
 /*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/06 10:13:02 by don              ###   ########.fr       */
+/*   Updated: 2024/03/07 20:13:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
-void    ft_lstadd_back(t_list **lst, t_list *new);
-void    ft_lstadd_front(t_list **lst, t_list *new);
-void    ft_lstclear(t_list **lst, void (*del)(void *));
-void    ft_lstdelone(t_list *lst, void (*del)(void *));
-void    ft_lstiter(t_list *lst, void (*f)(void *));
-t_list  *ft_lstlast(t_list *lst);
-t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 
