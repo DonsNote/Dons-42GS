@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyouhele <kyouhele@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 13:40:45 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/27 22:55:27 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/26 19:51:50 by kyouhele          #+#    #+#             */
+/*   Updated: 2024/03/04 18:48:00 by kyouhele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int ft_printf(const char *format, ...);
-int ft_putchar_pf(char c);
-int ft_putstr_pf(char *str);
-
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

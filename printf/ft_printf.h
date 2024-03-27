@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 13:40:45 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/27 22:55:27 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/20 18:54:01 by kyouhele          #+#    #+#             */
+/*   Updated: 2024/03/27 13:41:58 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include <stdio.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include "./libft/libft.h"
 
-int ft_printf(const char *format, ...);
-int ft_putchar_pf(char c);
-int ft_putstr_pf(char *str);
+# define UPPER "0123456789ABCDEF"
+# define LOWER "0123456789abcdef"
 
+int		ft_printf(const char *arg, ...);
+char	*ft_uitoa(unsigned int n);
+size_t	ft_putnbr_base(unsigned long int nbr, char type);
+int		correct_type(char next);
 
 #endif

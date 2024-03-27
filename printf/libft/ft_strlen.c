@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyouhele <kyouhele@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 13:40:45 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/27 22:55:27 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/26 19:43:06 by kyouhele          #+#    #+#             */
+/*   Updated: 2024/02/28 17:20:37 by kyouhele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+size_t	ft_strlen(const char *s)
+{
+	int	len;
 
-int ft_printf(const char *format, ...);
-int ft_putchar_pf(char c);
-int ft_putstr_pf(char *str);
-
-
-#endif
+	len = 0;
+	while (*s)
+	{
+		s++;
+		len++;
+	}
+	return (len);
+}
