@@ -3,20 +3,20 @@
 
 int ft_putstr_pf(char *str)
 {
-    int check;
+    int count;
 
-    check = 0;
+    count = 0;
     if (str == 0)
     {
         if (write(1, "(null)", 6) == -1)
             return (-1);
         return (6);
     }
-    while (str[check] != '\0')
+    while (str[count] != '\0')
     {
-        if (ft_putchar_pf(str[check]) == -1)
+        if (ft_putchar_pf(str[count]) == -1)
             return (-1);
-        ++check;
+        ++count;
     }
-    return (check);
+    return (count);
 }

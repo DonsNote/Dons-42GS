@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:40:29 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/27 22:54:31 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/28 16:15:23 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,20 @@ static int	ft_convert(va_list ap, char type)
 		count = ft_putchar_pf((char)va_arg(ap, int));
 	else if (type == 's')
 		count = ft_putstr_pf((va_arg(ap, char *)));
-	
+	else if (type == 'p')
+		count = ft_putaddr_pf((va_arg(ap, void *)));
+	else if (type == 'd')
+		count = ft_putdecimal_pf((va_arg(ap, int))); //TODO
+	else if (type == 'i')
+		count = ft_putint_pf((va_arg(ap, int))); //TODO
+	else if (type == 'u')
+		count = ft_putuint_pf((va_arg(ap, unsigned long long))); //TODO
+	else if (type == 'x')
+		count = ft_putlhex_pf((va_arg(ap, unsigned int))); //TODO
+	else if (type == 'X')
+		count = ft_putuhex_pf((va_arg(ap, unsigned int))); //TODO
+	else if (type == '%')
+		count = ft_putchar_pf('%'); //TODO
 	return (count);
 }
 
