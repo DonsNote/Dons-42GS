@@ -6,7 +6,7 @@
 /*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:33:00 by don               #+#    #+#             */
-/*   Updated: 2024/03/29 02:25:36 by don              ###   ########.fr       */
+/*   Updated: 2024/03/29 02:48:58 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int main(void)
 {
     int a;
     int b;
-    char *c;
-    char *d;
+//    char *c;
+//    char *d;
 
-    c = "wow";
-    d = "no";
-    a = ft_printf("%p %p", c, d);
+//    c = "wow";
+//    d = "no";
+    a = ft_printf("%d", 123);
     printf("\n");
-    b = printf("%p %p", c, d);
+    b = printf("%d", 123);
     printf("\n");
     printf("%d\n%d\n", a, b);
     return (0);
