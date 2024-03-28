@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr_pf.c                                    :+:      :+:    :+:   */
+/*   ft_putlhex_pf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 23:28:24 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 01:42:27 by don              ###   ########.fr       */
+/*   Created: 2024/03/29 00:56:01 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/03/29 01:56:38 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_recaddr_pf(unsigned long long addr, int *count)
+int	ft_reclhex_pf(unsigned long long n, int *count)
 {
-	if (addr < 16)
+	if (n < 16)
 	{
-		if (ft_putchar_pf(LHEX[addr]) == -1)
+		if (ft_putchar_pf(LHEX[n]) == -1)
 			return (-1);
 		++(*count);
 		return (0);
 	}
-	if (ft_recaddr_pf(addr / 16, count) == -1)
+	if (ft_reclhex_pf(n / 16, count) == -1)
 		return (-1);
-	if (ft_putchar_pf(LHEX[addr]) == -1)
+	if (ft_putchar_pf(LHEX[n % 16]) == -1)
 		return (-1);
 	++(*count);
 	return (0);
 }
 
-int	ft_putaddr_pf(unsigned long long addr)
+int	ft_putlhex_pf(unsigned int n)
 {
-	int	count;
+	int					count;
+	unsigned long long	num;
 
-	count = 2;
-	if ((write(1, "0x", 2)) == -1)
-		return (-1);
-	if (ft_recaddr_pf(addr, &count) == -1)
+	count = 0;
+	num = n;
+	if (ft_reclhex_pf(num, &count) == -1)
 		return (-1);
 	return (count);
 }

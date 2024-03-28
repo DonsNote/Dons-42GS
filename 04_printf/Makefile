@@ -18,7 +18,7 @@ SRCS = ft_printf.c \
 	ft_putlhex_pf.c \
 	ft_putuhex_pf.c
 
-OBJS = $(SRCS: .c=.o)
+OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 

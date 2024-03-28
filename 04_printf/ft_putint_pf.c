@@ -1,42 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr_pf.c                                    :+:      :+:    :+:   */
+/*   ft_putint_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 23:28:24 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 01:42:27 by don              ###   ########.fr       */
+/*   Created: 2024/03/29 00:20:54 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/03/29 01:31:40 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_recaddr_pf(unsigned long long addr, int *count)
+static int	ft_recint_pf(long long n, int *count)
 {
-	if (addr < 16)
+	if (n < 10)
 	{
-		if (ft_putchar_pf(LHEX[addr]) == -1)
+		if (ft_putchar_pf((char)(n + 48)) == -1)
 			return (-1);
 		++(*count);
 		return (0);
 	}
-	if (ft_recaddr_pf(addr / 16, count) == -1)
+	if (ft_recint_pf(n / 10, count) == -1)
 		return (-1);
-	if (ft_putchar_pf(LHEX[addr]) == -1)
+	if (ft_putchar_pf((char)(n % 10 + 48)) == -1)
 		return (-1);
 	++(*count);
 	return (0);
 }
 
-int	ft_putaddr_pf(unsigned long long addr)
+int	ft_putint_pf(int n)
 {
-	int	count;
+	int			count;
+	long long	num;
 
-	count = 2;
-	if ((write(1, "0x", 2)) == -1)
-		return (-1);
-	if (ft_recaddr_pf(addr, &count) == -1)
+	count = 0;
+	num = n;
+	if (num < 0)
+	{
+		if (ft_putchar_pf('-') == -1)
+			return (-1);
+		num = num * -1;
+		++count;
+	}
+	if (ft_recint_pf(num, &count) == -1)
 		return (-1);
 	return (count);
 }

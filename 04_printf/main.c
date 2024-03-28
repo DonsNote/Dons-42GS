@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_pf.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 23:43:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/28 23:59:43 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/29 01:33:00 by don               #+#    #+#             */
+/*   Updated: 2024/03/29 01:56:01 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int	ft_putchar_pf(char c)
+int main(void)
 {
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
+    int a;
+    int b;
+
+    a = printf("%X", -1);
+    printf("\n");
+    b = ft_printf("%X", -1);
+    printf("\n");
+    printf("%d\n%d\n", a, b);
+    return (0);
 }
