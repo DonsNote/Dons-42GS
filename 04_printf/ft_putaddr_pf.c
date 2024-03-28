@@ -6,7 +6,7 @@
 /*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:28:24 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 01:42:27 by don              ###   ########.fr       */
+/*   Updated: 2024/03/29 02:06:47 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_recaddr_pf(unsigned long long addr, int *count)
 	}
 	if (ft_recaddr_pf(addr / 16, count) == -1)
 		return (-1);
-	if (ft_putchar_pf(LHEX[addr]) == -1)
+	if (ft_putchar_pf(LHEX[addr % 16]) == -1)
 		return (-1);
 	++(*count);
 	return (0);

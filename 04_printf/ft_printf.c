@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:40:29 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 00:31:56 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/29 02:30:41 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	ft_convert(va_list ap, char type)
 
 	count = 0;
 	if (type == 'c')
-		count = ft_putchar_pf((char)va_arg(ap, int));
+		count = ft_putchar_pf(va_arg(ap, int));
 	else if (type == 's')
 		count = ft_putstr_pf((va_arg(ap, char *)));
 	else if (type == 'p')
