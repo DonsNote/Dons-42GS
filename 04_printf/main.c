@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:33:00 by don               #+#    #+#             */
-/*   Updated: 2024/03/29 15:28:49 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/29 16:10:02 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ int main(void)
 
     char *c;
 
-    c = 0;
+    c = "adbv";
 //    char *c;
-//    char *d;
+    char *d;
 
 //    c = "wow";
-//    d = "no";
-    a = ft_printf("%s", c);
+    d = "no";
+    a = ft_printf("%p %p", c, d);
     printf("\n");
-    b = printf("%s", c);
+    b = printf("%p %p", c, d);
     printf("\n");
     printf("%d\n%d\n", a, b);
     return (0);
