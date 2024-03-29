@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:40:45 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 02:45:16 by don              ###   ########.fr       */
+/*   Updated: 2024/03/29 17:41:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define UHEX "0123456789ABCDEF"
 # define LHEX "0123456789abcdef"
+# define TYPE "cspdiuxX%%"
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar_pf(char c);
