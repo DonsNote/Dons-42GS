@@ -6,6 +6,8 @@ CFLAG = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = -rc
 
+GCH = ft_printf.h.gch
+
 INCS = ft_printf.h
 
 SRCS = ft_printf.c \
@@ -16,7 +18,8 @@ SRCS = ft_printf.c \
 	ft_putint_pf.c \
 	ft_putuint_pf.c \
 	ft_putlhex_pf.c \
-	ft_putuhex_pf.c
+	ft_putuhex_pf.c \
+	ft_checkform_pf.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -30,6 +33,7 @@ $(NAME) : $(OBJS)
 
 clean :
 	rm -f $(OBJS)
+	rm -f $(GCH)
 
 fclean : clean
 	rm -f $(NAME)

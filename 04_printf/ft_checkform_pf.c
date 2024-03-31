@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checkform_pf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:19:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 18:19:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/31 17:14:54 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,37 @@ static int	ft_checkcurrent_pf(char c)
 			return (1);
 		++i;
 	}
-	return (-1);
+	return (1);
 }
 
-static int	ft_checkpercent_pf(char *form, int *i)
-{
-	int	count;
+// static int	ft_checkpercent_pf(char *form, int *i)
+// {
+// 	int	check;
 
-	count = 0;
-	if (ft_checkcurrent_pf(form[++(*i)]) == -1)
-		return (-1);
-	
-}
+// 	check = 1;
+// 	while (form[(*i)] == '%' && form[(*i)] != '\0')
+// 	{
+// 		++check;
+// 		++(*i);
+// 	}
+// 	if (check % 2 == 1)
+// 		return (-1);
+// 	return (1);
+// }
 
 int	ft_checkform_pf(char *form)
 {
-	int	i;
-	int	check;
+	int		i;
 
 	i = 0;
-	check = 0;
 	while (form[i] != '\0')
 	{
 		if (form[i] == '%')
 		{
-			if (ft_checkpercent_pf(form, &i) == -1)
+			if (ft_checkcurrent_pf(form[++i]) == -1)
 				return (-1);
 		}
 		++i;
 	}
+	return (1);
 }

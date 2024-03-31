@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:40:45 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 17:41:27 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/03/31 16:11:19 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	ft_putint_pf(int n);
 int	ft_putuint_pf(unsigned int n);
 int	ft_putlhex_pf(unsigned int n);
 int	ft_putuhex_pf(unsigned int n);
+int	ft_checkform_pf(char *form);
 
 #endif
