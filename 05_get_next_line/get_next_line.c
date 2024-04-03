@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2024/04/01 20:28:58 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/04/02 23:58:39 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ char	*get_next_line(int fd)
 	file = read(fd, buf, BUFFER_SIZE);
 	if (file == -1)
 		return (-1);
-	
 
 }
