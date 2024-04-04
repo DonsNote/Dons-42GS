@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2024/04/04 15:46:05 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/04/04 23:13:46 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 char	*get_next_line(int fd)
 {
-	ssize_t	file;
-	void	*buf; // 파일을 읽어 들일 버퍼
-	size_t	BUFFER_SIZE; // 버퍼의 크기 컴파일 시 -D BUFFER_SIZE=n 로 define 함
+	ssize_t		size;
+	char		*sol;
+	char		*buf;
+	static char	*tmp;
 
-
-	file = read(fd, buf, BUFFER_SIZE);
-	if (file == -1)
-		return (-1);
-
+	if (BUFFER_SIZE <= 0)
+		return (0);
+	
 }
