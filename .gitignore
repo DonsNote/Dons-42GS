@@ -34,4 +34,5 @@
 # Don
 *.vscode
 main.*
+main
 .DS_Store
