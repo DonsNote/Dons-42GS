@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2024/04/05 18:41:52 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/04/22 09:59:24 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ char	*get_next_line(int fd)
 	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (buf == 0)
 		return (0);
-	while (ft_check_enter(tmp))
+	while (1)
 	{
 		size = read(fd, buf, BUFFER_SIZE);
 		if (size == -1 || size == 0)
-			return (0);
+			break ;
 		buf[BUFFER_SIZE] = '\0';
 		sol = ft_strjoin(tmp, buf);
 	}
