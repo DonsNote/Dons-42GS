@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:52 by don               #+#    #+#             */
-/*   Updated: 2024/04/24 02:02:21 by don              ###   ########.fr       */
+/*   Updated: 2024/04/24 02:54:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,13 @@ char	*ft_next_line(char *sol)
 	return (re);
 }
 
-char	*ft_end_gnl(char *sol, char *buf)
+char	*ft_end_gnl(char *sol, char *buf, ssize_t size)
 {
 	int		i;
 	char	*tmp;
 
+	if (size == -1)
+		return (0);
 	i = 0;
 	while (sol[i] != '\0')
 		++i;
@@ -101,6 +103,5 @@ char	*ft_end_gnl(char *sol, char *buf)
 	tmp[i] = '\n';
 	tmp[i + 1] = '\0';
 	free(sol);
-	free(buf);
 	return (tmp);
 }

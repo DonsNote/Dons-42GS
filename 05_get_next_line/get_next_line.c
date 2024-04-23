@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2024/04/24 02:02:20 by don              ###   ########.fr       */
+/*   Updated: 2024/04/24 02:53:54 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ char	*get_next_line(int fd)
 		buf[BUFFER_SIZE] = '\0';
 		if (size <= 0)
 		{
-			re = ft_end_gnl(sol, buf);
-			return (re);
+			re = ft_end_gnl(sol, buf, size);
+			break ;
 		}
 		sol = ft_strjoin(sol, buf);
 	}

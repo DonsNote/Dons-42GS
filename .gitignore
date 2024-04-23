@@ -33,6 +33,8 @@
 
 # Don
 *.vscode
+a.out
+a.out.*
 main.*
 main
 .DS_Store

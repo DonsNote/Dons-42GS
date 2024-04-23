@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:55 by don               #+#    #+#             */
-/*   Updated: 2024/04/24 01:37:20 by don              ###   ########.fr       */
+/*   Updated: 2024/04/24 02:49:58 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int		ft_check_enter(char *sol);
 int		ft_strlen(char *s);
 char	*ft_strjoin(char *sol, char *buf);
 void	ft_strcpy_gnl(char *sol, char *src, int i);
-char	*ft_end_gnl(char *sol, char *buf);
+char	*ft_end_gnl(char *sol, char *buf, ssize_t size);
 
 #endif
