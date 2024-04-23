@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:52 by don               #+#    #+#             */
-/*   Updated: 2024/04/24 02:54:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/04/24 03:20:10 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ char	*ft_end_gnl(char *sol, char *buf, ssize_t size)
 	ft_strcpy_gnl(tmp, sol, 0);
 	tmp[i] = '\n';
 	tmp[i + 1] = '\0';
+	*buf = '\0';
 	free(sol);
 	return (tmp);
 }
