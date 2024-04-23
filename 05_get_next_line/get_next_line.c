@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2024/04/22 09:59:24 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/04/24 02:02:20 by don              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ char	*get_next_line(int fd)
 	if (BUFFER_SIZE <= 0)
 		return (0);
 	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buf == 0)ft_next_line(sol);
-	free(buf);
+	if (buf == 0)
 		return (0);
 	while (ft_check_enter(sol))
 	{
