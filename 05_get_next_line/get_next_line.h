@@ -21,9 +21,11 @@
 # endif
 
 char	*get_next_line(int fd);
-void	ft_next_line(char *sol, char *tmp);
-int		ft_check_enter(char **tmp);
+char	*ft_next_line(char *sol);
+int		ft_check_enter(char *sol);
 int		ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(char *sol, char *buf);
+void	ft_strcpy_gnl(char *sol, char *src, int i);
+char	*ft_end_gnl(char *sol, char *buf);
 
 #endif

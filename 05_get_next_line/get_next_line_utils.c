@@ -12,6 +12,31 @@
 
 #include "get_next_line.h"
 
+char	*ft_strjoin(char *sol, char *buf)
+{
+	int	i;
+	int	j;
+	int	k;
+	char	*tmp;
+
+	if (!sol)
+	{
+		sol = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+		if (sol == 0)
+			return (0);
+	}
+	i = ft_strlen(sol);
+	j = ft_strlen(buf);
+	k = 0;
+	tmp = (char *)malloc(sizeof(char) * (i + j) + 1);
+	if (tmp == 0)
+		return (0);
+	ft_strcpy_gnl(tmp, sol, k);
+	ft_strcpy_gnl(tmp, buf, i);
+	tmp[i + j] = '\0';
+	return (tmp);
+}
+
 int	ft_strlen(char *s)
 {
 	int	i;
@@ -24,62 +49,58 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+void	ft_strcpy_gnl(char *sol, char *src, int i)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len;
-	char	*sol;
+	int	j;
 
-	if (!s1)
-		s1 = "\0";
-	i = 0;
 	j = 0;
-	len = (ft_strlen(s1)) + (ft_strlen(s2));
-	sol = (char *)malloc(sizeof(char) * (len + 1));
-	if (sol == 0)
-		return (0);
-	while (s1[i] != '\0')
+	while (src[j] != '\0')
 	{
-		sol[i] = s1[i];
-		++i;
-	}
-	while (s2[j] != '\0')
-		sol[++i] = s2[++j];
-	sol[i] = '\0';
-	return (sol);
-}
-
-void	ft_next_line(char *sol, char *tmp)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (sol[i] != '\n')
-		++i;
-	i = i + 1;
-	j = i;
-	while (sol[i] != '\0')
-	{
-		tmp[j] = sol[i];
+		sol[i] = src[j];
 		++i;
 		++j;
 	}
-	tmp[j] = '\0';
-	sol[i - j] = '\0';
 }
 
-int	ft_check_enter(char *tmp)
+char	*ft_next_line(char *sol)
 {
 	int		i;
+	int		j;
+	char	*re;
 
 	i = 0;
-	while (!tmp)
+	j = 0;
+	while (sol[i] != '\n')
+		++i;
+	re = (char *)malloc(sizeof(char) * i + 1);
+	if (re == 0)
+		return (0);
+	while (sol[j] != '\n')
 	{
-		if (tmp[i] == '\n')
-			return (0);
-		i++;
+		re[j] = sol[j];
+		++j;
 	}
-	return (1);
+	*sol = sol[j + 1];
+	re[j] = '\n';
+	re[j + 1] = '\0';
+	return (re);
+}
+
+char	*ft_end_gnl(char *sol, char *buf)
+{
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (sol[i] != '\0')
+		++i;
+	tmp = (char *)malloc(sizeof(char) * i + 2);
+	if (tmp == 0)
+		return (0);
+	ft_strcpy_gnl(tmp, sol, 0);
+	tmp[i] = '\n';
+	tmp[i + 1] = '\0';
+	free(sol);
+	free(buf);
+	return (tmp);
 }

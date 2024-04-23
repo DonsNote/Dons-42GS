@@ -12,27 +12,47 @@
 
 #include "get_next_line.h"
 
+int	ft_check_enter(char *sol)
+{
+	int		i;
+
+	i = 0;
+	if (!sol)
+		return (1);
+	while (sol[i] != '\0')
+	{
+		if (sol[i] == '\n')
+			return (0);
+		++i;
+	}
+	return (1);
+}
+
 char	*get_next_line(int fd)
 {
 	ssize_t		size;
-	char		*sol;
 	char		*buf;
-	static char	*tmp;
+	char		*re;
+	static char	*sol;
 
 	if (BUFFER_SIZE <= 0)
 		return (0);
 	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buf == 0)
+	if (buf == 0)ft_next_line(sol);
+	free(buf);
 		return (0);
-	while (1)
+	while (ft_check_enter(sol))
 	{
 		size = read(fd, buf, BUFFER_SIZE);
-		if (size == -1 || size == 0)
-			break ;
 		buf[BUFFER_SIZE] = '\0';
-		sol = ft_strjoin(tmp, buf);
+		if (size <= 0)
+		{
+			re = ft_end_gnl(sol, buf);
+			return (re);
+		}
+		sol = ft_strjoin(sol, buf);
 	}
-	ft_next_line(sol, tmp);
+	re = ft_next_line(sol);
 	free(buf);
-	return (sol);
+	return (re);
 }
