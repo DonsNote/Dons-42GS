@@ -86,7 +86,7 @@ char	*ft_next_line(char *sol)
 	return (re);
 }
 
-char	*ft_end_gnl(char *sol, char *buf, ssize_t size)
+char	*ft_end_gnl(char *sol, char *buf, ssize_t size, int *flag)
 {
 	int		i;
 	char	*tmp;
@@ -96,13 +96,13 @@ char	*ft_end_gnl(char *sol, char *buf, ssize_t size)
 	i = 0;
 	while (sol[i] != '\0')
 		++i;
-	tmp = (char *)malloc(sizeof(char) * i + 2);
+	tmp = (char *)malloc(sizeof(char) * i + 1);
 	if (tmp == 0)
 		return (0);
 	ft_strcpy_gnl(tmp, sol, 0);
-	tmp[i] = '\n';
-	tmp[i + 1] = '\0';
-	*buf = '\0';
+	tmp[i] = '\0';
+	*flag = 1;
 	free(sol);
+	free(buf);
 	return (tmp);
 }

@@ -21,11 +21,12 @@
 # endif
 
 char	*get_next_line(int fd);
+char	*ft_read_file(int *fd, ssize_t *size);
 char	*ft_next_line(char *sol);
 int		ft_check_enter(char *sol);
 int		ft_strlen(char *s);
 char	*ft_strjoin(char *sol, char *buf);
 void	ft_strcpy_gnl(char *sol, char *src, int i);
-char	*ft_end_gnl(char *sol, char *buf, ssize_t size);
+char	*ft_end_gnl(char *sol, char *buf, ssize_t size, int *flag);
 
 #endif

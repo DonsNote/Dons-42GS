@@ -11,6 +11,21 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
+
+char	*ft_read_file(int *fd, ssize_t *size)
+{
+	char	*buf;
+
+	if (*size == 0)
+		return (0);
+	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (buf == 0)
+		return (0);
+	buf[BUFFER_SIZE] = '\0';
+	*size = read(*fd, buf, BUFFER_SIZE);
+	return (buf);
+}
 
 int	ft_check_enter(char *sol)
 {
@@ -31,23 +46,22 @@ int	ft_check_enter(char *sol)
 char	*get_next_line(int fd)
 {
 	ssize_t		size;
-	char		*buf;
+	int			flag;
 	char		*re;
+	char		*buf;
 	static char	*sol;
 
 	if (BUFFER_SIZE <= 0)
 		return (0);
-	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buf == 0)
-		return (0);
 	while (ft_check_enter(sol))
 	{
-		size = read(fd, buf, BUFFER_SIZE);
-		buf[BUFFER_SIZE] = '\0';
+		buf = ft_read_file(&fd, &size);
 		if (size <= 0)
 		{
-			re = ft_end_gnl(sol, buf, size);
-			break ;
+			if (flag == 1)
+				return (0);
+			re = ft_end_gnl(sol, buf, size, &flag);
+			return (re);
 		}
 		sol = ft_strjoin(sol, buf);
 	}
