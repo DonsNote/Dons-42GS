@@ -16,25 +16,17 @@ char	*ft_strjoin(char *sol, char *buf)
 {
 	int		i;
 	int		j;
-	int		k;
 	char	*tmp;
 
 	if (!sol)
-	{
-		sol = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-		if (sol == 0)
-			return (0);
-		sol[BUFFER_SIZE] = '\0';
-	}
+		return (buf);
 	i = ft_strlen(sol);
 	j = ft_strlen(buf);
-	k = 0;
 	tmp = (char *)malloc(sizeof(char) * (i + j) + 1);
 	if (tmp == 0)
 		return (0);
-	ft_strcpy_gnl(tmp, sol, k);
+	ft_strcpy_gnl(tmp, sol, 0);
 	ft_strcpy_gnl(tmp, buf, i);
-	free(buf);
 	tmp[i + j] = '\0';
 	return (tmp);
 }
