@@ -36,16 +36,19 @@ char	*ft_read_file(int *fd, ssize_t *size)
 	return (buf);
 }
 
-int	ft_check_enter(char *sol, int *i)
+int	ft_check_enter(char *sol)
 {
+	int	i;
+
+	i = 0;
 	if (!sol)
 		return (1);
-	*i = 0;
-	while (sol[*i] != '\0')
+	i = 0;
+	while (sol[i] != '\0')
 	{
-		if (sol[*i] == '\n')
+		if (sol[i] == '\n')
 			return (0);
-		++*i;
+		++i;
 	}
 	return (1);
 }
@@ -60,7 +63,7 @@ char	*get_next_line(int fd)
 
 	if (BUFFER_SIZE <= 0)
 		return (0);
-	while (ft_check_enter(sol, &i))
+	while (ft_check_enter(sol))
 	{
 		buf = ft_read_file(&fd, &size);
 		if (size < 0)
@@ -69,7 +72,7 @@ char	*get_next_line(int fd)
 			return (ft_end_gnl(sol, &flag));
 		sol = ft_strjoin(sol, buf);
 	}
-	buf = ft_next_line(sol);
+	buf = ft_next_line(sol, &i);
 	sol = &(sol[i + 1]);
 	return (buf);
 }

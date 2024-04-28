@@ -44,17 +44,16 @@ void	ft_strcpy_gnl(char *sol, char *src, int i)
 	}
 }
 
-char	*ft_next_line(char *sol)
+char	*ft_next_line(char *sol, int *i)
 {
-	int		i;
 	int		j;
 	char	*tmp;
 
-	i = 0;
+	*i = 0;
 	j = 0;
-	while (sol[i] != '\n')
-		++i;
-	tmp = (char *)malloc(sizeof(char) * i + 1);
+	while (sol[*i] != '\n')
+		++*i;
+	tmp = (char *)malloc(sizeof(char) * (*i + 1));
 	if (tmp == 0)
 		return (0);
 	while (sol[j] != '\n')
