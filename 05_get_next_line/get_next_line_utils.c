@@ -33,7 +33,7 @@ char	*ft_strjoin(char *sol, char *buf)
 	if (!sol)
 		return (buf);
 	i = (ft_strlen(sol) + ft_strlen(buf));
-	tmp = (char *)malloc(sizeof(char) * (i + 1));
+	tmp = (char *)malloc(sizeof(char) * (i + 2));
 	if (tmp == 0)
 		return (0);
 	i = -1;
@@ -58,12 +58,12 @@ char	*ft_return_line(char *sol)
 	char	*tmp;
 
 	i = 0;
-	j = 0;
 	while (sol[i] != '\n')
 		++i;
 	tmp = (char *)malloc(sizeof(char) * (i + 2));
 	if (tmp == 0)
 		return (0);
+	j = 0;
 	while (sol[j] != '\n')
 	{
 		tmp[j] = sol[j];
@@ -86,7 +86,7 @@ char	*ft_next_line(char *sol)
 		++j;
 	i = i - j;
 	j = j + 1;
-	tmp = (char *)malloc(sizeof(char) * (i + 1));
+	tmp = (char *)malloc(sizeof(char) * i + 1);
 	if (tmp == 0)
 		return (0);
 	i = 0;

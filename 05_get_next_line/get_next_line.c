@@ -20,9 +20,12 @@ char	*ft_read_file(int *fd, ssize_t *size)
 	if (buf == 0)
 		return (0);
 	*size = read(*fd, buf, BUFFER_SIZE);
-	buf[(int)*size] = '\0';
 	if (*size == 0)
+	{
 		free(buf);
+		return (0);
+	}
+	buf[BUFFER_SIZE] = '\0';
 	return (buf);
 }
 
@@ -33,7 +36,6 @@ int	ft_check_enter(char *sol)
 	i = 0;
 	if (!sol)
 		return (1);
-	i = 0;
 	while (sol[i] != '\0')
 	{
 		if (sol[i] == '\n')
@@ -49,7 +51,7 @@ char	*get_next_line(int fd)
 	char		*buf;
 	static char	*sol;
 
-	if (BUFFER_SIZE <= 0 || !fd)
+	if (BUFFER_SIZE <= 0 || fd <= 0)
 		return (0);
 	while (ft_check_enter(sol))
 	{
