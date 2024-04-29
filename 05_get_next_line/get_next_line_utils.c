@@ -12,6 +12,18 @@
 
 #include "get_next_line.h"
 
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
+		++i;
+	return (i);
+}
+
 char	*ft_strjoin(char *sol, char *buf)
 {
 	int		i;
@@ -20,40 +32,36 @@ char	*ft_strjoin(char *sol, char *buf)
 
 	if (!sol)
 		return (buf);
-	i = ft_strlen(sol);
-	j = ft_strlen(buf);
-	tmp = (char *)malloc(sizeof(char) * (i + j) + 1);
+	i = (ft_strlen(sol) + ft_strlen(buf));
+	tmp = (char *)malloc(sizeof(char) * (i + 1));
 	if (tmp == 0)
 		return (0);
-	ft_strcpy_gnl(tmp, sol, 0);
-	ft_strcpy_gnl(tmp, buf, i);
-	tmp[i + j] = '\0';
+	i = -1;
+	j = -1;
+	while (sol[++i] != '\0')
+		tmp[i] = sol[i];
+	while (buf[++j] != '\0')
+	{
+		tmp[i] = buf[j];
+		++i;
+	}
+	free(sol);
+	free(buf);
+	tmp[i] = '\0';
 	return (tmp);
 }
 
-void	ft_strcpy_gnl(char *sol, char *src, int i)
+char	*ft_return_line(char *sol)
 {
-	int	j;
-
-	j = 0;
-	while (src[j] != '\0')
-	{
-		sol[i] = src[j];
-		++i;
-		++j;
-	}
-}
-
-char	*ft_next_line(char *sol, int *i)
-{
+	int		i;
 	int		j;
 	char	*tmp;
 
-	*i = 0;
+	i = 0;
 	j = 0;
-	while (sol[*i] != '\n')
-		++*i;
-	tmp = (char *)malloc(sizeof(char) * (*i + 1));
+	while (sol[i] != '\n')
+		++i;
+	tmp = (char *)malloc(sizeof(char) * (i + 2));
 	if (tmp == 0)
 		return (0);
 	while (sol[j] != '\n')
@@ -66,21 +74,29 @@ char	*ft_next_line(char *sol, int *i)
 	return (tmp);
 }
 
-char	*ft_end_gnl(char *sol, int *flag)
+char	*ft_next_line(char *sol)
 {
 	int		i;
-	char	*re;
+	int		j;
+	char	*tmp;
 
-	if (*flag == 1)
+	i = ft_strlen(sol);
+	j = 0;
+	while (sol[j] != '\n')
+		++j;
+	i = i - j;
+	j = j + 1;
+	tmp = (char *)malloc(sizeof(char) * (i + 1));
+	if (tmp == 0)
 		return (0);
 	i = 0;
-	while (sol[i] != '\0')
+	while (sol[j] != '\0')
+	{
+		tmp[i] = sol[j];
 		++i;
-	re = (char *)malloc(sizeof(char) * i + 1);
-	if (re == 0)
-		return (0);
-	ft_strcpy_gnl(re, sol, 0);
-	re[i] = '\0';
-	*flag = 1;
-	return (re);
+		++j;
+	}
+	tmp[i] = '\0';
+	free(sol);
+	return (tmp);
 }

@@ -25,9 +25,7 @@ int		ft_check_enter(char *sol);
 char	*ft_read_file(int *fd, ssize_t *size);
 char	*ft_strjoin(char *sol, char *buf);
 int		ft_strlen(char *s);
-void	ft_strcpy_gnl(char *sol, char *src, int i);
-char	*ft_next_line(char *sol, int *i);
-char	*ft_make_next(char *sol, int i);
-char	*ft_end_gnl(char *sol, int *flag);
+char	*ft_return_line(char *sol);
+char	*ft_next_line(char *sol);
 
 #endif
