@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 12:00:48 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/01/17 14:45:17 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/26 12:39:49 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/26 12:40:09 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}
+/*
+#include <ctype.h>
+#include <stdio.h>
 
 int	main(void)
 {
-	rush(5, 5);
+	printf("%d\n", isdigit(5));
+	printf("%d\n", ft_isdigit(5));
 	return (0);
 }
+*/
