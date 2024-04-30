@@ -12,16 +12,36 @@
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *s)
+char	*ft_read_file(int fd)
 {
-	int	i;
+	ssize_t	size;
+	char	*buf;
 
-	if (!s)
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (buf == 0)
 		return (0);
-	i = 0;
-	while (s[i] != '\0')
+	size = read(fd, buf, BUFFER_SIZE);
+	if (size <= 0)
+	{
+		free(buf);
+		return (0);
+	}
+	buf[(int)size] = '\0';
+	return (buf);
+}
+
+void	ft_strcpy(char *dest, char *src, int i)
+{
+	int	j;
+
+	j = 0;
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		++j;
 		++i;
-	return (i);
+	}
+	return ;
 }
 
 char	*ft_strjoin(char *sol, char *buf)
@@ -30,24 +50,18 @@ char	*ft_strjoin(char *sol, char *buf)
 	int		j;
 	char	*tmp;
 
-	if (!sol)
+	if (sol == 0)
 		return (buf);
-	i = (ft_strlen(sol) + ft_strlen(buf));
-	tmp = (char *)malloc(sizeof(char) * (i + 2));
+	i = ft_strlen(sol);
+	j = ft_strlen(buf);
+	tmp = (char *)malloc(sizeof(char) * (i + j + 1));
 	if (tmp == 0)
 		return (0);
-	i = -1;
-	j = -1;
-	while (sol[++i] != '\0')
-		tmp[i] = sol[i];
-	while (buf[++j] != '\0')
-	{
-		tmp[i] = buf[j];
-		++i;
-	}
+	ft_strcpy(tmp, sol, 0);
+	ft_strcpy(tmp, buf, i);
 	free(sol);
 	free(buf);
-	tmp[i] = '\0';
+	tmp[i + j] = '\0';
 	return (tmp);
 }
 
@@ -57,6 +71,8 @@ char	*ft_return_line(char *sol)
 	int		j;
 	char	*tmp;
 
+	if (*sol == '\0')
+		return (0);
 	i = 0;
 	while (sol[i] != '\n')
 		++i;
@@ -84,19 +100,18 @@ char	*ft_next_line(char *sol)
 	j = 0;
 	while (sol[j] != '\n')
 		++j;
-	i = i - j;
-	j = j + 1;
-	tmp = (char *)malloc(sizeof(char) * i + 1);
+	tmp = (char *)malloc(sizeof(char) * (i - j + 1));
 	if (tmp == 0)
 		return (0);
 	i = 0;
+	j = j + 1;
 	while (sol[j] != '\0')
 	{
 		tmp[i] = sol[j];
-		++i;
 		++j;
+		++i;
 	}
-	tmp[i] = '\0';
 	free(sol);
+	tmp[i] = '\0';
 	return (tmp);
 }
