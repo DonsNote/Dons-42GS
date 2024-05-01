@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/01 10:12:34 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/05/01 09:16:17 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/05/01 11:09:28 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+void	print_error(void)
+{
+	int		i;
+	char	*err;
 
-void	print_error(void);
-int		check_param(int ac, char **av);
-
-#endif
+	i = 0;
+	err = "Error\n";
+	while (err[i] != '\0')
+	{
+		write(1, &err[i], 1);
+		++i;
+	}
+	return ;
+}
