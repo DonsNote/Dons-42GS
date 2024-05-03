@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_param.c                                      :+:      :+:    :+:   */
+/*   atoi_ps.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 09:40:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/03 11:16:09 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/05/03 13:19:25 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_num_sp(char *av)
+int	check_size()
+
+int	*atoi_ps(char **av)
 {
-	int	i;
+	int	*i;
+	int	size;
 
-	i = 0;
-	if (av[i] == '\0' || av[i] == 32)
-		return (1);
-	while (av[i] != '\0')
-	{
-		if ((av[i] < '0' || av[i] > '9') && av[i] != 32)
-			return (1);
-		++i;
-	}
-	if (av[i - 1] == 32)
-		return (1);
-	return (0);
-}
+	size = 0;
 
-int	check_param(int ac, char **av)
-{
-	int	i;
 
-	i = 1;
-	while (i < ac)
-	{
-		if (check_num_sp(av[i]))
-			return (1);
-		++i;
-	}
-	return (0);
 }

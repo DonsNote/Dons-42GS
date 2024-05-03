@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_a.c                                           :+:      :+:    :+:   */
+/*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/02 12:01:05 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:19:26 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,22 @@ t_list	*newlist(int n, t_list *prev)
 	if (new == 0)
 		return (0);
 	new->num = n;
-	new->prev = prev;
+	if (prev == 0)
+		new->prev = new;
+	else
+		new->prev = prev;
 	new->next = 0;
 	return (new);
 }
 
-t_list	*split_ps(char *av)
+t_list	*make_stack(int *i, int size)
 {
-	size_t	i;
-	size_t	h;
-	t_list	*sol;
-
-}
-
-t_list	*make_a(int ac, char **av)
-{
+	t_list	*head;
 	t_list	*tmp;
 
-	if (ac == 2)
-	{
-		tmp = split_ps(av[1]);
-		if (tmp == 0)
-			return (0);
-		return (tmp);
-	}
-	tmp = 
-	if (tmp == 0)
-		return (0);
-	return (tmp);
+	head = newlist(i[0], 0);
+	tmp = head;
+	while ()
+
+	return (head);
 }
