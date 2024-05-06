@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/03 12:49:50 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/06 14:38:52 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 	}
 	i = atoi_ps(ac, av);
 	a = make_stack(i);
+	free(i);
 	sol = push_swap(a);
 	return (0);
 }
