@@ -6,13 +6,14 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/09 14:24:05 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:21:52 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-int	check_size(int ac, char **av)
+static int	check_size(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -20,16 +21,15 @@ int	check_size(int ac, char **av)
 
 	i = 1;
 	size = 0;
-	while (i <  ac)
+	while (i < ac)
 	{
 		j = 0;
 		while (av[i][j] != '\0')
 		{
 			if (av[i][j] == 32)
-			{
-				++j;
 				++size;
-			}
+			if (av[i][j + 1] == '\0')
+				--size;
 			++j;
 		}
 		++i;
@@ -38,21 +38,47 @@ int	check_size(int ac, char **av)
 	return (size);
 }
 
-int	atoi_ps(char *av)
+static void	check_sign(char sign, long long *sol)
 {
-	int	i;
+	if (sign == '-')
+		*sol = *sol * -1;
+	return ;
+}
+
+static int	atoi_ps(char *av, int *num, int *index)
+{
+	int			i;
+	long long	sol;
+	long long	sign;
 
 	i = 0;
 	while (av[i] != '\0')
 	{
-		if (av[i] == 32)
+		sol = 0;
+		sign = 1;
+		while (av[i] != 32 || av[i] != '\0')
+			++i;
+		if (av[i] == '-' || av[i] == '+')
+		{
+			check_sign(av[i], &sign);
+			++i;
+		}
+		while (av[i] != 32 || av[i] != '\0')
+		{
+			sol = sol * 10 + (av[i] - 48);
+			++i;
+		}
+		num[*index] = (int)sol * (int)sign;
+		printf("%d", (int)sol * (int)sign);
+		++*index;
 	}
+	return (0);
 }
 
 int	*make_num(int ac, char **av)
 {
 	int	i;
-	int	j;
+	int	index;
 	int	*num;
 	int	size;
 
@@ -60,11 +86,12 @@ int	*make_num(int ac, char **av)
 	num = (int *)malloc(sizeof(int) * size);
 	if (num == 0)
 		return (0);
-	i = 0;
-	j = 1;
-	while (i < ac)
+	i = 1;
+	index = 0;
+	while (index < size)
 	{
-		num[i] = atoi_ps(av[j]);
+		atoi_ps(av[i], num, &index);
+		++i;
 	}
 	return (num);
 }

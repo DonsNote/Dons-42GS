@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/05/02 08:12:25 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/05/10 13:42:59 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ INCS = push_swap.h
 
 SRCS = main.c \
 		check_param.c \
-		print_error.c
+		print_error.c \
+		atoi_ps.c
 
 OBJS = $(SRCS:.c=.o)
 
