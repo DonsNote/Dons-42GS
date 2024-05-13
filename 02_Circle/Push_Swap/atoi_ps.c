@@ -6,14 +6,14 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/10 14:21:52 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:54:18 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static int	check_size(int ac, char **av)
+int	check_size(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -28,8 +28,6 @@ static int	check_size(int ac, char **av)
 		{
 			if (av[i][j] == 32)
 				++size;
-			if (av[i][j + 1] == '\0')
-				--size;
 			++j;
 		}
 		++i;
@@ -38,14 +36,14 @@ static int	check_size(int ac, char **av)
 	return (size);
 }
 
-static void	check_sign(char sign, long long *sol)
+void	check_sign(char sign, long long *sol)
 {
 	if (sign == '-')
 		*sol = *sol * -1;
 	return ;
 }
 
-static int	atoi_ps(char *av, int *num, int *index)
+void	atoi_ps(char *av, int *num, int *index)
 {
 	int			i;
 	long long	sol;
@@ -56,7 +54,7 @@ static int	atoi_ps(char *av, int *num, int *index)
 	{
 		sol = 0;
 		sign = 1;
-		while (av[i] != 32 || av[i] != '\0')
+		while (av[i] == 32 && av[i] != '\0')
 			++i;
 		if (av[i] == '-' || av[i] == '+')
 		{
@@ -65,14 +63,13 @@ static int	atoi_ps(char *av, int *num, int *index)
 		}
 		while (av[i] != 32 || av[i] != '\0')
 		{
-			sol = sol * 10 + (av[i] - 48);
+			sol = (sol * 10) + (av[i] - 48);
 			++i;
 		}
-		num[*index] = (int)sol * (int)sign;
-		printf("%d", (int)sol * (int)sign);
-		++*index;
+		num[*index] = ((int)sol * (int)sign);
+		++index;
 	}
-	return (0);
+	return ;
 }
 
 int	*make_num(int ac, char **av)

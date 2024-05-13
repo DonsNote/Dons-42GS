@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/05/10 13:42:59 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/05/13 10:27:50 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAG) -o $(NAME) $^
+	$(CC) $(CFLAG) -g -o $(NAME) $^
 
 clean :
 	rm -f $(OBJS)

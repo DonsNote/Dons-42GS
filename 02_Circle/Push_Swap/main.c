@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/10 13:45:03 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:30:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	i = make_num(ac, av);
-	for (int n = 0; n < 2; n++)
+	for (int n = 0; n < 1; n++)
 	{
 		printf("%d", i[n]);
 		printf("\n");
