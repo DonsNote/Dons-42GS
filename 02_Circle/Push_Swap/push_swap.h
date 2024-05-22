@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/22 16:44:22 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:39:33 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ typedef struct s_list
 void	print_error(void);
 int		check_param(int ac, char **av);
 int		*make_num(int ac, char **av, int *size);
+t_list	*make_stack(int *num, int size);
 
 #endif
