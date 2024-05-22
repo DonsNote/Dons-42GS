@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/06 11:34:35 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:42:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,19 @@ t_list	*newlist(int n, t_list *prev)
 	return (new);
 }
 
-t_list	*make_stack(int *i, int size)
+t_list	*make_stack(int *num, int size)
 {
+	int		i;
 	t_list	*head;
 	t_list	*tmp;
 
-	head = newlist(i[0], 0);
+	i = 1;
+	head = newlist(num[0], 0);
 	tmp = head;
-	while ()
-
+	while (i < size)
+	{
+		
+	}
 	return (head);
 }
 

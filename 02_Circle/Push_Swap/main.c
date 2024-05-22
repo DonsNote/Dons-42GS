@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/13 12:30:32 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:43:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int ac, char **av)
 {
+	int		size;
 	int		*i;
 	char	*sol;
 	t_list	*a;
@@ -24,13 +24,9 @@ int	main(int ac, char **av)
 		print_error();
 		return (0);
 	}
-	i = make_num(ac, av);
-	for (int n = 0; n < 1; n++)
-	{
-		printf("%d", i[n]);
-		printf("\n");
-	}
-//	a = make_stack(i);
+	size = 0;
+	i = make_num(ac, av, &size);
+	a = make_stack(i, size);
 	free(i);
 //	sol = push_swap(a);
 	return (0);
