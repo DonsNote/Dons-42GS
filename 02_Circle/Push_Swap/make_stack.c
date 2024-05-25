@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/22 17:41:56 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/25 18:18:13 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ t_list	*make_stack(int *num, int size)
 	tmp = head;
 	while (i < size)
 	{
-		
+		tmp = newlist(num[i], tmp);
+		++i;
 	}
+	head->prev = tmp;
 	return (head);
 }
 
