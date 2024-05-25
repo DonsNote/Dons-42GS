@@ -3,12 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:06:13 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/01 09:15:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:17:45 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+t_list	*sa(t_list *t)
+{
+	t_list	*tmp;
+
+	tmp = t->next;
+
+	return (tmp);
+}
