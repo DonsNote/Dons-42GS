@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/12 09:28:17 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:02:19 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,27 @@ void	atoi_ps(char *av, long long *num, int *index)
 	return ;
 }
 
-int *check_num(long long *num, int size)
+int *check_num(long long *num, int *size)
 {
-	long long	i;
+	int	i;
+	int	j;
+	int	*nums;
 
-	while ()
-
+	i = 0;
+	j = 0;
+	nums = (int *)malloc(sizeof(int) * *size);
+	while (i <= *size)
+	{
+		if (num[i] == num[i + 1])
+			return (0);
+		if (num[i] < -2147483648 || num[i] > 2147483647)
+			return (0);
+		++i;
+	}
+	while (j < *size)
+	{
+		
+	}
 }
 
 int	*make_num(int ac, char **av, int *size)
