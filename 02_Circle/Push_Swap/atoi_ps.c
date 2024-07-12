@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/09 15:42:59 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/12 09:28:17 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_sign(char sign, long long *sol)
 	return ;
 }
 
-void	atoi_ps(char *av, int *num, int *index)
+void	atoi_ps(char *av, long long *num, int *index)
 {
 	int			i;
 	long long	sol;
@@ -65,20 +65,28 @@ void	atoi_ps(char *av, int *num, int *index)
 			sol = (sol * 10) + (av[i] - 48);
 			++i;
 		}
-		num[*index] = ((int)sol * (int)sign);
+		num[*index] = (sol * sign);
 		++(*index);
 	}
 	return ;
 }
 
+int *check_num(long long *num, int size)
+{
+	long long	i;
+
+	while ()
+
+}
+
 int	*make_num(int ac, char **av, int *size)
 {
-	int	i;
-	int	index;
-	int	*num;
+	int			i;
+	int			index;
+	long long	*num;
 
 	*size = check_size(ac, av);
-	num = (int *)malloc(sizeof(int) * *size);
+	num = (long long *)malloc(sizeof(int) * *size);
 	if (num == 0)
 		return (0);
 	i = 1;
@@ -88,5 +96,5 @@ int	*make_num(int ac, char **av, int *size)
 		atoi_ps(av[i], num, &index);
 		++i;
 	}
-	return (num);
+	return (check_num(num, *size));
 }
