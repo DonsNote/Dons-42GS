@@ -2,7 +2,7 @@
 
 int main()
 {
-	long long num[3] = {-2147483649L, 1L, 2147483647L};
+	long long num[3] = {-2147483649, 1, 9223372036854775807};
 	
 	int *nums;
 
@@ -32,8 +32,11 @@ int main()
 
 	in = (int)n;
 	printf("%d ", nums[0]);
+	printf("%d ", nums[1]);
 	printf("%d ", nums[2]);
+	printf("%d ", nums[3]);
 	printf("%d ", nums[4]);
+	printf("%d \n", nums[5]);
 	// printf("%d ", nums[3]);
 	// 
 	// printf("%d ", nums[4]);
