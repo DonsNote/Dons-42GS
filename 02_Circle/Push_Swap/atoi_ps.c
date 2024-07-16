@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/12 15:02:19 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:33:53 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_size(int ac, char **av)
 		j = 0;
 		while (av[i][j] != '\0')
 		{
-			if (av[i][j] == 32)
+			if (av[i][j] == 32 && av[i][j + 1] != 32) 
 				++size;
 			++j;
 		}
@@ -73,25 +73,30 @@ void	atoi_ps(char *av, long long *num, int *index)
 
 int *check_num(long long *num, int *size)
 {
-	int	i;
-	int	j;
-	int	*nums;
+	int			i;
+	int			j;
+	int			*nums;
 
 	i = 0;
-	j = 0;
 	nums = (int *)malloc(sizeof(int) * *size);
-	while (i <= *size)
+	if (nums == 0)
+		return (0);
+	while (i < *size)
 	{
-		if (num[i] == num[i + 1])
+		j = i + 1;
+		while (j < *size)
+		{
+			if (num[i] == num[j])
+				return (0);
+			++j;
+		}
+		if (num[i] < -2147483648 || num[i] >2147483647)
 			return (0);
-		if (num[i] < -2147483648 || num[i] > 2147483647)
-			return (0);
+		nums[i] = (int)num[i];
 		++i;
 	}
-	while (j < *size)
-	{
-		
-	}
+	free(num);
+	return (nums);
 }
 
 int	*make_num(int ac, char **av, int *size)
@@ -101,7 +106,7 @@ int	*make_num(int ac, char **av, int *size)
 	long long	*num;
 
 	*size = check_size(ac, av);
-	num = (long long *)malloc(sizeof(int) * *size);
+	num = (long long *)malloc(sizeof(long long) * *size);
 	if (num == 0)
 		return (0);
 	i = 1;
@@ -111,5 +116,5 @@ int	*make_num(int ac, char **av, int *size)
 		atoi_ps(av[i], num, &index);
 		++i;
 	}
-	return (check_num(num, *size));
+	return (check_num(num, size));
 }
