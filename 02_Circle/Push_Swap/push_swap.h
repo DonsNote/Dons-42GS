@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/15 10:44:24 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:33:05 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_list
 	struct s_list	*prev;
 	struct s_list	*next;
 }	t_list;
-
 
 void	print_error(void);
 int		check_param(int ac, char **av);

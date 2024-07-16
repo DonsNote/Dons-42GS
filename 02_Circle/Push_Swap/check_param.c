@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:40:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/15 17:29:43 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:05:05 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ int	check_num_sp(char *av)
 		return (1);
 	while (av[i] != '\0')
 	{
-		while (av[i] == 32)
+		while (av[i] == 32 && av[i] != '\0')
 			++i;
 		if (av[i] == '-' || av[i] == '+')
 		{
 			if (check_sign_sp(av, i))
 				return (1);
 		}
-		else if (av[i] < '0' || av[i] > '9')
+		else if ((av[i] < '0' && av[i] > '9') && av[i] != 32)
 			return (1);
-		if (av[i] != '0' || av[i] != '-' || av[i] != '+')
+		if (av[i] >= '0' && av[i] <= '9')
 			++len;
 		if (len > 11)
 			return (1);

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/15 17:33:53 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:00:11 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,18 @@ int	check_size(int ac, char **av)
 	while (i < ac)
 	{
 		j = 0;
+		// while (av[i][j] == 32)
+		// 	++j;
 		while (av[i][j] != '\0')
 		{
-			if (av[i][j] == 32 && av[i][j + 1] != 32) 
+			if (av[i][j] == 32 && (av[i][j + 1] != 32 && av[i][j + 1] != '\0'))
 				++size;
 			++j;
 		}
 		++i;
 		++size;
 	}
+	printf("%d\n", size);
 	return (size);
 }
 
@@ -49,7 +52,7 @@ void	atoi_ps(char *av, long long *num, int *index)
 	long long	sign;
 
 	i = 0;
-	while (av[i] != '\0')
+	while (av[i] != '\0' || (av[i] == 32 && av[i + 1] != '\0'))
 	{
 		sol = 0;
 		sign = 1;
@@ -71,13 +74,14 @@ void	atoi_ps(char *av, long long *num, int *index)
 	return ;
 }
 
-int *check_num(long long *num, int *size)
+int	*check_num(long long *num, int *size)
 {
 	int			i;
 	int			j;
 	int			*nums;
 
 	i = 0;
+	printf("%d\n", *size);
 	nums = (int *)malloc(sizeof(int) * *size);
 	if (nums == 0)
 		return (0);
@@ -90,7 +94,7 @@ int *check_num(long long *num, int *size)
 				return (0);
 			++j;
 		}
-		if (num[i] < -2147483648 || num[i] >2147483647)
+		if (num[i] < -2147483648 || num[i] > 2147483647)
 			return (0);
 		nums[i] = (int)num[i];
 		++i;
