@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/22 15:29:06 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:25:15 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@ int	*make_num(int ac, char **av, int *size)
 		return (0);
 	i = 1;
 	index = 0;
-	while (index < *size - 1)
+	while (index < *size)
 	{
 		atoi_ps(av[i], num, &index);
 		++i;
-		++index;
 	}
 	return (convert_num(num, size));
 }
@@ -60,6 +59,7 @@ int	make_size(int ac, char **av)
 		}
 		++i;
 	}
+	printf("Size : %d\n", size);
 	return (size);
 }
 
@@ -70,7 +70,6 @@ void	atoi_ps(char *av, long long *num, int *index)
 	long long	sign;
 
 	i = 0;
-		printf("%d\n", 0);
 	while (av[i] != '\0')
 	{
 		sol = 0;
@@ -84,8 +83,8 @@ void	atoi_ps(char *av, long long *num, int *index)
 			sol = (sol * 10) + (av[i] - 48);
 			++i;
 		}
-		if (av[i] != '\0')
-			num[*index] = (sol * sign);
+		num[*index] = (sol * sign);
+		++*index;
 	}
 	return ;
 }
