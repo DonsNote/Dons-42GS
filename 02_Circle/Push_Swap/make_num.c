@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/19 15:48:43 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:29:06 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int	*make_num(int ac, char **av, int *size)
 		return (0);
 	i = 1;
 	index = 0;
-	while (index < *size)
+	while (index < *size - 1)
 	{
 		atoi_ps(av[i], num, &index);
 		++i;
+		++index;
 	}
 	return (convert_num(num, size));
 }
@@ -69,6 +70,7 @@ void	atoi_ps(char *av, long long *num, int *index)
 	long long	sign;
 
 	i = 0;
+		printf("%d\n", 0);
 	while (av[i] != '\0')
 	{
 		sol = 0;
@@ -82,8 +84,8 @@ void	atoi_ps(char *av, long long *num, int *index)
 			sol = (sol * 10) + (av[i] - 48);
 			++i;
 		}
-		num[*index] = (sol * sign);
-		++(*index);
+		if (av[i] != '\0')
+			num[*index] = (sol * sign);
 	}
 	return ;
 }
@@ -123,5 +125,3 @@ int	*convert_num(long long *num, int *size)
 	free(num);
 	return (nums);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:40:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/19 15:59:52 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:04:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,20 @@ int	check_sign(char *av, int i)
 int	check_len(char *av, int *i)
 {
 	int	len;
+	int	check;
+	int	size;
 
 	len = 0;
+	check = 0;
+	size = 0;
 	while (av[*i] >= '0' && av[*i] <= '9')
 	{
+		if (av[*i] >= '1' && av[*i] <= '9')
+			check = 1;
 		++*i;
-		++len;
-		if (len >= 11)
+		if (check == 1)
+			++len;
+		if (check == 1 && len >= 11)
 			return (1);
 	}
 	if (av[*i] != 32 && av[*i] != '\0')
