@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/22 16:25:15 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:31:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		make_size(int ac, char **av);
 void	atoi_ps(char *av, long long *num, int *index);
-void	make_sign(char sign, long long *sol, int *i);
+void	make_sign(char sign, long long *sol);
 int		*convert_num(long long *num, int *size);
 
 int	*make_num(int ac, char **av, int *size)
@@ -59,7 +59,6 @@ int	make_size(int ac, char **av)
 		}
 		++i;
 	}
-	printf("Size : %d\n", size);
 	return (size);
 }
 
@@ -77,23 +76,27 @@ void	atoi_ps(char *av, long long *num, int *index)
 		while (av[i] == 32 && av[i] != '\0')
 			++i;
 		if (av[i] == '-' || av[i] == '+')
-			make_sign(av[i], &sign, &i);
-		while (av[i] != 32 && av[i] != '\0')
+		{
+			make_sign(av[i], &sign);
+			++i;
+		}
+		while (av[i] >= '0' && av[i] <= '9')
 		{
 			sol = (sol * 10) + (av[i] - 48);
 			++i;
 		}
 		num[*index] = (sol * sign);
 		++*index;
+		if (av[i] != '\0')
+			return ;
 	}
 	return ;
 }
 
-void	make_sign(char sign, long long *sol, int *i)
+void	make_sign(char sign, long long *sol)
 {
 	if (sign == '-')
 		*sol = *sol * -1;
-	++*i;
 	return ;
 }
 
