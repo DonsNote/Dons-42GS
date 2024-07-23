@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/21 06:04:17 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/07/23 13:40:59 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCS = push_swap.h
 SRCS = main.c \
 		check_param.c \
 		print_error.c \
-		make_num.c \
+		make_num_arr.c \
 		make_stack.c
 
 OBJS = $(SRCS:.c=.o)

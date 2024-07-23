@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_num.c                                         :+:      :+:    :+:   */
+/*   make_num_arr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 12:51:33 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:43:18 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		make_size(int ac, char **av);
-void	atoi_ps(char *av, long long *num, int *index);
-void	make_sign(char sign, long long *sol);
-int		*convert_num(long long *num, int *size);
+int			make_size(int ac, char **av);
+void		atoi_ps(char *av, long long *num, int *index);
+long long	make_num(char *av, int *i);
+int			*convert_num(long long *num, int *size);
 
-int	*make_num(int ac, char **av, int *size)
+int	*make_num_arr(int ac, char **av, int *size)
 {
 	int			i;
 	int			index;
@@ -66,40 +66,41 @@ void	atoi_ps(char *av, long long *num, int *index)
 {
 	int			i;
 	long long	sol;
-	long long	sign;
 
 	i = 0;
-	printf("test : %d\n", 0);
 	while (av[i] != '\0')
 	{
 		sol = 0;
-		sign = 1;
-		if (av[i] == 32 && av[i] != '\0')
+		while (av[i] == 32 && av[i] != '\0')
 			++i;
-		if (av[i] == '-' || av[i] == '+')
+		if ((av[i] == '-' || av[i] == '+') || (av[i] >= '0' && av[i] <= '9'))
 		{
-			make_sign(av[i], &sign);
-			++i;
-		}
-		while (av[i] >= '0' && av[i] <= '9')
-		{
-			sol = sol * 10 + (av[i] - 48);
-			if (av[i] == 32 || av[i] == '\0')
-			{
-				num[*index] = sol * sign;
-				++*index;
-			}
-			++i;
+			num[*index] = make_num(av, &i);
+			++*index;
 		}
 	}
 	return ;
 }
 
-void	make_sign(char sign, long long *sol)
+long long	make_num(char *av, int *i)
 {
-	if (sign == '-')
-		*sol = *sol * -1;
-	return ;
+	long long	sol;
+	long long	sign;
+
+	sol = 0;
+	sign = 1;
+	if (av[*i] == '-' || av[*i] == '+')
+	{
+		if (av[*i] == '-')
+			sign = sign * -1;
+		++*i;
+	}
+	while (av[*i] != 32 && av[*i] != '\0')
+	{
+		sol = sol * 10 + (av[*i] - 48);
+		++*i;
+	}
+	return (sol * sign);
 }
 
 int	*convert_num(long long *num, int *size)

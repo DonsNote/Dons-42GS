@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/22 15:17:50 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:40:29 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 		print_error();
 		return (0);
 	}
-	i = make_num(ac, av, &size);
+	i = make_num_arr(ac, av, &size);
 	if (i == 0)
 	{
 		print_error();
