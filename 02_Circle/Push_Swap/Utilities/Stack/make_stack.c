@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 15:51:59 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 22:00:36 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ t_list	*make_stack(int *num, int size)
 	t_list	*head;
 	t_list	*tmp;
 
-	i = 1;
-	head = newlist(num, 0, 0, size);
+	i = 0;
+	printf("size : %d\n", size);
+	head = newlist(num, 0, &i, size);
+	++i;
 	tmp = head;
 	while (i < size)
 	{
@@ -40,6 +42,7 @@ t_list	*newlist(int *num, t_list *prev, int *index, int size)
 	t_list	*new;
 	int		mncheck;
 
+	printf("num : %d\n", num[*index]);
 	new = (t_list *)malloc(sizeof(t_list) * 1);
 	if (new == 0)
 		return (0);
