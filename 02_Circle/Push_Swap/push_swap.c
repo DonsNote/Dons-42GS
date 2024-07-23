@@ -6,13 +6,14 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/05/25 21:08:30 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/24 05:58:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*push_swap(t_list *a)
+char	*push_swap(t_list *a, int size)
 {
-	
+	char	*sol;
+
 }

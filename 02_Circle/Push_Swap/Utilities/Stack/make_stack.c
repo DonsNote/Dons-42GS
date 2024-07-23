@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 22:00:36 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/24 05:13:48 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_list	*make_stack(int *num, int size)
 	t_list	*tmp;
 
 	i = 0;
-	printf("size : %d\n", size);
 	head = newlist(num, 0, &i, size);
 	++i;
 	tmp = head;
@@ -42,19 +41,16 @@ t_list	*newlist(int *num, t_list *prev, int *index, int size)
 	t_list	*new;
 	int		mncheck;
 
-	printf("num : %d\n", num[*index]);
 	new = (t_list *)malloc(sizeof(t_list) * 1);
 	if (new == 0)
 		return (0);
 	new->num = num[*index];
 	new->rank = make_rank(num, index, size);
-	if ((mncheck = check_minmax(num, index, size)))
-	{
-		if (mncheck == 1)
-			new->min = 1;
-		else if (mncheck == 2)
-			new->max = 1;
-	}
+	mncheck = check_minmax(num, index, size);
+	if (mncheck == 1)
+		new->min = 1;
+	else if (mncheck == 2)
+		new->max = 1;
 	if (prev == 0)
 		new->prev = new;
 	else
@@ -98,5 +94,3 @@ int	check_minmax(int *num, int *index, int size)
 		return (1);
 	return (0);
 }
-
-
