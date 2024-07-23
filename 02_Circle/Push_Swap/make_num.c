@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 11:31:56 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:51:33 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,12 @@ void	atoi_ps(char *av, long long *num, int *index)
 	long long	sign;
 
 	i = 0;
+	printf("test : %d\n", 0);
 	while (av[i] != '\0')
 	{
 		sol = 0;
 		sign = 1;
-		while (av[i] == 32 && av[i] != '\0')
+		if (av[i] == 32 && av[i] != '\0')
 			++i;
 		if (av[i] == '-' || av[i] == '+')
 		{
@@ -82,13 +83,14 @@ void	atoi_ps(char *av, long long *num, int *index)
 		}
 		while (av[i] >= '0' && av[i] <= '9')
 		{
-			sol = (sol * 10) + (av[i] - 48);
+			sol = sol * 10 + (av[i] - 48);
+			if (av[i] == 32 || av[i] == '\0')
+			{
+				num[*index] = sol * sign;
+				++*index;
+			}
 			++i;
 		}
-		num[*index] = (sol * sign);
-		++*index;
-		if (av[i] != '\0')
-			return ;
 	}
 	return ;
 }
