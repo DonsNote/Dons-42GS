@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:40:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 10:55:56 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:43:40 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int	check_base(char *av);
 int	check_num(char *av);

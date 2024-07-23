@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:16:17 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/19 13:43:16 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:44:08 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	print_error(void)
 {

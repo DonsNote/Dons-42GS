@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 13:40:29 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:36:10 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,12 @@ int	main(int ac, char **av)
 		print_error();
 		return (0);
 	}
-	//a = make_stack(i, size);
+	a = make_stack(i, size);
 	for(int l = 0; l < size; ++l)
-		printf("%d \n", i[l]);
+	{
+		printf("%d \n", a->num);
+		a = a->next;
+	}
 	free(i);
 	// sol = push_swap(a);
 	return (0);

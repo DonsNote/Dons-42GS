@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 13:43:18 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:44:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int			make_size(int ac, char **av);
 void		atoi_ps(char *av, long long *num, int *index);

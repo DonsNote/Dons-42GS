@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 13:40:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:53:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 typedef struct s_list
 {
 	int				num;
+	int				rank;
+	int				min;
+	int				max;
 	struct s_list	*prev;
 	struct s_list	*next;
 }	t_list;

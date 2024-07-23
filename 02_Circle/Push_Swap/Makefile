@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/23 13:40:59 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/07/23 14:46:51 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ CFLAG = -Wall -Wextra -Werror
 INCS = push_swap.h
 
 SRCS = main.c \
-		check_param.c \
-		print_error.c \
-		make_num_arr.c \
-		make_stack.c
+		./Utilities/Parsing/check_param.c \
+		./Utilities/Parsing/print_error.c \
+		./Utilities/Parsing/make_num_arr.c \
+		./Utilities/Stack/make_stack.c
 
 OBJS = $(SRCS:.c=.o)
 
