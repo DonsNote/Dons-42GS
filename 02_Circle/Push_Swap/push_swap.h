@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 10:15:06 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/24 14:53:26 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,21 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-void	print_error(void);
 int		check_param(int ac, char **av);
+void	print_error(void);
 int		*make_num_arr(int ac, char **av, int *size);
 t_list	*make_stack(int *num, int size);
-char	*push_swap(t_list *a, int size);
+void	push_swap(t_list *a, t_list *b, int size);
+t_list	*swap_a(t_list *a);
+t_list	*swap_b(t_list *a);
+t_list	*swap_s(t_list *a, t_list *b);
+t_list	*rotate_a(t_list *a);
+t_list	*rotate_b(t_list *a);
+t_list	*rotate_r(t_list *a, t_list *b);
+t_list	*reverse_a(t_list *a);
+t_list	*reverse_b(t_list *a);
+t_list	*reverse_r(t_list *a, t_list *b);
+t_list	*push_a(t_list *a, t_list *b);
+t_list	*push_b(t_list *a, t_list *b);
 
 #endif

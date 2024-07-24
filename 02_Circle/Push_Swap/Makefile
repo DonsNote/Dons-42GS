@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/24 05:42:27 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/07/24 13:24:27 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ SRCS = main.c \
 		./Utilities/Parsing/print_error.c \
 		./Utilities/Parsing/make_num_arr.c \
 		./Utilities/Stack/make_stack.c \
+		./Utilities/Commend/push.c \
+		./Utilities/Commend/reverse.c \
+		./Utilities/Commend/rotate.c \
+		./Utilities/Commend/swap.c \
 		push_swap.c
 
 OBJS = $(SRCS:.c=.o)

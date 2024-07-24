@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 10:16:35 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/24 14:53:11 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ int	main(int ac, char **av)
 {
 	int		size;
 	int		*num_arr;
-	char	*sol;
 	t_list	*a;
+	t_list	*b;
 
+	if (ac == 1)
+		return (0);
 	if (ac < 2 || check_param(ac, av))
 	{
 		print_error();
@@ -32,6 +34,7 @@ int	main(int ac, char **av)
 	}
 	a = make_stack(num_arr, size);
 	free(num_arr);
-	sol = push_swap(a, size);
+	b = 0;
+	push_swap(a, b, size);
 	return (0);
 }
