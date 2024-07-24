@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 10:16:35 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/07/24 10:36:38 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/07/24 12:30:21 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-int	main(int ac, char **av)
+t_list	*rotate_a(t_list *a)
 {
-	int		size;
-	int		*num_arr;
-	char	*sol;
-	t_list	*a;
+	write(1, "ra\n", 3);
+	return (a->next);
+}
 
-	if (ac < 2 || check_param(ac, av))
-	{
-		print_error();
-		return (0);
-	}
-	num_arr = make_num_arr(ac, av, &size);
-	if (num_arr == 0)
-	{
-		print_error();
-		return (0);
-	}
-	a = make_stack(num_arr, size);
-	free(num_arr);
-	sol = push_swap(a, size);
-	return (0);
+t_list	*rotate_b(t_list *a)
+{
+	write(1, "rb\n", 3);
+	return (a->next);
+}
+
+t_list	*rotate_r(t_list *a, t_list *b)
+{
+	write(1, "rr\n", 3);
+	b = b->next;
+	return (a->next);
 }
