@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:10:32 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 14:53:11 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/25 00:56:11 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 	}
 	a = make_stack(num_arr, size);
 	free(num_arr);
-	b = 0;
+	b = NULL;
 	push_swap(a, b, size);
 	return (0);
 }

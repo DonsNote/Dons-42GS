@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 22:45:42 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/25 00:30:14 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	push_swap(t_list *a, t_list *b, int size)
 {
-	// b = push_a(a, b);
+	// a = push_a(a, b);
 	// a = rotate_a(a);
-	for(t_list *tmp = a; tmp != 0; tmp = tmp->next)
-		printf("num(A) : %d\n", tmp->num);
-	for(t_list *tmpb = b; tmpb != 0; tmpb = tmpb->next)
-		printf("num(B) : %d\n", tmpb->num);
+	a = swap_a(a);
+	printf("num(A) : %d\n", a->num);
+	// printf("num(B) : %d\n", b->num);
 	return ;
 }

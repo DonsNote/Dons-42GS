@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 10:14:44 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/25 00:55:30 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*make_stack(int *num, int size)
 	t_list	*tmp;
 
 	i = 0;
-	head = newlist(num, 0, &i, size);
+	head = newlist(num, NULL, &i, size);
 	++i;
 	tmp = head;
 	while (i < size)
@@ -32,6 +32,7 @@ t_list	*make_stack(int *num, int size)
 		tmp = tmp->next;
 		++i;
 	}
+	tmp->next = head;
 	head->prev = tmp;
 	return (head);
 }
@@ -42,8 +43,8 @@ t_list	*newlist(int *num, t_list *prev, int *index, int size)
 	int		mncheck;
 
 	new = (t_list *)malloc(sizeof(t_list) * 1);
-	if (new == 0)
-		return (0);
+	if (new == NULL)
+		return (NULL);
 	new->num = num[*index];
 	new->rank = make_rank(num, index, size);
 	mncheck = check_minmax(num, index, size);
@@ -54,9 +55,10 @@ t_list	*newlist(int *num, t_list *prev, int *index, int size)
 	if (prev == 0)
 		new->prev = new;
 	else
-		new->prev = prev;
+		new->min = new->max = 0;
+	new->prev = prev;
 	new->cost = 0;
-	new->next = 0;
+	new->next = NULL;
 	return (new);
 }
 

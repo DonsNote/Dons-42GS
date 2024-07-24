@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:36:35 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 22:45:19 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/25 00:56:21 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_list	*push_a(t_list *a, t_list *b)
 	if (b == 0)
 	{
 		b = a;
-		b->prev = 0;
-		b->next = 0;
+		b->prev = NULL;
+		b->next = NULL;
 	}
 	else
 	{
