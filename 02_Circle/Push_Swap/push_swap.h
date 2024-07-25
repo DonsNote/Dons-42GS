@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/24 14:53:26 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:21:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_list	*rotate_r(t_list *a, t_list *b);
 t_list	*reverse_a(t_list *a);
 t_list	*reverse_b(t_list *a);
 t_list	*reverse_r(t_list *a, t_list *b);
-t_list	*push_a(t_list *a, t_list *b);
+t_list	*push_a(t_list *a, t_list **b);
 t_list	*push_b(t_list *a, t_list *b);
 
 #endif
