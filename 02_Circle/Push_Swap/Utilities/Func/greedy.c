@@ -1,39 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   greedy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/26 22:02:57 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/07/26 21:50:27 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/07/26 21:52:07 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-void	push_swap(t_list *a, t_list *b, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		// printf("Test | size : %d\n", size);
-		// printf("Test | rank : %d\n", a->rank);
-		if (a->rank < size - 2)
-			push_a(&a, &b);
-		else
-			a = a->next;
-		++i;
-	}
-	i = 0;
-	while (i < size)
-	{
-		printf("A : %d | B : %d\n", a->num, b->num);
-		a = a->next;
-		b = b->next;
-		++i;
-	}
-	return ;
-}
