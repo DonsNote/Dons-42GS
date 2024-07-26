@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:36:35 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/26 15:00:15 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/26 21:10:58 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	push_aanal_util(t_list **a, t_list **b)
 {
 	(*a)->next->prev = (*a)->prev;
 	(*a)->prev->next = (*a)->next;
+	return ;
 }
 
 void	push_banal_util(t_list **a, t_list **b)
@@ -42,7 +43,7 @@ void	push_a(t_list **a, t_list **b)
 
 	if (*a == NULL)
 		return ;
-	if ((*a)->next == NULL)
+	if ((*a)->next == NULL || (*a)->next == *a)
 		tmp = NULL;
 	else
 	{
