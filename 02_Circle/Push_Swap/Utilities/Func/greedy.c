@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:50:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/27 20:02:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/27 20:46:09 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,24 @@ int	checker(t_list **a, int size)
 	return (1);
 }
 
-void	make_ceed(t_list **a)
+void	make_ceed(t_list **a, int size)
 {
+	if (size <= 2)
+	{
+		if (checker(a, size))
+			rotate_a(a);
+		return ;
+	}
 	if ((*a)->rank < (*a)->next->rank)
 	{
 		reverse_a(a);
-		if (checker(a, 3) == 0)
+		if (checker(a, 3))
 			swap_a(a, 0);
 	}
 	else
 	{
 		rotate_a(a);
-		if (checker(a, 3) == 0)
+		if (checker(a, 3))
 			swap_a(a, 0);
 	}
 	return ;
