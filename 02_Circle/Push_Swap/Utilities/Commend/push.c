@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:36:35 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/26 21:10:58 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:10:26 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,22 @@ void	push_banal_util(t_list **a, t_list **b)
 {
 	if ((*b)->prev == NULL)
 	{
-		(*a)->prev = *b;
 		(*b)->prev = *a;
+		(*a)->prev = *b;
 	}
 	else
 	{
-		(*b)->prev->next = *a;
 		(*a)->prev = (*b)->prev;
+		(*b)->prev->next = *a;
+		(*b)->prev = *a;
 	}
-	(*a)->next = *b;
-	(*b)->next = *a;
+	if ((*b)->next == NULL)
+	{
+		(*b)->next = *a;
+		(*a)->next = *b;
+	}
+	else
+		(*a)->next = *b;
 	return ;
 }
 
@@ -43,7 +49,7 @@ void	push_a(t_list **a, t_list **b)
 
 	if (*a == NULL)
 		return ;
-	if ((*a)->next == NULL || (*a)->next == *a)
+	if ((*a)->next == NULL)
 		tmp = NULL;
 	else
 	{
@@ -78,6 +84,7 @@ void	push_b(t_list **a, t_list **b)
 		tmp = (*a)->next;
 		push_aanal_util(a, b);
 	}
+	btmp = *a;
 	if (*b == NULL)
 	{
 		(*a)->next = NULL;
@@ -85,7 +92,6 @@ void	push_b(t_list **a, t_list **b)
 	}
 	else
 		push_banal_util(a, b);
-	btmp = *a;
 	*a = tmp;
 	*b = btmp;
 	write(1, "pb\n", 3);

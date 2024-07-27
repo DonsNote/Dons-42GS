@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/26 22:02:57 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/27 17:22:22 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 
 void	push_swap(t_list *a, t_list *b, int size)
 {
-	int	i;
+	int	asize;
+	int	bsize;
 
-	i = 0;
-	while (i < size)
+	asize = size;
+	bsize = 0;
+
+	if (checker(&a, size))
 	{
-		// printf("Test | size : %d\n", size);
-		// printf("Test | rank : %d\n", a->rank);
-		if (a->rank < size - 2)
-			push_a(&a, &b);
-		else
-			a = a->next;
-		++i;
+		// destroid_stack(a);
+		return ;
 	}
-	i = 0;
-	while (i < size)
+	if (size <= 3)
 	{
-		printf("A : %d | B : %d\n", a->num, b->num);
-		a = a->next;
-		b = b->next;
-		++i;
+		make_ceed(&a);
+		// destroid_stack(a);
+		return ;
 	}
+	lmpush(&a, &b, &asize, &bsize);
+	make_ceed(&a);
 	return ;
 }

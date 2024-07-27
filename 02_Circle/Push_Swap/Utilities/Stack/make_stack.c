@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/26 16:09:20 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/27 14:31:46 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	make_rank(int *num, int *index, int size)
 	int	rank;
 
 	i = 0;
-	rank = 0;
+	rank = 1;
 	while (i < size)
 	{
 		if (num[*index] > num[i])

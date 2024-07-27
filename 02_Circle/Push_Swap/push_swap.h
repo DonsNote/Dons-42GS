@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/26 13:40:07 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/27 17:22:50 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void	reverse_b(t_list **a);
 void	reverse_r(t_list **a, t_list **b);
 void	push_a(t_list **a, t_list **b);
 void	push_b(t_list **a, t_list **b);
-
+void	lmpush(t_list **a, t_list **b, int *asize, int *bsize);
+void	make_ceed(t_list **a);
+int		checker(t_list **a, int size);
 #endif
