@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:50:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/27 17:25:36 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/27 20:02:00 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	checker(t_list **a, int size)
 
 	i = 0;
 	tmp = *a;
-	while (i < size)
+	while (i < size - 1)
 	{
 		if (tmp->rank > tmp->next->rank)
 			return (0);
@@ -34,13 +34,13 @@ void	make_ceed(t_list **a)
 	if ((*a)->rank < (*a)->next->rank)
 	{
 		reverse_a(a);
-		if (checker(a, 3))
+		if (checker(a, 3) == 0)
 			swap_a(a, 0);
 	}
 	else
 	{
 		rotate_a(a);
-		if (checker(a, 3))
+		if (checker(a, 3) == 0)
 			swap_a(a, 0);
 	}
 	return ;

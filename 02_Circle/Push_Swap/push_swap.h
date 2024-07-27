@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/27 17:22:50 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/27 19:48:45 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		check_param(int ac, char **av);
 void	print_error(void);
 int		*make_num_arr(int ac, char **av, int *size);
 t_list	*make_stack(int *num, int size);
+void	destroid_stack(t_list **a);
 void	push_swap(t_list *a, t_list *b, int size);
 void	swap_a(t_list **a, int check);
 void	swap_b(t_list **a, int check);
