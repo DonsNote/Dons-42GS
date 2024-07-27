@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:50:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/27 20:46:09 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 00:29:57 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int	checker(t_list **a, int size)
 	int		i;
 	t_list	*tmp;
 
-	i = 0;
+	i = 1;
 	tmp = *a;
-	while (i < size - 1)
+	while (i < size)
 	{
 		if (tmp->rank > tmp->next->rank)
-			return (0);
+			return (1);
 		tmp = tmp->next;
 		++i;
 	}
-	return (1);
+	return (0);
 }
 
 void	make_ceed(t_list **a, int size)
@@ -43,11 +43,24 @@ void	make_ceed(t_list **a, int size)
 		if (checker(a, 3))
 			swap_a(a, 0);
 	}
-	else
+	else if ((*a)->rank > (*a)->next->next->rank)
 	{
 		rotate_a(a);
 		if (checker(a, 3))
 			swap_a(a, 0);
+	}
+	else
+		swap_a(a, 0);
+	return ;
+}
+
+void	hpush(t_list **a, t_list **b, int *asize, int *bsize)
+{
+	while (*asize > 3)
+	{
+		push_b(a, b);
+		--*asize;
+		++*bsize;
 	}
 	return ;
 }
@@ -75,5 +88,6 @@ void	lmpush(t_list **a, t_list **b, int *asize, int *bsize)
 			rotate_a(a);
 		++i;
 	}
+	hpush(a, b, asize, bsize);
 	return ;
 }
