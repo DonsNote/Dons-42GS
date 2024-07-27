@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/27 13:27:24 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/07/28 03:24:30 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = main.c \
 		./Utilities/Commend/reverse.c \
 		./Utilities/Commend/rotate.c \
 		./Utilities/Commend/swap.c \
-		./Utilities/Func/greedy.c \
+		./Utilities/Func/ceedset.c \
 		push_swap.c
 
 OBJS = $(SRCS:.c=.o)
