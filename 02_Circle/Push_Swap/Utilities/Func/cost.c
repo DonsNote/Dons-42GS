@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 03:24:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 17:07:12 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 19:09:58 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,40 @@ void	count_top(t_list **a, int size)
 	return ;
 }
 
-void	count_total(t_list **a, t_list **b, int *asize)
+void	count_total(t_list **a, t_list **b, int *asize, int *bsize)
 {
 	int		i;
 	int		j;
 	int		k;
+	int		l;
 	t_list	*tmp;
 
 	i = 0;
-	j = (*b)->rank - (*a)->rank;
-	if (j < 0)
-		j = j * -1;
+	l = 0;
 	tmp = *a;
-	while (i < *asize)
+	while (i < *bsize)
 	{
-		k = (*b)->rank - (*a)->rank;
-		if (k < 0)
-			k = k * -1;
-		if (j > k)
+		j = (*b)->rank - (*a)->rank;
+		if (j < 0)
+			j = j * -1;
+		l = 0;
+		while (l < *asize)
 		{
-			j = k;
-			tmp = *a;
+			k = (*b)->rank - (*a)->rank;
+			if (k < 0)
+				k = k * -1;
+			if (j > k)
+			{
+				j = k;
+				tmp = *a;
+			}
+			*a = (*a)->next;
+			++l;
 		}
-		*a = (*a)->next;
+		(*b)->total = tmp->totop + (*b)->totop;
+		*b = (*b)->next;
 		++i;
 	}
-	(*b)->total = tmp->totop + (*b)->totop;
 	return ;
 }
 
