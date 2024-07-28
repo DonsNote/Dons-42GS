@@ -6,58 +6,110 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 12:42:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 14:46:01 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 22:02:01 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	action_a(t_list **a, int size)
+void	queue(t_list *s, t_list **a, t_list **b);
+void	find_do(t_list **a, t_list **b, int *asize, int *bsize);
+void	r_queue(t_list *s, t_list **a, t_list **b);
+
+void	action(t_list **a, t_list **b, int *asize, int *bsize)
 {
 	int	i;
-	int	rev;
-	t_list	*tmp;
 
 	i = 0;
-	rev = 0;
-	while (i < size)
+	while (*bsize > 0)
 	{
-		if (tmp->total > (*a)->total)
-		{
-			tmp = *a;
-			if (i > (size / 2))
-				rev = 1;
-		}
-		++i;
+		reset_cost(a, *asize);
+		reset_cost(b, *bsize);
+		count_top(a, *asize);
+		count_top(b, *bsize);
+		count_total(a, b, asize, bsize);
+		find_do(a, b, asize, bsize);
+		push_a(a, b);
+		--*bsize;
 	}
-	if (rev == 1)
-		go_artop(a, tmp->totop);
-	else
-		go_atop(a, tmp->totop);
 	return ;
 }
 
-void	action_b(t_list **a, int size)
+void	find_do(t_list **a, t_list **b, int *asize, int *bsize)
 {
 	int	i;
-	int	rev;
+	int	left;
 	t_list	*tmp;
 
 	i = 0;
-	rev = 0;
-	while (i < size)
+	tmp = *b;
+	while (i < *bsize)
 	{
-		if (tmp->total > (*a)->total)
-		{
-			tmp = *a;
-			if (i > (size / 2))
-				rev = 1;
-		}
+		if (tmp->total > (*b)->total)
+			tmp = *b;
+		*b = (*b)->next;
 		++i;
 	}
-	if (rev == 1)
-		go_brtop(a, tmp->totop);
+	r_queue(tmp, a, b);
+	return ;
+}
+
+void	r_queue(t_list *s, t_list **a, t_list **b)
+{
+	int	atotop;
+	int	btotop;
+
+	atotop = s->total - s->totop;
+	btotop = s->totop;
+	if (s->arev == 0 && s->brev == 0)
+	{
+		while (atotop > 0 && btotop > 0)
+		{
+			rotate_r(a, b);
+			--atotop;
+			--btotop;
+		}
+	}
+	else if (s->arev == 1 && s->brev == 1)
+	{
+		while (atotop > 0 && btotop > 0)
+		{
+			reverse_r(a, b);
+			--atotop;
+			--btotop;
+		}
+	}
+	queue(s, a, b);
+	return ;
+}
+
+void	queue(t_list *s, t_list **a, t_list **b)
+{
+	int	left;
+
+	left = (s->total - s->totop) - s->totop;
+	if (left < 0)
+	{
+		left = left * -1;
+		while (left > 0)
+		{
+			if (s->brev == 1)
+				reverse_b(b);
+			else
+				rotate_b(b);
+			--left;
+		}
+	}
 	else
-		go_btop(a, tmp->totop);
+	{
+		while (left > 0)
+		{
+			if (s->arev == 1)
+				reverse_a(a);
+			else
+				rotate_a(a);
+			--left;
+		}
+	}
 	return ;
 }

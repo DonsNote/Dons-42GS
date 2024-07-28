@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 03:24:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 19:09:58 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 20:41:09 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,18 @@ void	count_total(t_list **a, t_list **b, int *asize, int *bsize)
 			}
 			*a = (*a)->next;
 			++l;
+			if (l > *asize / 2)
+				(*a)->arev = 1;
 		}
-		(*b)->total = tmp->totop + (*b)->totop;
+		j = (*b)->totop;
+		(*b)->total = tmp->totop + j;
 		*b = (*b)->next;
 		++i;
+		if (i > *bsize / 2)
+			(*b)->brev = 1;
 	}
 	return ;
-}
+} // 함수 쪼개야함.
 
 void	reset_cost(t_list **a, int size)
 {
@@ -84,6 +89,8 @@ void	reset_cost(t_list **a, int size)
 	{
 		(*a)->totop = 0;
 		(*a)->total = 0;
+		(*a)->arev = 0;
+		(*a)->brev = 0;
 		*a = (*a)->next;
 		++i;
 	}
