@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 00:30:36 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 14:20:41 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ typedef struct s_list
 	int				num;
 	int				rank;
 	int				min;
-	int				max;
-	int				cost;
+	int				totop;
+	int				total;
 	struct s_list	*prev;
 	struct s_list	*next;
 }	t_list;
@@ -46,7 +46,9 @@ void	reverse_r(t_list **a, t_list **b);
 void	push_a(t_list **a, t_list **b);
 void	push_b(t_list **a, t_list **b);
 void	lmpush(t_list **a, t_list **b, int *asize, int *bsize);
-void	hpush(t_list **a, t_list **b, int *asize, int *bsize);
 void	make_ceed(t_list **a, int size);
 int		checker(t_list **a, int size);
+void	count_top(t_list **a, int size);
+void	count_total(t_list **a, t_list **b, int *asize);
+void	reset_cost(t_list **a, int size);
 #endif

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/27 14:31:46 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:40:37 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*newlist(int *num, t_list *prev, int *index, int size);
 int		make_rank(int *num, int *index, int size);
-int		check_minmax(int *num, int *index, int size);
+int		check_min(int *num, int *index, int size);
 
 t_list	*make_stack(int *num, int size)
 {
@@ -47,20 +47,16 @@ t_list	*newlist(int *num, t_list *prev, int *index, int size)
 		return (NULL);
 	new->num = num[*index];
 	new->rank = make_rank(num, index, size);
-	mncheck = check_minmax(num, index, size);
+	mncheck = check_min(num, index, size);
 	if (mncheck == 1)
 		new->min = 1;
-	else if (mncheck == 2)
-		new->max = 1;
 	if (prev == NULL)
 		new->prev = new;
 	else
-	{
 		new->min = 0;
-		new->max = 0;
-	}
 	new->prev = prev;
-	new->cost = 0;
+	new->totop = 0;
+	new->total = 0;
 	new->next = NULL;
 	return (new);
 }
@@ -81,7 +77,7 @@ int	make_rank(int *num, int *index, int size)
 	return (rank);
 }
 
-int	check_minmax(int *num, int *index, int size)
+int	check_min(int *num, int *index, int size)
 {
 	int	i;
 	int	check;
@@ -94,8 +90,6 @@ int	check_minmax(int *num, int *index, int size)
 			++check;
 		++i;
 	}
-	if (check == size)
-		return (2);
 	if (check == 0)
 		return (1);
 	return (0);

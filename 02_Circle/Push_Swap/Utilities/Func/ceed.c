@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   greedy.c                                           :+:      :+:    :+:   */
+/*   ceedset.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:50:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 00:29:57 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:25:22 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	checker(t_list **a, int size)
-{
-	int		i;
-	t_list	*tmp;
-
-	i = 1;
-	tmp = *a;
-	while (i < size)
-	{
-		if (tmp->rank > tmp->next->rank)
-			return (1);
-		tmp = tmp->next;
-		++i;
-	}
-	return (0);
-}
+void	hpush(t_list **a, t_list **b, int *asize, int *bsize);
+int		checker(t_list **a, int size);
 
 void	make_ceed(t_list **a, int size)
 {
@@ -54,15 +40,21 @@ void	make_ceed(t_list **a, int size)
 	return ;
 }
 
-void	hpush(t_list **a, t_list **b, int *asize, int *bsize)
+int	checker(t_list **a, int size)
 {
-	while (*asize > 3)
+	int		i;
+	t_list	*tmp;
+
+	i = 1;
+	tmp = *a;
+	while (i < size)
 	{
-		push_b(a, b);
-		--*asize;
-		++*bsize;
+		if (tmp->rank > tmp->next->rank)
+			return (1);
+		tmp = tmp->next;
+		++i;
 	}
-	return ;
+	return (0);
 }
 
 void	lmpush(t_list **a, t_list **b, int *asize, int *bsize)
@@ -89,5 +81,16 @@ void	lmpush(t_list **a, t_list **b, int *asize, int *bsize)
 		++i;
 	}
 	hpush(a, b, asize, bsize);
+	return ;
+}
+
+void	hpush(t_list **a, t_list **b, int *asize, int *bsize)
+{
+	while (*asize > 3)
+	{
+		push_b(a, b);
+		--*asize;
+		++*bsize;
+	}
 	return ;
 }
