@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 03:24:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 14:16:54 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 16:24:43 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ void	count_top(t_list **a, int size)
 		*a = (*a)->next;
 		++i;
 	}
+	if (size % 2 == 1)
+		i = i - 1;
+	else
+		i = i - 2;
 	while (i > 0)
 	{
 		(*a)->totop = i;
@@ -56,6 +60,7 @@ void	count_total(t_list **a, t_list **b, int *asize)
 			j = k;
 			tmp = *a;
 		}
+		*a = (*a)->next;
 		++i;
 	}
 	(*b)->total = tmp->totop + (*b)->totop;

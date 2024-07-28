@@ -1,63 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action.c                                           :+:      :+:    :+:   */
+/*   extension.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 12:42:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 14:46:01 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/07/28 14:45:41 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/07/28 14:51:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	action_a(t_list **a, int size)
+void	go_atop(t_list **a, int size)
 {
 	int	i;
-	int	rev;
-	t_list	*tmp;
 
 	i = 0;
-	rev = 0;
 	while (i < size)
 	{
-		if (tmp->total > (*a)->total)
-		{
-			tmp = *a;
-			if (i > (size / 2))
-				rev = 1;
-		}
+		rotate_a(a);
 		++i;
 	}
-	if (rev == 1)
-		go_artop(a, tmp->totop);
-	else
-		go_atop(a, tmp->totop);
 	return ;
 }
 
-void	action_b(t_list **a, int size)
+void	go_artop(t_list **a, int size)
 {
 	int	i;
-	int	rev;
-	t_list	*tmp;
 
 	i = 0;
-	rev = 0;
 	while (i < size)
 	{
-		if (tmp->total > (*a)->total)
-		{
-			tmp = *a;
-			if (i > (size / 2))
-				rev = 1;
-		}
+		reverse_a(a);
 		++i;
 	}
-	if (rev == 1)
-		go_brtop(a, tmp->totop);
-	else
-		go_btop(a, tmp->totop);
+	return ;
+}
+
+void	go_btop(t_list **a, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		rotate_b(a);
+		++i;
+	}
+	return ;
+}
+
+void	go_brtop(t_list **a, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		reverse_b(a);
+		++i;
+	}
 	return ;
 }

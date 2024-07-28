@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 14:20:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 14:56:48 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,10 @@ int		checker(t_list **a, int size);
 void	count_top(t_list **a, int size);
 void	count_total(t_list **a, t_list **b, int *asize);
 void	reset_cost(t_list **a, int size);
+void	action_a(t_list **a, int size);
+void	action_b(t_list **a, int size);
+void	go_atop(t_list **a, int size);
+void	go_artop(t_list **a, int size);
+void	go_btop(t_list **a, int size);
+void	go_brtop(t_list **a, int size);
 #endif

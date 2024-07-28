@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/28 12:02:50 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/07/28 14:47:07 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRCS = main.c \
 		./Utilities/Commend/swap.c \
 		./Utilities/Func/ceed.c \
 		./Utilities/Func/cost.c \
+		./Utilities/Func/action.c \
+		./Utilities/Func/extension.c \
 		push_swap.c
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 10:25:23 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/28 16:29:51 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	push_swap(t_list *a, t_list *b, int size)
 	}
 	lmpush(&a, &b, &asize, &bsize);
 	make_ceed(&a, asize);
+	count_top(&a, asize);
 	test_print(&a, &b, size);
+	// count_total(&a, &b, &asize);
 	// destroid_stack(&a);
 	return ;
 }
@@ -56,7 +58,7 @@ void	test_print(t_list **a, t_list **b, int size)
 		}
 		else
 		{
-			printf("A : %d | B : %d\n", (*a)->num, (*b)->num);
+			printf("A : %d | B : %d\n", (*a)->totop, (*b)->totop);
 			*a = (*a)->next;
 			*b = (*b)->next;
 		}
