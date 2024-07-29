@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:34:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/29 12:53:49 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 07:22:50 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ void	count_top_b(t_list **a, int size);
 void	count_total(t_list **a, t_list **b, int *asize, int *bsize);
 void	reset_cost(t_list **a, int size);
 void	action(t_list **a, t_list **b, int *asize, int *bsize);
+void	find_do(t_list **a, t_list **b, int *asize, int *bsize);
+void	input_total(t_list **a, int size);
 
 #endif

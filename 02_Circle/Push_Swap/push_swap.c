@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/29 13:44:47 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 08:26:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	push_swap(t_list *a, t_list *b, int size)
 	lmpush(&a, &b, &asize, &bsize);
 	make_ceed(&a, asize);
 	action(&a, &b, &asize, &bsize);
-	// test_print(&a, &b, size);
+	test_print(&a, &b, size);
 	destroid_stack(&a, &asize);
 	return ;
 }

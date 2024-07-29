@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:50:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 14:41:42 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 06:43:04 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ void	make_ceed(t_list **a, int size)
 			rotate_a(a);
 		return ;
 	}
-	if ((*a)->rank < (*a)->next->rank)
+	if (checker(a, size) && (*a)->rank < (*a)->next->rank)
 	{
 		reverse_a(a);
 		if (checker(a, 3))
 			swap_a(a, 0);
 	}
-	else if ((*a)->rank > (*a)->next->next->rank)
+	else if (checker(a, size) && (*a)->rank > (*a)->next->next->rank)
 	{
 		rotate_a(a);
 		if (checker(a, 3))
 			swap_a(a, 0);
 	}
-	else
+	else if (checker(a, size))
 		swap_a(a, 0);
 	return ;
 }
@@ -73,7 +73,7 @@ void	lmpush(t_list **a, t_list **b, int *asize, int *bsize)
 			push_b(a, b);
 			--*asize;
 			++*bsize;
-			if ((*b)->next != NULL && (*b)->next->rank > low)
+			if ((*b)->next != NULL && (*b)->rank > low)
 				rotate_b(b);
 		}
 		else

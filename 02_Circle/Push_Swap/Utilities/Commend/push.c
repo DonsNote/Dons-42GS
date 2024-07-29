@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:36:35 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/27 16:10:26 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 07:47:26 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,25 @@ void	push_a(t_list **a, t_list **b)
 	t_list	*tmp;
 	t_list	*btmp;
 
-	if (*a == NULL)
+	if (*b == NULL)
 		return ;
-	if ((*a)->next == NULL)
+	if ((*b)->next == NULL)
 		tmp = NULL;
 	else
 	{
-		tmp = (*a)->next;
-		push_aanal_util(a, b);
+		tmp = (*b)->next;
+		push_aanal_util(b, a);
 	}
-	btmp = *a;
-	if (*b == NULL)
+	btmp = *b;
+	if (*a == NULL)
 	{
-		(*a)->next = NULL;
-		(*a)->prev = NULL;
+		(*b)->next = NULL;
+		(*b)->prev = NULL;
 	}
 	else
-		push_banal_util(a, b);
-	*a = tmp;
-	*b = btmp;
+		push_banal_util(b, a);
+	*b = tmp;
+	*a = btmp;
 	write(1, "pa\n", 3);
 	return ;
 }
