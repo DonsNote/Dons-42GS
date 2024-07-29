@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 12:42:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 22:02:01 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/29 00:14:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	action(t_list **a, t_list **b, int *asize, int *bsize)
 
 void	find_do(t_list **a, t_list **b, int *asize, int *bsize)
 {
-	int	i;
-	int	left;
+	int		i;
+	int		left;
 	t_list	*tmp;
 
 	i = 0;
