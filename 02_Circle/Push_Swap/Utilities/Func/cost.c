@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 03:24:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/29 16:40:38 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/29 20:54:00 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ void	count_total(t_list **a, t_list **b, int *asize, int *bsize)
 			}
 			*a = (*a)->next;
 			++j;
-			if (j > (*asize / 2))
+			if ((*asize / 2) > 1 && j > (*asize / 2))
 				(*b)->arev = 1;
 		}
 		*b = (*b)->next;
 		++i;
-		if (i > (*bsize / 2))
+		if ((*asize / 2) > 1 && i > (*bsize / 2))
 			(*b)->brev = 1;
 	}
 	return ;

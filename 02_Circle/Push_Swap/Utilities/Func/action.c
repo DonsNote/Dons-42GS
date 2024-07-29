@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 12:42:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/29 16:54:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/29 20:33:17 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	action(t_list **a, t_list **b, int *asize, int *bsize)
 			printf("Batotal : %d\n", (*b)->total);
 			printf("Barev : %d\n", (*b)->arev);
 			printf("Bbrev : %d\n", (*b)->brev);
-
 		}
 	}
 	if ((*a)->min != 1)
