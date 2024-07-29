@@ -6,13 +6,13 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 03:24:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/29 11:16:33 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:40:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	count_top(t_list **a, int size)
+void	count_top_a(t_list **a, int size)
 {
 	int		i;
 	int		mid;
@@ -21,7 +21,7 @@ void	count_top(t_list **a, int size)
 	mid = (size / 2);
 	while (i <= mid)
 	{
-		(*a)->totop = i;
+		(*a)->atotop = i;
 		*a = (*a)->next;
 		++i;
 	}
@@ -31,7 +31,33 @@ void	count_top(t_list **a, int size)
 		i = i - 2;
 	while (i > 0)
 	{
-		(*a)->totop = i;
+		(*a)->atotop = i;
+		*a = (*a)->next;
+		--i;
+	}
+	return ;
+}
+
+void	count_top_b(t_list **a, int size)
+{
+	int		i;
+	int		mid;
+
+	i = 0;
+	mid = (size / 2);
+	while (i <= mid)
+	{
+		(*a)->btotop = i;
+		*a = (*a)->next;
+		++i;
+	}
+	if (size % 2 == 1)
+		i = i - 1;
+	else
+		i = i - 2;
+	while (i > 0)
+	{
+		(*a)->btotop = i;
 		*a = (*a)->next;
 		--i;
 	}
@@ -40,45 +66,40 @@ void	count_top(t_list **a, int size)
 
 void	count_total(t_list **a, t_list **b, int *asize, int *bsize)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		l;
-	t_list	*tmp;
+	int	i;
+	int	j;
+	int	sol;
 
 	i = 0;
-	l = 0;
-	tmp = *a;
 	while (i < *bsize)
 	{
-		j = (*b)->rank - (*a)->rank;
-		if (j < 0)
-			j = j * -1;
-		l = 0;
-		while (l < *asize)
+		j = 0;
+		sol = (*a)->rank - (*b)->rank;
+		(*b)->atotop = (*b)->atotop;
+		while (j < *asize)
 		{
-			k = (*b)->rank - (*a)->rank;
-			if (k < 0)
-				k = k * -1;
-			if (j > k)
+			if (sol < 0 && (*a)->rank - (*b)->rank > 0)
 			{
-				j = k;
-				tmp = *a;
+				sol = (*a)->rank - (*b)->rank;
+				(*b)->atotop = (*a)->atotop;
+			}
+			else if (sol > (*a)->rank - (*b)->rank)
+			{
+				sol = (*a)->rank - (*b)->rank;
+				(*b)->atotop = (*a)->atotop;
 			}
 			*a = (*a)->next;
-			++l;
-			if (l > *asize / 2)
-				(*a)->arev = 1;
+			++j;
+			if (j > (*asize / 2))
+				(*b)->arev = 1;
 		}
-		j = (*b)->totop;
-		(*b)->total = tmp->totop + j;
 		*b = (*b)->next;
 		++i;
-		if (i > *bsize / 2)
+		if (i > (*bsize / 2))
 			(*b)->brev = 1;
 	}
 	return ;
-} // 함수 쪼개야함.
+}
 
 void	reset_cost(t_list **a, int size)
 {
@@ -87,7 +108,8 @@ void	reset_cost(t_list **a, int size)
 	i = 0;
 	while (i < size)
 	{
-		(*a)->totop = 0;
+		(*a)->atotop = 0;
+		(*a)->btotop = 0;
 		(*a)->total = 0;
 		(*a)->arev = 0;
 		(*a)->brev = 0;

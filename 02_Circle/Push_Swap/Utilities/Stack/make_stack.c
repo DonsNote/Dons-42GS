@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 17:25:04 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/29 13:51:57 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ t_list	*newlist(int *num, t_list *prev, int *index, int size)
 	else
 		new->min = 0;
 	new->prev = prev;
-	new->totop = 0;
+	new->atotop = 0;
+	new->btotop = 0;
 	new->total = 0;
 	new->next = NULL;
 	return (new);
