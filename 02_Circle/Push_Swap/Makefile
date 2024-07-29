@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/28 14:47:07 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/07/29 12:33:14 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = main.c \
 		./Utilities/Parsing/print_error.c \
 		./Utilities/Parsing/make_num_arr.c \
 		./Utilities/Stack/make_stack.c \
+		./Utilities/Stack/destroid_stack.c \
 		./Utilities/Commend/push.c \
 		./Utilities/Commend/reverse.c \
 		./Utilities/Commend/rotate.c \
@@ -29,7 +30,6 @@ SRCS = main.c \
 		./Utilities/Func/ceed.c \
 		./Utilities/Func/cost.c \
 		./Utilities/Func/action.c \
-		./Utilities/Func/extension.c \
 		push_swap.c
 
 OBJS = $(SRCS:.c=.o)

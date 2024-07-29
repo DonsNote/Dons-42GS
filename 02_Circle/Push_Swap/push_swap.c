@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/28 22:56:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/29 12:29:41 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	push_swap(t_list *a, t_list *b, int size)
 	}
 	lmpush(&a, &b, &asize, &bsize);
 	make_ceed(&a, asize);
-	action(&a, &b, &asize, &bsize);
-	// test_print(&a, &b, size);
-	// destroid_stack(&a);
+	// action(&a, &b, &asize, &bsize);
+	test_print(&a, &b, size);
+	destroid_stack(&a, &asize);
 	return ;
 }
 
@@ -57,9 +57,9 @@ void	test_print(t_list **a, t_list **b, int size)
 		}
 		else
 		{
-			printf("A : %d | B : %d\n", (*a)->totop, (*b)->totop);
-			printf("\n");
-			printf("A : %d | B : %d\n", (*a)->total, (*b)->total);
+			printf("A : %d | B : %d\n", (*a)->num, (*b)->num);
+			printf("ATOP : %d | BTOP : %d\n", (*a)->totop, (*b)->totop);
+			printf("ATAL : %d | BTAL : %d\n", (*a)->total, (*b)->total);
 			printf("\n");
 
 			*a = (*a)->next;
