@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:14:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/29 13:51:57 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 13:11:04 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,15 @@ t_list	*make_stack(int *num, int size)
 t_list	*newlist(int *num, t_list *prev, int *index, int size)
 {
 	t_list	*new;
-	int		mncheck;
 
 	new = (t_list *)malloc(sizeof(t_list) * 1);
 	if (new == NULL)
 		return (NULL);
 	new->num = num[*index];
 	new->rank = make_rank(num, index, size);
-	mncheck = check_min(num, index, size);
-	if (mncheck == 1)
-		new->min = 1;
+	new->min = check_min(num, index, size);
 	if (prev == NULL)
 		new->prev = new;
-	else
-		new->min = 0;
 	new->prev = prev;
 	new->atotop = 0;
 	new->btotop = 0;

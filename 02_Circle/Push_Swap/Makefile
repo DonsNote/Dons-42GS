@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/02 08:06:57 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/29 12:33:14 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/07/30 16:58:48 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS = main.c \
 		./Utilities/Commend/swap.c \
 		./Utilities/Func/ceed.c \
 		./Utilities/Func/cost.c \
+		./Utilities/Func/cost_util.c \
 		./Utilities/Func/action.c \
 		push_swap.c
 

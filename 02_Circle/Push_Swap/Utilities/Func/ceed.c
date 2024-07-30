@@ -6,13 +6,12 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:50:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/30 06:43:04 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:28:19 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	hpush(t_list **a, t_list **b, int *asize, int *bsize);
 int		checker(t_list **a, int size);
 
 void	make_ceed(t_list **a, int size)

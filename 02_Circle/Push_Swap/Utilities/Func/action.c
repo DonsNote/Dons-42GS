@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 12:42:58 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/30 08:35:06 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:54:25 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 void	queue(t_list **s, t_list **a, t_list **b);
 void	find_do(t_list **a, t_list **b, int *asize, int *bsize);
 void	r_queue(t_list **s, t_list **a, t_list **b);
+void	fin_analize(t_list **a, int size);
 
 void	action(t_list **a, t_list **b, int *asize, int *bsize)
 {
 	int	i;
-	int	test;
 
 	i = 0;
-	test = 1;
 	while (*bsize > 0)
 	{
 		reset_cost(a, *asize);
@@ -35,8 +34,8 @@ void	action(t_list **a, t_list **b, int *asize, int *bsize)
 		push_a(a, b);
 		--*bsize;
 		++*asize;
-		--test;
 	}
+	fin_analize(a, *asize);
 	return ;
 }
 
@@ -102,6 +101,35 @@ void	queue(t_list **s, t_list **a, t_list **b)
 		else
 			rotate_b(b);
 		--(*s)->btotop;
+	}
+	return ;
+}
+
+void	fin_analize(t_list **a, int size)
+{
+	int		i;
+	int		check;
+	t_list	*tmp;
+
+	i = 0;
+	check = 1;
+	tmp = *a;
+	while (i < size)
+	{
+		if (i > (size / 2) && tmp->min == 1)
+			check = 1;
+		tmp = tmp->next;
+		++i;
+	}
+	if (check)
+	{
+		while ((*a)->min != 1)
+			reverse_a(a);
+	}
+	else
+	{
+		while ((*a)->min != 1)
+			rotate_a(a);
 	}
 	return ;
 }

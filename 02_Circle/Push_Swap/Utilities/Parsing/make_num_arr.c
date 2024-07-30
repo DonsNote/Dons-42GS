@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/23 14:44:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 18:29:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,11 @@ int	*convert_num(long long *num, int *size)
 		while (j < *size)
 		{
 			if (num[i] == num[j])
-				return (0);
+				return (free(num), free(nums), NULL);
 			++j;
 		}
 		if (num[i] < -2147483648 || num[i] > 2147483647)
-			return (0);
+			return ((free(num), free(nums), NULL));
 		nums[i] = (int)num[i];
 		++i;
 	}

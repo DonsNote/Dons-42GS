@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 08:19:49 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/30 08:26:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:32:28 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,49 +22,22 @@ void	push_swap(t_list *a, t_list *b, int size)
 	asize = size;
 	bsize = 0;
 	if (checker(&a, size) == 0)
+	{
+		destroid_stack(&a, &asize);
 		return ;
+	}
 	if (size <= 3)
 	{
 		make_ceed(&a, size);
+		destroid_stack(&a, &asize);
 		return ;
 	}
-	lmpush(&a, &b, &asize, &bsize);
+	if (size < 40)
+		hpush(&a, &b, &asize, &bsize);
+	else
+		lmpush(&a, &b, &asize, &bsize);
 	make_ceed(&a, asize);
 	action(&a, &b, &asize, &bsize);
-	test_print(&a, &b, size);
 	destroid_stack(&a, &asize);
-	return ;
-}
-
-void	test_print(t_list **a, t_list **b, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (*a == NULL && *b == NULL)
-			printf("A : %p | B : %p\n", a, b);
-		else if (*a != NULL && *b == NULL)
-		{
-			printf("A : %d | B : %p\n", (*a)->num, b);
-			*a = (*a)->next;
-		}
-		else if (*a == NULL && *b != NULL)
-		{
-			printf("A : %p | B : %d\n", a, (*b)->num);
-			*b = (*b)->next;
-		}
-		else
-		{
-			printf("A : %d | B : %d\n", (*a)->num, (*b)->num);
-			printf("ATOP : %d | BTOP : %d\n", (*a)->atotop, (*b)->btotop);
-			printf("ATAL : %d | BTAL : %d\n", (*a)->total, (*b)->total);
-			printf("\n");
-			*a = (*a)->next;
-			*b = (*b)->next;
-		}
-		++i;
-	}
 	return ;
 }
