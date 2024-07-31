@@ -3,17 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:33 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/07/31 10:48:29 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/07/31 22:10:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main()
+int	main(void)
 {
-	
+	int		fd;
+	char	*map;
+
+	fd = open("./*.ber", O_RDONLY);
+	map = get_next_line(fd);
+
 	return (0);
 }
