@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/01 11:12:53 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/01 13:16:34 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,11 @@ $(NAME) : $(OBJS)
 clean : 
 	rm -rf $(OBJS)
 
-fclen :
+fclean :
 	make clean
 	rm -rf $(NAME)
 	make -C $(FT_DIR) fclean
-	make -C $(MLX_DIR) fclean
+	make -C $(MLX_DIR) clean
 
 re :
 	make fclean

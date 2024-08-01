@@ -1,5 +1,4 @@
 NAME = libft.a
-BONUS = .bonus
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -42,6 +41,15 @@ SRCS = ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c \
+	ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c \
 	./ft_Printf/ft_printf.c \
 	./ft_Printf/ft_checkform_pf.c \
 	./ft_Printf/ft_putaddr_pf.c \
@@ -55,37 +63,15 @@ SRCS = ft_atoi.c \
 	./Get_Next_Line/get_next_line_utils.c \
 	./Get_Next_Line/get_next_line.c
 
-SRCSB = ft_lstadd_back.c \
-	ft_lstadd_front.c \
-	ft_lstclear.c \
-	ft_lstdelone.c \
-	ft_lstiter.c \
-	ft_lstlast.c \
-	ft_lstmap.c \
-	ft_lstnew.c \
-	ft_lstsize.c
-
 OBJS = $(SRCS:.c=.o)
-OBJSB = $(SRCSB:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-bonus : $(BONUS)
-
-$(BONUS) : $(OBJSB)
-	$(AR) $(ARFLAGS) $(NAME) $?
-	@touch .bonus
-
-%.o : %.c
-	$(CC) $(CFLAGS) $(INCS) -c $<
-
 clean :
 	rm -f $(OBJS)
-	rm -f $(OBJSB)
-	@rm -f $(BONUS)
 
 fclean : 
 	make clean
