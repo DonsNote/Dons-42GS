@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/01 10:09:48 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/01 11:12:53 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,7 @@ MLX_DIR = ./minilibx-linux/
 
 INC = so_long.h
 
-SRCS = main.c \
-		so_ling .c
+SRCS = main.c
 
 OBJS = $(SRCS:.c=.o)
 

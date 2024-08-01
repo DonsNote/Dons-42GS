@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putuhex_pf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:28:06 by don               #+#    #+#             */
-/*   Updated: 2024/03/29 01:55:46 by don              ###   ########.fr       */
+/*   Updated: 2024/08/01 11:14:45 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 int	ft_recuhex_pf(unsigned long long n, int *count)
 {

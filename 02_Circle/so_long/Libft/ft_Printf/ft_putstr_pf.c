@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:45:18 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 00:03:18 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:14:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 int	ft_putstr_pf(char *str)
 {

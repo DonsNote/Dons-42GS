@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:55:07 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 00:50:20 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:14:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_recdecimal_pf(long long n, int *count)
 {

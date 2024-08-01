@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putint_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 00:20:54 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 01:31:40 by don              ###   ########.fr       */
+/*   Updated: 2024/08/01 11:14:31 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_recint_pf(long long n, int *count)
 {

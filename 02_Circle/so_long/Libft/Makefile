@@ -48,7 +48,7 @@ SRCS = ft_atoi.c \
 	./ft_Printf/ft_putchar_pf.c \
 	./ft_Printf/ft_putdecimal_pf.c \
 	./ft_Printf/ft_putint_pf.c \
-	./ft_Printf/ft_puthex_pf.c \
+	./ft_Printf/ft_putlhex_pf.c \
 	./ft_Printf/ft_putstr_pf.c \
 	./ft_Printf/ft_putuhex_pf.c \
 	./ft_Printf/ft_putuint_pf.c \
@@ -87,7 +87,8 @@ clean :
 	rm -f $(OBJSB)
 	@rm -f $(BONUS)
 
-fclean : clean
+fclean : 
+	make clean
 	rm -f $(NAME)
 
 re : fclean all

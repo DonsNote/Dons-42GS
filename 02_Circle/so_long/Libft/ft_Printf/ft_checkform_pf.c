@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:19:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/04/01 17:28:16 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:14:14 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_checkcurrent_pf(char c)
 {

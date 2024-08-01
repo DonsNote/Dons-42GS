@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 00:33:29 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/29 00:52:34 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:14:49 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_recuint_pf(long long n, int *count)
 {

@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:52 by don               #+#    #+#             */
-/*   Updated: 2024/08/01 10:44:53 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:14:55 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../libft.h"
 
 char	*ft_read_file(int fd)
 {
