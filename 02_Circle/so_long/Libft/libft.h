@@ -3,18 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/07 20:13:32 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/01 10:30:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-
 # define LIBFT_H
+
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
+# include <stdlib.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+# define UHEX "0123456789ABCDEF"
+# define LHEX "0123456789abcdef"
+# define TYPE "cspdiuxX%%"
 
 typedef struct s_list
 {
@@ -22,6 +32,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+// libft
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -57,6 +68,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
+// linked list
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
@@ -66,5 +78,27 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
+
+// ft_printf
+int		ft_printf(const char *format, ...);
+int		ft_putchar_pf(char c);
+int		ft_putstr_pf(char *str);
+int		ft_putaddr_pf(unsigned long long addr);
+int		ft_putdecimal_pf(int n);
+int		ft_putint_pf(int n);
+int		ft_putuint_pf(unsigned int n);
+int		ft_putlhex_pf(unsigned int n);
+int		ft_putuhex_pf(unsigned int n);
+int		ft_checkform_pf(char *form);
+
+// get_next_line
+char	*get_next_line(int fd);
+int		ft_check_enter(char *sol);
+char	*ft_read_file(int fd);
+char	*ft_strjoin_gnl(char *sol, char *buf);
+int		ft_strlen_gnl(char *s);
+void	ft_strcpy(char *dest, char *src, int i);
+char	*ft_return_line(char *sol);
+char	*ft_next_line(char *sol);
 
 #endif

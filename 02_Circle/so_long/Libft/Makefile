@@ -41,7 +41,20 @@ SRCS = ft_atoi.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
+	./ft_Printf/ft_printf.c \
+	./ft_Printf/ft_checkform_pf.c \
+	./ft_Printf/ft_putaddr_pf.c \
+	./ft_Printf/ft_putchar_pf.c \
+	./ft_Printf/ft_putdecimal_pf.c \
+	./ft_Printf/ft_putint_pf.c \
+	./ft_Printf/ft_puthex_pf.c \
+	./ft_Printf/ft_putstr_pf.c \
+	./ft_Printf/ft_putuhex_pf.c \
+	./ft_Printf/ft_putuint_pf.c \
+	./Get_Next_Line/get_next_line_utils.c \
+	./Get_Next_Line/get_next_line.c
+
 SRCSB = ft_lstadd_back.c \
 	ft_lstadd_front.c \
 	ft_lstclear.c \

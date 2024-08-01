@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_pf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 10:18:33 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/01 11:10:41 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/28 23:43:32 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/03/28 23:59:43 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(void)
+int	ft_putchar_pf(char c)
 {
-	// int		fd;
-	// char	*map;
-
-	// fd = open("./*.ber", O_RDONLY);
-	// map = get_next_line(fd);
-
-	ft_printf("I`m here, %d\n", 85);
-
-	return (0);
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	return (1);
 }
