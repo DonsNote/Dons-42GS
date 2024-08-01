@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/01 13:16:34 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/01 19:42:55 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	make -C $(FT_DIR)
 	make -C $(MLX_DIR)
-	$(CC) $(CFLAG) -g -o $(NAME) $^ -L$(FT_DIR) -lft -L$(MLS_DIR) -lmlx_Linux -lXext -lX11 -lbsd
+	$(CC) $(CFLAG) -g -o $(NAME) $^ -L$(FT_DIR) -lft -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lbsd
 
 clean : 
 	rm -rf $(OBJS)
