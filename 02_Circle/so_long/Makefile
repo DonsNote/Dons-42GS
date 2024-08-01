@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/07/31 12:23:41 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/01 10:09:48 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,11 @@ NAME = so_long
 CC = cc
 CFLAG = -Wall -Wextra -Werror
 
-MLX = libmlx.a
+FT_DIR = ./Libft/
+
+MLX_DIR = ./minilibx-linux/
 
 INC = so_long.h
-
-INCS = 
 
 SRCS = main.c \
 		so_ling .c
@@ -29,7 +29,9 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAG) -g -o $(NAME) $^
+	make -C $(FT_DIR)
+	make -C $(MLX_DIR)
+	$(CC) $(CFLAG) -g -o $(NAME) $^ -L$(FT_DIR) -lft -L$(MLS_DIR) -lmlx_Linux -lXext -lX11 -lbsd
 
 clean : 
 	rm -rf $(OBJS)
@@ -37,6 +39,8 @@ clean :
 fclen :
 	make clean
 	rm -rf $(NAME)
+	make -C $(FT_DIR) fclean
+	make -C $(MLX_DIR) fclean
 
 re :
 	make fclean
