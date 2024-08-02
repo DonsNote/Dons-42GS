@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:33 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/02 21:21:15 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 05:40:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	src = (t_src *)malloc(sizeof(t_src) * 1);
 	if (src == NULL)
 		return (0);
-	if (map_size(&src, av[1]));
+	if (map_size(&src, av[1]))
 		return (0);
 	return (0);
 }

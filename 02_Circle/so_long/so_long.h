@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/02 22:01:21 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 05:42:28 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #  define TILE_SIZE 32
 # endif
 
-typedef struct	s_src
+typedef struct s_src
 {
 	void	*mlx;
 	void	*win;
@@ -41,9 +41,8 @@ typedef struct s_check
 	int	p_check;
 	int	c_check;
 	int	e_check;
-	int f_check;
+	int	f_check;
 }	t_check;
-
 
 int		param_check(char *param);
 int		map_size(t_src **src, char *av);

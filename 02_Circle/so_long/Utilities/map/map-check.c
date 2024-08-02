@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map-check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:02:42 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/02 21:24:50 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 05:40:24 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	map_size(t_src **src, char *av)
 {
 	int	fd;
-	int map_h;
+	int	map_h;
 	int	line;
 
 	map_h = 0;

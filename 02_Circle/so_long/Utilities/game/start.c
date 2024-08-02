@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:30:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/02 22:02:51 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 05:36:47 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ void	*make_img_src(t_src **src)
 	int	xpm_y;
 
 	(*src)->anya = mlx_xpm_file_to_image((*src)->mlx,
-	"../../asset/anya.xpm", &xpm_x, &xpm_y);
+			"../../asset/anya.xpm", &xpm_x, &xpm_y);
 	(*src)->papa = mlx_xpm_file_to_image((*src)->mlx,
-	"../../asset/papa.xpm", &xpm_x, &xpm_y);
+			"../../asset/papa.xpm", &xpm_x, &xpm_y);
 	(*src)->mama = mlx_xpm_file_to_image((*src)->mlx,
-	"../../asset/mama.xpm", &xpm_x, &xpm_y);
+			"../../asset/mama.xpm", &xpm_x, &xpm_y);
 	(*src)->wall = mlx_xpm_file_to_image((*src)->mlx,
-	"../../asset/wall.xpm", &xpm_x, &xpm_y);
+			"../../asset/wall.xpm", &xpm_x, &xpm_y);
 	(*src)->flow = mlx_xpm_file_to_image((*src)->mlx,
-	"../../asset/flow.xpm", &xpm_x, &xpm_y);
+			"../../asset/flow.xpm", &xpm_x, &xpm_y);
 	return ;
 }
 
@@ -51,7 +51,7 @@ void	put_map(t_src **src)
 	int	i;
 	int	j;
 	int	wid;
-	int hei;
+	int	hei;
 
 	i = 0;
 	hei = 0;
