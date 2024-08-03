@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:30:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 12:37:21 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 18:04:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	make_img_src(t_src **src);
 void	put_map(t_src **src);
+int		input_key(int key, void **param);
+int		input_mouse(int key, void **src);
 
 void	start_window(t_src **src)
 {
@@ -21,13 +23,21 @@ void	start_window(t_src **src)
 	(*src)->win = mlx_new_window((*src)->mlx, (*src)->wid * 32, (*src)->hei * 32, "DonsGame");
 	make_img_src(src);
 	put_map(src);
+	mlx_key_hook((*src)->win, input_key, src);
+	mlx_hook((*src)->win, 17, 0, input_x, src);
 	mlx_loop((*src)->mlx);
-	// mlx_key_hook((*src)->win, input_key, (void *)0);
 }
 
-int	input_key(int key, void *param)
+int	input_key(int key, void **src)
 {
-	
+	ft_printf("key = [%d]\n", key);
+	return (0);	
+}
+
+int	input_x(int key, void **src)
+{
+	ft_printf("test key = []\n");
+	return (0);	
 }
 
 void	make_img_src(t_src **src)
