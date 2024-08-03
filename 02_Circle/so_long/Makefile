@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/03 12:32:51 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/03 23:37:12 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ INC = so_long.h
 SRCS = main.c \
 		./Utilities/map/param_check.c \
 		./Utilities/map/map-check.c \
-		./Utilities/game/start.c
+		./Utilities/game/start.c \
+		./Utilities/game/key.c \
+		./Utilities/game/move.c
 
 OBJS = $(SRCS:.c=.o)
 

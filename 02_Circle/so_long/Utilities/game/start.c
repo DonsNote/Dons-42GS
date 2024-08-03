@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:30:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 19:08:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 20:51:16 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,27 @@
 
 void	make_img_src(t_src **src);
 void	put_map(t_src **src);
-int		input_key(int key, void **param);
-int		input_mouse(int key, void **src);
+void	put_img(t_src **src, char img, int wid, int hei);
 
 void	start_window(t_src **src)
 {
 	(*src)->mlx = mlx_init();
-	(*src)->win = mlx_new_window((*src)->mlx, (*src)->wid * 32, (*src)->hei * 32, "DonsGame");
+	(*src)->win = mlx_new_window((*src)->mlx,
+			(*src)->wid * 32, (*src)->hei * 32, "DonsGame");
 	make_img_src(src);
 	put_map(src);
 	mlx_key_hook((*src)->win, input_key, src);
 	mlx_hook((*src)->win, 17, 0, input_x, src);
 	mlx_loop((*src)->mlx);
+	return ;
 }
 
-int	input_key(int key, void **src)
+void	finish_window(t_src **src)
 {
-	ft_printf("key = [%d]\n", key);
-	return (0);
-}
-
-int	input_x(int key, void **src)
-{
-	ft_printf("test key = []\n");
-	return (0);
+	mlx_loop_end((*src)->mlx);
+	mlx_clear_window((*src)->mlx, (*src)->win);
+	mlx_destroy_window((*src)->mlx, (*src)->win);
+	return ;
 }
 
 void	make_img_src(t_src **src)
@@ -45,11 +42,16 @@ void	make_img_src(t_src **src)
 	int	xpm_x;
 	int	xpm_y;
 
-	(*src)->anya = mlx_xpm_file_to_image((*src)->mlx, "./asset/anya.xpm", &xpm_x, &xpm_y);
-	(*src)->fafa = mlx_xpm_file_to_image((*src)->mlx, "./asset/fafa.xpm", &xpm_x, &xpm_y);
-	(*src)->mama = mlx_xpm_file_to_image((*src)->mlx, "./asset/mama.xpm", &xpm_x, &xpm_y);
-	(*src)->wall = mlx_xpm_file_to_image((*src)->mlx, "./asset/wall.xpm", &xpm_x, &xpm_y);
-	(*src)->flow = mlx_xpm_file_to_image((*src)->mlx, "./asset/flow.xpm", &xpm_x, &xpm_y);
+	(*src)->anya = mlx_xpm_file_to_image((*src)->mlx,
+			"./asset/anya.xpm", &xpm_x, &xpm_y);
+	(*src)->fafa = mlx_xpm_file_to_image((*src)->mlx,
+			"./asset/fafa.xpm", &xpm_x, &xpm_y);
+	(*src)->mama = mlx_xpm_file_to_image((*src)->mlx,
+			"./asset/mama.xpm", &xpm_x, &xpm_y);
+	(*src)->wall = mlx_xpm_file_to_image((*src)->mlx,
+			"./asset/wall.xpm", &xpm_x, &xpm_y);
+	(*src)->flow = mlx_xpm_file_to_image((*src)->mlx,
+			"./asset/flow.xpm", &xpm_x, &xpm_y);
 	return ;
 }
 
@@ -68,21 +70,32 @@ void	put_map(t_src **src)
 		hei = 0;
 		while ((*src)->map[i][j] != '\0')
 		{
-			if ((*src)->map[i][j] == '1')
-				mlx_put_image_to_window((*src)->mlx, (*src)->win, (*src)->wall, hei, wid);
-			else if ((*src)->map[i][j] == '0')
-				mlx_put_image_to_window((*src)->mlx, (*src)->win, (*src)->flow, hei, wid);
-			else if ((*src)->map[i][j] == 'P')
-				mlx_put_image_to_window((*src)->mlx, (*src)->win, (*src)->anya, hei, wid);
-			else if ((*src)->map[i][j] == 'E')
-				mlx_put_image_to_window((*src)->mlx, (*src)->win, (*src)->fafa, hei, wid);
-			else if ((*src)->map[i][j] == 'C')
-				mlx_put_image_to_window((*src)->mlx, (*src)->win, (*src)->mama, hei, wid);
+			put_img(src, (*src)->map[i][j], wid, hei);
 			hei = hei + 32;
 			++j;
 		}
 		wid = wid + 32;
 		++i;
 	}
+	return ;
+}
+
+void	put_img(t_src **src, char img, int wid, int hei)
+{
+	if (img == '1')
+		mlx_put_image_to_window((*src)->mlx,
+			(*src)->win, (*src)->wall, hei, wid);
+	else if (img == '0')
+		mlx_put_image_to_window((*src)->mlx,
+			(*src)->win, (*src)->flow, hei, wid);
+	else if (img == 'P')
+		mlx_put_image_to_window((*src)->mlx,
+			(*src)->win, (*src)->anya, hei, wid);
+	else if (img == 'E')
+		mlx_put_image_to_window((*src)->mlx,
+			(*src)->win, (*src)->fafa, hei, wid);
+	else if (img == 'C')
+		mlx_put_image_to_window((*src)->mlx,
+			(*src)->win, (*src)->mama, hei, wid);
 	return ;
 }

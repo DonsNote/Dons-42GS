@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 12:09:57 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 23:35:50 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 # include "./Libft/libft.h"
 # include "./minilibx-linux/mlx.h"
 # include "./minilibx-linux/mlx_int.h"
-
-# ifndef TILE_SIZE
-#  define TILE_SIZE 32
-# endif
 
 typedef struct s_src
 {
@@ -32,6 +28,7 @@ typedef struct s_src
 	void	*flow;
 	int		wid;
 	int		hei;
+	int		food;
 	char	**map;
 }	t_src;
 
@@ -47,5 +44,12 @@ typedef struct s_check
 int		param_check(char *param);
 int		map_size(t_src **src, char *av);
 void	start_window(t_src **src);
+int		input_key(int key, void **src);
+int		input_x(int key, void **src);
+void	finish_window(t_src **src);
+void	move_w(t_src **src, int i, int j);
+void	move_a(t_src **src, int i, int j);
+void	move_s(t_src **src, int i, int j);
+void	move_d(t_src **src, int i, int j);
 
 #endif
