@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   param_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:47:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 08:57:27 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:17:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	param_check(char *param)
 		return (1);
 	else if (param[i - 3] != '.')
 		return (1);
-	return (0);	
+	return (0);
 }

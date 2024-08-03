@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:30:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 18:04:39 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:08:00 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	start_window(t_src **src)
 int	input_key(int key, void **src)
 {
 	ft_printf("key = [%d]\n", key);
-	return (0);	
+	return (0);
 }
 
 int	input_x(int key, void **src)
 {
 	ft_printf("test key = []\n");
-	return (0);	
+	return (0);
 }
 
 void	make_img_src(t_src **src)
