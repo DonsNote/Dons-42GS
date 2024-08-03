@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2024/08/01 11:14:59 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 09:33:44 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*get_next_line(int fd)
 			sol = NULL;
 			return (buf);
 		}
-		sol = ft_strjoin(sol, buf);
+		sol = ft_strjoin_gnl(sol, buf);
 	}
 	buf = ft_return_line(sol);
 	sol = ft_next_line(sol);

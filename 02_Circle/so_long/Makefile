@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/01 19:42:55 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/03 12:32:51 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,10 @@ MLX_DIR = ./minilibx-linux/
 
 INC = so_long.h
 
-SRCS = main.c
+SRCS = main.c \
+		./Utilities/map/param_check.c \
+		./Utilities/map/map-check.c \
+		./Utilities/game/start.c
 
 OBJS = $(SRCS:.c=.o)
 

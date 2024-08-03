@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:47:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/02 00:38:47 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/03 08:57:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 int	param_check(char *param)
 {
