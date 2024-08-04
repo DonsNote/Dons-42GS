@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:54:59 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/04 16:47:50 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/04 22:52:13 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	out_line(t_src **src, t_check **flag)
 		j = 0;
 		while ((*src)->map[i][j] != '\0')
 		{
-			if ((i == 0  || i == ((*src)->hei - 1)) && (*src)->map[i][j] != '1')
+			if ((i == 0 || i == ((*src)->hei - 1)) && (*src)->map[i][j] != '1')
 				return (1);
 			if ((j == 0 || j == ((*src)->wid - 1)) && (*src)->map[i][j] != '1')
 				return (1);
@@ -56,7 +56,8 @@ int	out_line(t_src **src, t_check **flag)
 
 int	src_check(char param, t_check **flag, t_src **src)
 {
-	if (param != 'P' && param != 'E' && param != 'C' && param != '1' && param != '0')
+	if (param != 'P' && param != 'E' && param != 'C'
+		&& param != '1' && param != '0')
 		return (1);
 	if (param == 'P')
 	{
