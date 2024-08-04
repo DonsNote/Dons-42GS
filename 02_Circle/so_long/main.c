@@ -6,11 +6,31 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:33 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/04 11:49:52 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/04 16:43:43 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	free_all(t_src **src)
+{
+	int	i;
+
+	i = 0;
+	free((*src)->mlx);
+	free((*src)->win);
+	free((*src)->anya);
+	free((*src)->mama);
+	free((*src)->fafa);
+	free((*src)->wall);
+	free((*src)->flow);
+	while (i < (*src)->hei)
+	{
+		free((*src)->map[i]);
+		++i;
+	}
+	free((*src)->map);
+}
 
 int	main(int ac, char **av)
 {
@@ -28,5 +48,7 @@ int	main(int ac, char **av)
 	if (map_check(&src))
 		return (0);
 	start_window(&src);
+	free_all(&src);
+	free(src);
 	return (0);
 }

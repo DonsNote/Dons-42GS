@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:30:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 20:51:16 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/04 16:47:10 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,13 @@ void	start_window(t_src **src)
 void	finish_window(t_src **src)
 {
 	mlx_loop_end((*src)->mlx);
-	mlx_clear_window((*src)->mlx, (*src)->win);
+	mlx_destroy_image((*src)->mlx, (*src)->anya);
+	mlx_destroy_image((*src)->mlx, (*src)->fafa);
+	mlx_destroy_image((*src)->mlx, (*src)->mama);
+	mlx_destroy_image((*src)->mlx, (*src)->flow);
+	mlx_destroy_image((*src)->mlx, (*src)->wall);
 	mlx_destroy_window((*src)->mlx, (*src)->win);
+	mlx_destroy_display((*src)->mlx);
 	return ;
 }
 

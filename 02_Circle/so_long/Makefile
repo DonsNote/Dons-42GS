@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/04 00:56:01 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/04 13:48:51 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ INC = so_long.h
 SRCS = main.c \
 		./Utilities/map/param_check.c \
 		./Utilities/map/make_map.c \
+		./Utilities/map/map_check.c \
 		./Utilities/map/map_check.c \
 		./Utilities/game/start.c \
 		./Utilities/game/key.c \

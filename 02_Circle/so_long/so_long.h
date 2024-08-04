@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/04 09:49:23 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/04 15:03:36 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,18 @@ typedef struct s_src
 
 typedef struct s_check
 {
-	int	w_check;
 	int	p_check;
 	int	c_check;
 	int	e_check;
-	int	f_check;
 }	t_check;
 
 int		param_check(char *param);
 int		map_size(t_src **src, char *av);
+int		map_check(t_src **src);
 void	start_window(t_src **src);
+void	finish_window(t_src **src);
 int		input_key(int key, void **src);
 int		input_x(int key, void **src);
-void	finish_window(t_src **src);
 void	move_w(t_src **src, int i, int j);
 void	move_a(t_src **src, int i, int j);
 void	move_s(t_src **src, int i, int j);
