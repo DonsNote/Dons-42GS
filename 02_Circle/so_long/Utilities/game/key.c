@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:06:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 23:36:28 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/04 09:48:21 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	input_key(int key, void **param)
 		move_a(src, i, j);
 	else if (key == 115 || key == 65364)
 		move_s(src, i, j);
-	else if (key == 110 || key == 65363)
+	else if (key == 100 || key == 65363)
 		move_d(src, i, j);
 	return (0);
 }

@@ -3,12 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:54:59 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/04 00:55:32 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/04 11:31:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
+int	map_check(t_src **src)
+{
+	
+}

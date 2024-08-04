@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/03 23:35:50 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/04 09:49:23 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_src
 	int		wid;
 	int		hei;
 	int		food;
+	int		count;
 	char	**map;
 }	t_src;
 
