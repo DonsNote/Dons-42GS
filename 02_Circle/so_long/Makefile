@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 10:18:11 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/04 13:48:51 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/06 01:38:03 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = main.c \
 		./Utilities/map/make_map.c \
 		./Utilities/map/map_check.c \
 		./Utilities/map/map_check.c \
+		./Utilities/map/valid_check.c \
 		./Utilities/game/start.c \
 		./Utilities/game/key.c \
 		./Utilities/game/move.c

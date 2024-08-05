@@ -3,20 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:54:59 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/04 22:52:13 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 01:46:29 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-int	out_line(t_src **src, t_check **flag);
-int	src_check(char param, t_check **flag, t_src **src);
+int		out_line(t_src **src, t_check **flag);
+int		src_check(char param, t_check **flag, t_src **src);
 
 int	map_check(t_src **src)
 {
+	int		i;
+	int		j;
+	char	**check;
 	t_check	*flag;
 
 	flag = (t_check *)malloc(sizeof(t_check) * 1);
@@ -25,6 +28,19 @@ int	map_check(t_src **src)
 	if (out_line(src, &flag))
 		return (1);
 	free(flag);
+	check = (char **)malloc(sizeof(char *) * ((*src)->hei + 1));
+	if (check == NULL)
+		return (1);
+	check[(*src)->hei] = NULL;
+	if (make_check_map(src, check))
+		return (1);
+	i = 0;
+	j = 0;
+	where_p(src, &i, &j);
+	check[i][j] = '1';
+	scan_map(src, check);
+	if (bit_map(src, check))
+		return (1);
 	return (0);
 }
 

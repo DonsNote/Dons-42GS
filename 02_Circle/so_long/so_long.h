@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/04 23:31:16 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 01:39:10 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,14 @@ typedef struct s_check
 int		param_check(char *param);
 int		map_size(t_src **src, char *av);
 int		map_check(t_src **src);
+int		make_check_map(t_src **src, char **check);
+void	scan_map(t_src **src, char **check);
+int		bit_map(t_src **src, char **check);
 void	start_window(t_src **src);
 void	finish_window(t_src **src);
 int		input_key(int key, void **src);
 int		input_x(int key, void **src);
+void	where_p(t_src **src, int *i, int *j);
 void	move_w(t_src **src, int i, int j);
 void	move_a(t_src **src, int i, int j);
 void	move_s(t_src **src, int i, int j);
