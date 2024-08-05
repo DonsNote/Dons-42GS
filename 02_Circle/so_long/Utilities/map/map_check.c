@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:54:59 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 01:46:29 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 02:01:13 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ int	out_line(t_src **src, t_check **flag)
 	int	j;
 
 	i = 0;
-	while ((*src)->map[i] != NULL)
+	while (i < (*src)->hei)
 	{
 		j = 0;
-		while ((*src)->map[i][j] != '\0')
+		while (j < (*src)->wid)
 		{
 			if ((i == 0 || i == ((*src)->hei - 1)) && (*src)->map[i][j] != '1')
 				return (1);

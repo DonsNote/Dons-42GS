@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 01:36:16 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 01:47:54 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 01:56:21 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,20 @@ void	scan_map(t_src **src, char **check)
 	return ;
 }
 
+void	free_map(t_src **src, char **check)
+{
+	int	i;
+
+	i = 0;
+	while (i < (*src)->hei + 1)
+	{
+		free(check[i]);
+		++i;
+	}
+	free(check);
+	return ;
+}
+
 int	bit_map(t_src **src, char **check)
 {
 	int	i;
@@ -95,5 +109,6 @@ int	bit_map(t_src **src, char **check)
 	}
 	if ((*src)->food != c)
 		return (1);
+	free_map(src, check);
 	return (0);
 }
