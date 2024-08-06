@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:33:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/05 18:01:57 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/07 06:45:58 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	move_s(t_src **src, int i, int j)
 		finish_window(src);
 		return ;
 	}
-	else if ((*src)->map[i][j - 1] == 'C')
+	else if ((*src)->map[i + 1][j] == 'C')
 		--(*src)->food;
 	(*src)->map[i][j] = '0';
 	(*src)->map[i + 1][j] = 'P';

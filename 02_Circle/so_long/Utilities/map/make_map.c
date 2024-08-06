@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:02:42 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 18:43:49 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/07 06:46:00 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ int	map_size(t_src **src, char *av)
 	{
 		free(line);
 		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		len = ft_strlen(line);
 		++map_h;
 	}
 	free(line);
