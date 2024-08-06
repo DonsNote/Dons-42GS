@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 01:36:16 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 14:17:24 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:19:35 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**make_check_map(t_src **src)
 	{
 		check[i] = (char *)malloc(sizeof(char) * (*src)->wid + 1);
 		if (check[i] == NULL)
-			return (1);
+			return (0);
 		check[i][(*src)->wid] = '\0';
 		j = 0;
 		while (j < (*src)->wid)

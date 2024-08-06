@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:02:42 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/05 17:57:26 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:22:31 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	input_map_arr(t_src **src, char *av);
 
 int	map_size(t_src **src, char *av)
 {
+	int		len;
 	int		fd;
 	int		map_h;
 	char	*line;
@@ -23,11 +24,15 @@ int	map_size(t_src **src, char *av)
 	map_h = 0;
 	fd = open(av, O_RDONLY);
 	line = get_next_line(fd);
-	(*src)->wid = strlen(line) - 1;
+	(*src)->wid = ft_strlen(line) - 1;
 	while (line)
 	{
 		free(line);
 		line = get_next_line(fd);
+		if (line != NULL)
+			len = ft_strlen(line);
+		if (len != ((*src)->wid + 1))
+			return (1);
 		++map_h;
 	}
 	free(line);
@@ -40,8 +45,9 @@ int	map_size(t_src **src, char *av)
 
 int	input_map_arr(t_src **src, char *av)
 {
-	int		i;
-	int		fd;
+	int	i;
+	int	len;
+	int	fd;
 
 	i = 0;
 	fd = open(av, O_RDONLY);

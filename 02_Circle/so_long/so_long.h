@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 14:15:30 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:11:42 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		bit_map(t_src **src, char **check);
 void	start_window(t_src **src);
 void	finish_window(t_src **src);
 int		input_key(int key, void **src);
-int		input_x(int key, void **src);
+int		input_x(void **src);
 void	where_p(t_src **src, int *i, int *j);
 void	move_w(t_src **src, int i, int j);
 void	move_a(t_src **src, int i, int j);

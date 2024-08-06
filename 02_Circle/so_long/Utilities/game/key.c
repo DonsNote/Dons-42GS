@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:06:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 13:00:56 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:04:14 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	where_p(t_src **src, int *i, int *j);
 
-int	input_x(int key, void **param)
+int	input_x(void **param)
 {
 	t_src	**src;
 

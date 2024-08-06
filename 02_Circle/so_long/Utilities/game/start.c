@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:30:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 14:15:01 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:12:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	start_window(t_src **src)
 			(*src)->wid * 32, (*src)->hei * 32, "DonsGame");
 	make_img_src(src);
 	put_map(src);
-	mlx_key_hook((*src)->win, input_key, src);
-	mlx_hook((*src)->win, 17, 0, input_x, src);
+	mlx_hook((*src)->win, KeyPress, KeyPressMask, input_key, src);
+	mlx_hook((*src)->win, DestroyNotify, SubstructureNotifyMask, input_x, src);
 	mlx_loop((*src)->mlx);
 	return ;
 }
@@ -37,7 +37,6 @@ void	finish_window(t_src **src)
 	mlx_destroy_image((*src)->mlx, (*src)->mama);
 	mlx_destroy_image((*src)->mlx, (*src)->flow);
 	mlx_destroy_image((*src)->mlx, (*src)->wall);
-	mlx_destroy_window((*src)->mlx, (*src)->win);
 	return ;
 }
 
