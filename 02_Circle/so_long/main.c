@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:33 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 01:44:06 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:15:31 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,13 @@ void	free_all(t_src **src)
 	int	i;
 
 	i = 0;
+	mlx_destroy_display((*src)->mlx);
 	while (i < (*src)->hei + 1)
 	{
 		free((*src)->map[i]);
 		++i;
 	}
 	free((*src)->map);
-	free((*src)->anya);
-	free((*src)->mama);
-	free((*src)->fafa);
-	free((*src)->wall);
-	free((*src)->flow);
-	free((*src)->win);
 	free((*src)->mlx);
 	return ;
 }
@@ -54,9 +49,15 @@ int	main(int ac, char **av)
 		return (0);
 	set_src(&src);
 	if (map_size(&src, av[1]))
+	{
+		free_all(&src);
 		return (0);
+	}
 	if (map_check(&src))
+	{
+		free_all(&src);
 		return (0);
+	}
 	start_window(&src);
 	free_all(&src);
 	free(src);

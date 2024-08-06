@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:06:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 01:40:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:00:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int	input_key(int key, void **param)
 
 void	where_p(t_src **src, int *i, int *j)
 {
-	while ((*src)->map[*i] != NULL)
+	while (*i < ((*src)->hei))
 	{
 		*j = 0;
-		while ((*src)->map[*i][*j] != '\0')
+		while (*j < ((*src)->wid))
 		{
 			if ((*src)->map[*i][*j] == 'P')
 				return ;

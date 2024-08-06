@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:18:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 01:39:10 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:15:30 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_check
 int		param_check(char *param);
 int		map_size(t_src **src, char *av);
 int		map_check(t_src **src);
-int		make_check_map(t_src **src, char **check);
+char	**make_check_map(t_src **src);
 void	scan_map(t_src **src, char **check);
 int		bit_map(t_src **src, char **check);
 void	start_window(t_src **src);

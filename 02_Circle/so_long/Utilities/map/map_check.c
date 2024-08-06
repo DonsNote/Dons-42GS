@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:54:59 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 02:01:13 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:24:46 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,13 @@ int	map_check(t_src **src)
 	flag = (t_check *)malloc(sizeof(t_check) * 1);
 	if (flag == NULL)
 		return (1);
+	flag->c_check = 0;
+	flag->p_check = 0;
+	flag->e_check = 0;
 	if (out_line(src, &flag))
 		return (1);
 	free(flag);
-	check = (char **)malloc(sizeof(char *) * ((*src)->hei + 1));
-	if (check == NULL)
-		return (1);
-	check[(*src)->hei] = NULL;
-	if (make_check_map(src, check))
-		return (1);
+	check = make_check_map(src);
 	i = 0;
 	j = 0;
 	where_p(src, &i, &j);
@@ -63,7 +61,7 @@ int	out_line(t_src **src, t_check **flag)
 				return (1);
 			++j;
 		}
-		if (j != ((*src)->wid))
+		if (j != (*src)->wid)
 			return (1);
 		++i;
 	}

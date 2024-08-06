@@ -6,18 +6,23 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 01:36:16 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 01:56:21 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:17:24 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-int	make_check_map(t_src **src, char **check)
+char	**make_check_map(t_src **src)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	**check;
 
 	i = 0;
+	check = (char **)malloc(sizeof(char *) * ((*src)->hei + 1));
+	if (check == NULL)
+		return (0);
+	check[(*src)->hei] = NULL;
 	while (i < (*src)->hei)
 	{
 		check[i] = (char *)malloc(sizeof(char) * (*src)->wid + 1);
@@ -32,7 +37,7 @@ int	make_check_map(t_src **src, char **check)
 		}
 		++i;
 	}
-	return (0);
+	return (check);
 }
 
 void	mark_map(t_src **src, char **check, int i, int j)
@@ -54,6 +59,7 @@ void	scan_map(t_src **src, char **check)
 	int	j;
 	int	k;
 
+	k = 0;
 	while (k <= ((*src)->wid * (*src)->hei))
 	{
 		i = 0;
@@ -94,10 +100,11 @@ int	bit_map(t_src **src, char **check)
 	int	c;
 
 	i = 0;
-	while ((*src)->map[i] != NULL)
+	c = 0;
+	while (i < (*src)->hei)
 	{
 		j = 0;
-		while ((*src)->map[i][j] != '\0')
+		while (j < (*src)->wid)
 		{
 			if ((*src)->map[i][j] == 'C' && check[i][j] != '1')
 				return (1);
