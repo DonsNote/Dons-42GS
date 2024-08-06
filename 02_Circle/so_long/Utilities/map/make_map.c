@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:02:42 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/06 17:22:31 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:43:49 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ int	map_size(t_src **src, char *av)
 	{
 		free(line);
 		line = get_next_line(fd);
-		if (line != NULL)
-			len = ft_strlen(line);
-		if (len != ((*src)->wid + 1))
-			return (1);
+		if (line == NULL)
+			break ;
+		len = ft_strlen(line);
 		++map_h;
 	}
 	free(line);
@@ -50,6 +49,7 @@ int	input_map_arr(t_src **src, char *av)
 	int	fd;
 
 	i = 0;
+	len = 0;
 	fd = open(av, O_RDONLY);
 	(*src)->map = (char **)malloc(sizeof(char *) * ((*src)->hei + 1));
 	if ((*src)->map == NULL)
@@ -58,7 +58,11 @@ int	input_map_arr(t_src **src, char *av)
 	while (i < (*src)->hei)
 	{
 		(*src)->map[i] = get_next_line(fd);
-		(*src)->map[i][(*src)->wid] = '\0';
+		len = ft_strlen((*src)->map[i]);
+		if (len > (*src)->wid)
+			(*src)->map[i][(*src)->wid] = '\0';
+		if (len < (*src)->wid || len > (*src)->wid + 1)
+			return (1);
 		++i;
 	}
 	return (0);
