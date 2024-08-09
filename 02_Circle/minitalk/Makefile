@@ -6,11 +6,11 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/07 12:48:12 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/08 17:33:25 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/09 11:50:55 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Minitalk
+NAME = minitalk
 
 SERVER = server
 
@@ -32,14 +32,16 @@ S_OBJS = $(S_SRCS:.c=.o)
 
 C_OBJS = $(C_SRCS:.c=.o)
 
-all : $(SERVER) $(CLIENT)
+all : $(NAME)
+
+$(NAME) : $(SERVER) $(CLIENT)
 
 $(SERVER) : $(S_OBJS)
 	make -C $(FT_DIR)
-	$(CC) $(CFLAG) -g -o $(SERVER) $^ -L$(FT_DIR)
+	$(CC) $(CFLAG) -g -o $(SERVER) $^ -L $(FT_DIR) -lft
 
 $(CLIENT) : $(C_OBJS)
-	$(CC) $(CFLAG) -g -o $(CLIENT) $^ -L$(FT_DIR)
+	$(CC) $(CFLAG) -g -o $(CLIENT) $^ -L $(FT_DIR) -lft
 
 clean :
 	rm -rf $(S_OBJS)
