@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:57:51 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/09 17:57:40 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/10 06:55:10 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	send_bi(pid_t pid, char *av)
 {
 	int		i;
 	int		num;
-	char	*tmp;
 
 	i = 0;
 	while (num != '\0')
@@ -30,7 +29,11 @@ void	send_bi(pid_t pid, char *av)
 				kill(pid, SIGUSR2);
 			num = num / 2;
 			if (num == 0)
+			{
 				kill(pid, SIGUSR1);
+				usleep(400);
+				break ;
+			}
 			usleep(400);
 		}
 		++i;
