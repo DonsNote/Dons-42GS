@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 15:07:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/10 11:00:29 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/10 15:38:24 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	put_msg(int n)
 
 int	main(int ac, char **av)
 {
-	(void)av;
 	pid_t	pid;
 
 	if (ac != 1)
 		return (0);
+	(void)av;
 	pid = getpid();
 	ft_printf("Server PID : %d\n", pid);
 	signal(SIGUSR1, put_msg);
