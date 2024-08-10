@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 15:07:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/10 07:04:58 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/10 11:00:29 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	put_msg(int n)
 		sol = sol + 1 * base;
 	++count;
 	base = base * 2;
-	if (count == 7)
+	if (count == 8)
 	{
 		c = (char)sol;
 		write(1, &c, 1);
@@ -50,7 +50,6 @@ int	main(int ac, char **av)
 	signal(SIGUSR1, put_msg);
 	signal(SIGUSR2, put_msg);
 	while (1)
-		// sleep(1);
 		pause();
 	return (0);
 }
