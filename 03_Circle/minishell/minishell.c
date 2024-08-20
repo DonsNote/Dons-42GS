@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/20 14:39:33 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/08/20 11:15:11 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/08/20 11:20:36 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
-
-void	*make_fork(void)
-{
-	return ;
-}
+#include "minishell.h"
 
 int	main(int ac, char **av)
 {
-	pthread_t	aristo;
-
-	pthread_create(aristo, NULL, make_fork(), NULL);
+	
 	return (0);
 }
