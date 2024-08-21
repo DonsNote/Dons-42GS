@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/21 16:26:34 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/08/21 16:25:31 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/08/21 16:27:45 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#include "../philo.h"
 
-# include <pthread.h>
-# include <stdio.h>
-
-typedef struct s_time
+int	ft_atoi(const char *str)
 {
-	int	number_of_philosophers;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	number_of_times_each_philosopher_must_eat;
-}	t_time;
+	int	i;
+	int	sol;
+	int	sign;
 
-typedef struct s_data
-{
-	int	id;
-	int	fork;
-}	t_data;
-
-int	ft_atoi(const char *str);
-
-#endif
+	if (str == NULL)
+		return (-1);
+	i = 0;
+	sol = 0;
+	sign = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		++i;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = sign * -1;
+		++i;
+	}
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		sol = (sol * 10) + (str[i] - 48);
+		++i;
+	}
+	return (sol * sign);
+}
