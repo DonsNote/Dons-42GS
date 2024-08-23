@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 14:23:02 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/08/21 16:18:42 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/08/23 11:39:01 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INC = philo.h
 SRCS = philo.c \
 		./Utilities/ft_atoi.c
 
-OBJS = $(SRCS: .c=.o)
+OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 

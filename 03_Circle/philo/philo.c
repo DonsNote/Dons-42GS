@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/21 16:46:33 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:40:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*start_thd(void *time)
 	return ((void *)tmp);
 }
 
-t_time	*time_init(char **av)
+t_time	*time_init(int ac, char **av)
 {
 	t_time	*sol;
 
@@ -30,7 +30,7 @@ t_time	*time_init(char **av)
 	sol->time_to_die = ft_atoi(av[2]);
 	sol->time_to_eat = ft_atoi(av[3]);
 	sol->time_to_sleep = ft_atoi(av[4]);
-	if (av[5] != NULL)
+	if (ac == 6)
 		sol->number_of_times_each_philosopher_must_eat = ft_atoi(av[5]);
 	else
 		sol->number_of_times_each_philosopher_must_eat = 0;
@@ -44,8 +44,8 @@ int	main(int ac, char **av)
 
 	if (ac != 5 && ac != 6)
 		return (-1);
-	time = time_init(av);
+	time = time_init(ac, av);
 	pthread_create(&aristo, NULL, start_thd, (void *)time);
-	pthread_join(aristo, (t_time **)&time);
+	pthread_join(aristo, (void *)time);
 	return (0);
 }
