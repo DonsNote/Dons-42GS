@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/08/27 12:54:59 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:34:31 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_data	*data_init(int ac, char **av);
+t_time	*time_init(int ac, char **av);
 void	*start_thd(void *time);
 
 int	main(int ac, char **av)
@@ -22,19 +22,21 @@ int	main(int ac, char **av)
 
 	if (ac != 5 && ac != 6)
 		return (-1);
-	data = data_init(ac, av);
+	if (ft_atoi(av[1]) < 2)
+		return (-1);
+	data = time_init(ac, av);
 	if (data == NULL)
 		return (-1);
-	pthread_create(&aristo, NULL, start_thd, (void *)time);
-	pthread_join(aristo, (void *)time);
+	pthread_create(&aristo, NULL, start_thd, (void *)data);
+	pthread_join(aristo, (void *)data);
 	return (0);
 }
 
-t_data	*data_init(int ac, char **av)
+t_time	*time_init(int ac, char **av)
 {
-	t_data	*sol;
+	t_time	*sol;
 
-	sol = (t_data *)malloc(sizeof(t_data) * 1);
+	sol = (t_time *)malloc(sizeof(t_time) * 1);
 	if (sol == NULL)
 		return (NULL);
 	sol->number_of_philosophers = ft_atoi(av[1]);
@@ -48,11 +50,8 @@ t_data	*data_init(int ac, char **av)
 	return (sol);
 }
 
-void	*start_thd(void *time)
+void	*start_thd(void *data)
 {
-	t_data	*tmp;
-
-	tmp = (t_data *)time;
-	printf("philo : %d\n", tmp->number_of_philosophers);
-	return ((void *)tmp);
+	printf("philo : %d\n", ((t_data *)data)->time->number_of_philosophers);
+	return ((void *)data);
 }
