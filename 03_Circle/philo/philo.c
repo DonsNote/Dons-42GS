@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/11 16:01:20 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/12 01:32:36 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ int	main(int ac, char **av)
 	while (i <= ac)
 	{
 		data = data_init(time, i);
-		if (time == NULL || data == NULL)
+		if (data == NULL)
 			return (-1);
 		pthread_create(&aristo, NULL, start_thd, (void *)data);
+		++i;
 	}
 	pthread_join(aristo, (void *)data);
 	return (0);
@@ -47,6 +48,11 @@ t_time	*time_init(int ac, char **av)
 	if (sol == NULL)
 		return (NULL);
 	sol->number_of_philosophers = ft_atoi(av[1]);
+	if (sol->number_of_philosophers < 2)
+	{
+		free(sol);
+		return (NULL);
+	}
 	sol->time_to_die = ft_atoi(av[2]);
 	sol->time_to_eat = ft_atoi(av[3]);
 	sol->time_to_sleep = ft_atoi(av[4]);
@@ -61,18 +67,17 @@ t_data	*data_init(t_time *time, int i)
 {
 	t_data	*sol;
 
-	sol = (t_data *)malloc(sizeof(t_data) *1);
+	sol = (t_data *)malloc(sizeof(t_data) * 1);
 	if (sol == NULL)
 		return (NULL);
 	sol->fork = 0;
 	sol->id = i;
 	pthread_mutex_init(sol->fork, NULL);
-	return (sol);	
+	return (sol);
 }
 
 void	*start_thd(void *data)
 {
 	printf("philo : %d\n", ((t_data *)data)->time->number_of_philosophers);
 	return ((void *)data);
-
 }
