@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/12 01:32:36 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/13 13:01:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main(int ac, char **av)
 	t_time		*time;
 
 	if (ac != 5 && ac != 6)
-		return (-1);
+		return (check_error(-1));
 	if (ft_atoi(av[1]) < 2)
-		return (-1);
+		return (check_error(-1));
 	time = time_init(ac, av);
 	i = 1;
 	while (i <= ac)
@@ -48,11 +48,6 @@ t_time	*time_init(int ac, char **av)
 	if (sol == NULL)
 		return (NULL);
 	sol->number_of_philosophers = ft_atoi(av[1]);
-	if (sol->number_of_philosophers < 2)
-	{
-		free(sol);
-		return (NULL);
-	}
 	sol->time_to_die = ft_atoi(av[2]);
 	sol->time_to_eat = ft_atoi(av[3]);
 	sol->time_to_sleep = ft_atoi(av[4]);
