@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/13 13:01:27 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:48:36 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ t_data	*data_init(t_time *time, int i)
 void	*start_thd(void *data)
 {
 	printf("philo : %d\n", ((t_data *)data)->time->number_of_philosophers);
-	return ((void *)data);
+	return (0);
 }

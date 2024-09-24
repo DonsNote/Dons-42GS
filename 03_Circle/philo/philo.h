@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/13 13:01:17 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/24 18:20:14 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ typedef struct s_fork
 
 typedef struct s_data
 {
-	int		id;
-	t_fork	*fork;
-	t_time	*time;
+	int				id;
+	pthread_t		thread;
+	pthread_mutex_t	mutex;
+	t_fork			*fork;
+	t_time			*time;
 }	t_data;
 
 
