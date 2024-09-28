@@ -6,18 +6,18 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/27 17:25:40 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:12:41 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <pthread.h>
-# include <stdlib.h>
 # include <stdio.h>
-# include <sys/time.h>
+# include <stdlib.h>
 # include <unistd.h>
+# include <pthread.h>
+# include <sys/time.h>
 
 typedef struct s_info
 {
@@ -32,7 +32,7 @@ typedef struct s_info
 typedef struct s_fork
 {
 	pthread_mutex_t	mutex;
-	int				fork;
+	int				*fork;
 }	t_fork;
 
 typedef struct s_data
