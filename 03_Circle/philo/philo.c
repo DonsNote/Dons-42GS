@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/27 17:18:50 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/29 15:51:26 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ t_data	*data_init(t_info *info)
 		sol[i].id = i;
 		sol[i].info = info;
 		sol[i].fork = fork;
+		sol[i].time_death = 0;
+		sol[i].time_eat = 0;
+		sol[i].time_sleep = 0;
+		sol[i].time_think = 0;
 		pthread_mutex_init(&(sol[i].mutex), NULL);
 		++i;
 	}
