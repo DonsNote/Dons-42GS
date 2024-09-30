@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/29 15:51:26 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:05:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	main(int ac, char **av)
 
 t_info	*info_init(int ac, char **av)
 {
-	t_info	*sol;
+	t_info			*sol;
 
 	sol = (t_info *)malloc(sizeof(t_info));
 	if (sol == NULL)
 		return (NULL);
-	gettimeofday(&sol->start_time, NULL);
+	sol->start_time = 
 	sol->number_of_philosophers = ft_atoi(av[1]);
 	sol->time_to_die = ft_atoi(av[2]);
 	sol->time_to_eat = ft_atoi(av[3]);
@@ -58,21 +58,20 @@ t_info	*info_init(int ac, char **av)
 	return (sol);
 }
 
-t_fork	*fork_init(int number_of_philosophers)
+pthread_mutex_t	*fork_init(int number_of_philosophers)
 {
 	int		i;
-	t_fork	*fork;
+	pthread_mutex_t	*fork;
 
 	if (number_of_philosophers == 0)
 		return (NULL);
-	fork = (t_fork *)malloc(sizeof(t_fork) * number_of_philosophers);
+	fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * number_of_philosophers);
 	if (fork == NULL)
 		return (NULL);
 	i = 0;
 	while (i < number_of_philosophers)
 	{
-		pthread_mutex_init(&(fork[i].mutex), NULL);
-		fork[i].fork = 0;
+		pthread_mutex_init(&fork[i], NULL);
 		++i;
 	}
 	return (fork);
@@ -82,7 +81,7 @@ t_data	*data_init(t_info *info)
 {
 	int		i;
 	t_data	*sol;
-	t_fork	*fork;
+	pthread_mutex_t	*fork;
 
 	sol = (t_data *)malloc(sizeof(t_data) * info->number_of_philosophers);
 	if (sol == NULL)
@@ -91,14 +90,13 @@ t_data	*data_init(t_info *info)
 	i = 0;
 	while (i < info->number_of_philosophers)
 	{
-		sol[i].id = i;
 		sol[i].info = info;
 		sol[i].fork = fork;
-		sol[i].time_death = 0;
+		sol[i].id = i;
 		sol[i].time_eat = 0;
+		sol[i].time_death = 0;
 		sol[i].time_sleep = 0;
 		sol[i].time_think = 0;
-		pthread_mutex_init(&(sol[i].mutex), NULL);
 		++i;
 	}
 	return (sol);

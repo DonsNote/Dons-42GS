@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/29 15:51:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:05:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,32 @@
 
 typedef struct s_info
 {
-	int				number_of_philosophers;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				number_of_times_each_philosopher_must_eat;
-	struct timeval	start_time;
-}	t_info;
-
-typedef struct s_fork
-{
 	pthread_mutex_t	mutex;
-	int				*fork;
-}	t_fork;
+	int				number_of_philosophers;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
+	long			number_of_times_each_philosopher_must_eat;
+	long			start_time;
+}	t_info;
 
 typedef struct s_data
 {
-	int				id;
-	int				time_eat;
-	int				time_death;
-	int				time_sleep;
-	int				time_think;
+	pthread_mutex_t	*fork;
 	pthread_t		thread;
-	pthread_mutex_t	mutex;
-	t_fork			*fork;
 	t_info			*info;
+	int				id;
+	long			time_eat;
+	long			time_death;
+	long			time_sleep;
+	long			time_think;
 }	t_data;
 
-int	ft_atoi(const char *str);
-int	check_error(int i);
+int		ft_atoi(const char *str);
+int		check_error(int i);
+long	get_time(int start_time);
+int		print(t_data *data);
+int		think(t_data *data);
+int		sleep(t_data *data);
 
 #endif

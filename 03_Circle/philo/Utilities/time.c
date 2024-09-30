@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/23 11:38:38 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/30 15:55:56 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/09/30 11:35:47 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/09/30 11:41:29 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	sol;
-	int	sign;
+#include "../philo.h"
 
-	i = 0;
-	sol = 0;
-	sign = 1;
-	if (str[i] == '-')
-		return (-1);
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		++i;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = sign * -1;
-		++i;
-	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		sol = (sol * 10) + (str[i] - 48);
-		++i;
-	}
-	return (sol * sign);
+long	get_time(int start_time)
+{
+	struct timeval	now;
+	long			sol;
+
+	gettimeofday(&now, NULL);
+	sol = ((now.tv_sec * 1000) + (now.tv_usec / 1000)) - start_time;
+	return (sol);
 }

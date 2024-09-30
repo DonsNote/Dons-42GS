@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:54:22 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/27 10:45:10 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/09/30 12:54:55 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	check_error(int	i)
 {
 	if (i == -1)
-		printf("Invalied Param!\n");
+		printf("Error!\n");
 	return (-1);
 }
