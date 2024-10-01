@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/30 16:05:32 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/01 10:21:54 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,20 @@ typedef struct s_info
 	long			start_time;
 }	t_info;
 
+typedef struct s_death
+{
+	pthread_mutex_t	mutex;
+	int				check;
+}	t_death;
+
 typedef struct s_data
 {
 	pthread_mutex_t	*fork;
 	pthread_t		thread;
 	t_info			*info;
+	t_death			*death;
 	int				id;
+	long			cnt_eat;
 	long			time_eat;
 	long			time_death;
 	long			time_sleep;
@@ -48,5 +56,7 @@ long	get_time(int start_time);
 int		print(t_data *data);
 int		think(t_data *data);
 int		sleep(t_data *data);
+int		dead(t_data *data);
+int		dead_check(t_data *data);
 
 #endif

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 11:35:47 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/30 11:41:29 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/09/30 12:48:48 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/10/01 09:37:55 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "../../philo.h"
 
-long	get_time(int start_time)
+int	print(t_data *data)
 {
-	struct timeval	now;
-	long			sol;
-
-	gettimeofday(&now, NULL);
-	sol = ((now.tv_sec * 1000) + (now.tv_usec / 1000)) - start_time;
-	return (sol);
+	long	now;
+	pthread_mutex_lock(&(data->info->mutex));
+	if (data->time_death > data->info->time_to_die)
+	{
+		printf("%ld %d died", get_time(now) - data->info->start_time, data->id);
+	}
 }

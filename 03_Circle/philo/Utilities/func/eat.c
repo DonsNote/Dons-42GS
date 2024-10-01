@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sleep.c                                            :+:      :+:    :+:   */
+/*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 12:37:36 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/30 12:38:19 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/10/01 09:37:50 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "../../philo.h"
 
-int	sleep(t_data *data)
+int	take_fork(t_data *data)
 {
-	
+	pthread_mutex_lock(&data->fork[data->id]);
+
 }

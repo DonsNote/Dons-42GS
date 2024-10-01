@@ -6,14 +6,12 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/30 16:05:34 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/01 09:39:58 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_info	*info_init(int ac, char **av);
-t_data	*data_init(t_info *info);
 void	*start_thd(void *time);
 
 int	main(int ac, char **av)
@@ -37,69 +35,6 @@ int	main(int ac, char **av)
 	}
 	pthread_join(data->thread, (void *)data);
 	return (0);
-}
-
-t_info	*info_init(int ac, char **av)
-{
-	t_info			*sol;
-
-	sol = (t_info *)malloc(sizeof(t_info));
-	if (sol == NULL)
-		return (NULL);
-	sol->start_time = 
-	sol->number_of_philosophers = ft_atoi(av[1]);
-	sol->time_to_die = ft_atoi(av[2]);
-	sol->time_to_eat = ft_atoi(av[3]);
-	sol->time_to_sleep = ft_atoi(av[4]);
-	if (ac == 6)
-		sol->number_of_times_each_philosopher_must_eat = ft_atoi(av[5]);
-	else
-		sol->number_of_times_each_philosopher_must_eat = 0;
-	return (sol);
-}
-
-pthread_mutex_t	*fork_init(int number_of_philosophers)
-{
-	int		i;
-	pthread_mutex_t	*fork;
-
-	if (number_of_philosophers == 0)
-		return (NULL);
-	fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * number_of_philosophers);
-	if (fork == NULL)
-		return (NULL);
-	i = 0;
-	while (i < number_of_philosophers)
-	{
-		pthread_mutex_init(&fork[i], NULL);
-		++i;
-	}
-	return (fork);
-}
-
-t_data	*data_init(t_info *info)
-{
-	int		i;
-	t_data	*sol;
-	pthread_mutex_t	*fork;
-
-	sol = (t_data *)malloc(sizeof(t_data) * info->number_of_philosophers);
-	if (sol == NULL)
-		return (NULL);
-	fork = fork_init(info->number_of_philosophers);
-	i = 0;
-	while (i < info->number_of_philosophers)
-	{
-		sol[i].info = info;
-		sol[i].fork = fork;
-		sol[i].id = i;
-		sol[i].time_eat = 0;
-		sol[i].time_death = 0;
-		sol[i].time_sleep = 0;
-		sol[i].time_think = 0;
-		++i;
-	}
-	return (sol);
 }
 
 void	*start_thd(void *data)
