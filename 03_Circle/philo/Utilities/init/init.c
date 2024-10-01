@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 11:13:36 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/01 14:57:48 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_info	*info_init(int ac, char **av)
 	sol = (t_info *)malloc(sizeof(t_info));
 	if (sol == NULL)
 		return (NULL);
-	sol->start_time = 
+	sol->start_time = get_time(0);
 	sol->number_of_philosophers = ft_atoi(av[1]);
 	sol->time_to_die = ft_atoi(av[2]);
 	sol->time_to_eat = ft_atoi(av[3]);
@@ -36,8 +36,6 @@ pthread_mutex_t	*fork_init(int number_of_philosophers)
 	int		i;
 	pthread_mutex_t	*fork;
 
-	if (number_of_philosophers == 0)
-		return (NULL);
 	fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * number_of_philosophers);
 	if (fork == NULL)
 		return (NULL);
@@ -91,8 +89,8 @@ t_data	*data_init(int ac, char **av)
 	{
 		sol[i].info = info;
 		sol[i].fork = fork;
-		sol[i].id = i;
 		sol[i].death = dead;
+		sol[i].id = i;
 		souce_init(&(sol[i]));
 		++i;
 	}

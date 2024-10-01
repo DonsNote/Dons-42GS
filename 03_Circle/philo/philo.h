@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 10:21:54 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:58:57 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ typedef struct s_data
 	long			time_think;
 }	t_data;
 
-int		ft_atoi(const char *str);
 int		check_error(int i);
+int		ft_atoi(const char *str);
+t_data	*data_init(int c, char **av);
 long	get_time(int start_time);
 int		print(t_data *data);
 int		think(t_data *data);
