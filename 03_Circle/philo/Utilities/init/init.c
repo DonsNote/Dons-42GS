@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 14:57:48 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:33:16 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ t_info	*info_init(int ac, char **av)
 
 pthread_mutex_t	*fork_init(int number_of_philosophers)
 {
-	int		i;
+	int				i;
 	pthread_mutex_t	*fork;
 
-	fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * number_of_philosophers);
+	fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t)
+			* number_of_philosophers);
 	if (fork == NULL)
 		return (NULL);
 	i = 0;
@@ -72,10 +73,10 @@ t_death	*dead_init(void)
 
 t_data	*data_init(int ac, char **av)
 {
-	int		i;
-	t_data	*sol;
-	t_info	*info;
-	t_death	*dead;
+	int				i;
+	t_data			*sol;
+	t_info			*info;
+	t_death			*dead;
 	pthread_mutex_t	*fork;
 
 	info = info_init(ac, av);

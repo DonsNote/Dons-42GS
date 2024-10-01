@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:54:22 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/09/30 12:54:55 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:34:03 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	check_error(int	i)
+int	check_error(int i)
 {
 	if (i == -1)
 		printf("Error!\n");
