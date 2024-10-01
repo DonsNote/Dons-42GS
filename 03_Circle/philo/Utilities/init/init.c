@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 10:07:44 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:13:36 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,15 @@ t_death	*dead_init(void)
 	return (dead);
 }
 
-t_data	*data_init(t_info *info)
+t_data	*data_init(int ac, char **av)
 {
 	int		i;
 	t_data	*sol;
+	t_info	*info;
 	t_death	*dead;
 	pthread_mutex_t	*fork;
 
+	info = info_init(ac, av);
 	sol = (t_data *)malloc(sizeof(t_data) * info->number_of_philosophers);
 	if (sol == NULL)
 		return (NULL);
