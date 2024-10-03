@@ -6,25 +6,29 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:48:48 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 14:27:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:38:57 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-int	print(t_data *data)
+int	print(t_data *data, int i)
 {
-	long	now;
 	pthread_mutex_lock(&(data->info->mutex));
-	if (data->time_death > data->info->time_to_die)
+	if (i == 1)
 	{
-		dead(data);
-		usleep(100);
+		printf("%ld %d died\n", get_time(data->info->start_time), data->id);
 		pthread_mutex_unlock(&(data->info->mutex));
-		printf("%ld %d died", get_time(now) - data->info->start_time, data->id);
 		return (1);
 	}
-	
+	if (i == 2)
+		printf("%ld %d is eating\n", get_time(data->info->start_time), data->id);
+	if (i == 3)
+		printf("%ld %d is sleeping\n", get_time(data->info->start_time), data->id);
+	if (i == 4)
+		printf("%ld %d is thinking\n", get_time(data->info->start_time), data->id);
+	if (i == 5)
+		printf("%ld %d has taken a fork\n", get_time(data->info->start_time), data->id);
 	pthread_mutex_unlock(&(data->info->mutex));
 	return (0);
 }

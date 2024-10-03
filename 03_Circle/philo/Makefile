@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 14:23:02 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/09/30 12:37:01 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/10/03 15:00:03 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRCS = philo.c \
 		./Utilities/time.c \
 		./Utilities/eat.c \
 		./Utilities/sleep.c \
-		./Utilities/think.c \
 		./Utilities/print.c
 
 OBJS = $(SRCS:.c=.o)

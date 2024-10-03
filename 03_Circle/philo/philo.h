@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 12:58:57 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:02:46 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_data
 	int				id;
 	long			cnt_eat;
 	long			time_eat;
-	long			time_death;
 	long			time_sleep;
 	long			time_think;
 }	t_data;
@@ -54,8 +53,8 @@ int		check_error(int i);
 int		ft_atoi(const char *str);
 t_data	*data_init(int c, char **av);
 long	get_time(int start_time);
-int		print(t_data *data);
-int		think(t_data *data);
+int		print(t_data *data, int i);
+int		eat(t_data *data);
 int		sleep(t_data *data);
 int		dead(t_data *data);
 int		dead_check(t_data *data);

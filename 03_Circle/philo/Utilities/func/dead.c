@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:08:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 16:39:30 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:13:50 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	dead_check(t_data *data)
 	{
 		pthread_mutex_unlock(&data->death->mutex);
 		dead(data);
+		usleep(100);
+		print(data, 1);
 		return (1);
 	}
 	pthread_mutex_unlock(&data->death->mutex);

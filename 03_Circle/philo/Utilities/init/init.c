@@ -3,14 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 15:33:16 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:08:37 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
+
+t_info	*info_init(int ac, char **av);
+pthread_mutex_t	*fork_init(int number_of_philosophers);
+t_death	*dead_init(void);
+void	souce_init(t_data *data);
+
+t_data	*data_init(int ac, char **av)
+{
+	int				i;
+	t_data			*sol;
+	t_info			*info;
+	t_death			*dead;
+	pthread_mutex_t	*fork;
+
+	info = info_init(ac, av);
+	sol = (t_data *)malloc(sizeof(t_data) * info->number_of_philosophers);
+	if (sol == NULL)
+		return (NULL);
+	fork = fork_init(info->number_of_philosophers);
+	dead = dead_init();
+	i = 0;
+	while (i < info->number_of_philosophers)
+	{
+		sol[i].info = info;
+		sol[i].fork = fork;
+		sol[i].death = dead;
+		sol[i].id = i;
+		souce_init(&(sol[i]));
+		++i;
+	}
+	return (sol);
+}
 
 t_info	*info_init(int ac, char **av)
 {
@@ -49,16 +81,6 @@ pthread_mutex_t	*fork_init(int number_of_philosophers)
 	return (fork);
 }
 
-void	souce_init(t_data *data)
-{
-	data->cnt_eat = 0;
-	data->time_eat = 0;
-	data->time_death = 0;
-	data->time_sleep = 0;
-	data->time_think = 0;
-	return ;
-}
-
 t_death	*dead_init(void)
 {
 	t_death	*dead;
@@ -71,29 +93,11 @@ t_death	*dead_init(void)
 	return (dead);
 }
 
-t_data	*data_init(int ac, char **av)
+void	souce_init(t_data *data)
 {
-	int				i;
-	t_data			*sol;
-	t_info			*info;
-	t_death			*dead;
-	pthread_mutex_t	*fork;
-
-	info = info_init(ac, av);
-	sol = (t_data *)malloc(sizeof(t_data) * info->number_of_philosophers);
-	if (sol == NULL)
-		return (NULL);
-	fork = fork_init(info->number_of_philosophers);
-	dead = dead_init();
-	i = 0;
-	while (i < info->number_of_philosophers)
-	{
-		sol[i].info = info;
-		sol[i].fork = fork;
-		sol[i].death = dead;
-		sol[i].id = i;
-		souce_init(&(sol[i]));
-		++i;
-	}
-	return (sol);
+	data->cnt_eat = 0;
+	data->time_eat = 0;
+	data->time_sleep = 0;
+	data->time_think = 0;
+	return ;
 }
