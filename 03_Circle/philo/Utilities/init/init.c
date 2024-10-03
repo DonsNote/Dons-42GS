@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/03 21:25:07 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 22:46:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-t_info	*info_init(int ac, char **av);
+t_info			*info_init(int ac, char **av);
 pthread_mutex_t	*fork_init(int number_of_philosophers);
-t_death	*dead_init(void);
-void	souce_init(t_data *data);
+t_death			*dead_init(void);
+void			souce_init(t_data *data);
 
 t_data	*data_init(int ac, char **av)
 {
