@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/03 16:08:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 21:25:07 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_data	*data_init(int ac, char **av)
 		sol[i].info = info;
 		sol[i].fork = fork;
 		sol[i].death = dead;
-		sol[i].id = i;
+		sol[i].id = i + 1;
 		souce_init(&(sol[i]));
 		++i;
 	}
@@ -52,10 +52,10 @@ t_info	*info_init(int ac, char **av)
 	if (sol == NULL)
 		return (NULL);
 	sol->start_time = get_time(0);
-	sol->number_of_philosophers = ft_atoi(av[1]);
-	sol->time_to_die = ft_atoi(av[2]);
-	sol->time_to_eat = ft_atoi(av[3]);
-	sol->time_to_sleep = ft_atoi(av[4]);
+	sol->number_of_philosophers = (long)ft_atoi(av[1]);
+	sol->time_to_die = (long)ft_atoi(av[2]);
+	sol->time_to_eat = (long)ft_atoi(av[3]);
+	sol->time_to_sleep = (long)ft_atoi(av[4]);
 	if (ac == 6)
 		sol->number_of_times_each_philosopher_must_eat = ft_atoi(av[5]);
 	else
@@ -86,7 +86,7 @@ t_death	*dead_init(void)
 	t_death	*dead;
 
 	dead = (t_death *)malloc(sizeof(t_death) * 1);
-	if (dead = NULL)
+	if (dead == NULL)
 		return (NULL);
 	dead->check = 0;
 	pthread_mutex_init(&(dead->mutex), NULL);

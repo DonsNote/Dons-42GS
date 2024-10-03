@@ -6,13 +6,13 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:35:47 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/01 09:38:07 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 19:37:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-long	get_time(int start_time)
+long	get_time(long start_time)
 {
 	struct timeval	now;
 	long			sol;

@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 14:23:02 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/10/03 15:00:03 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/10/03 21:01:00 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,19 @@ NAME = philo
 
 CC = cc
 
-CFLAG = -Wall -Wextra -Werror
+CFLAG = -g -Wall -Wextra -Werror
 
 INC = philo.h
 
 SRCS = philo.c \
 		./Utilities/ft_atoi.c \
 		./Utilities/check_error.c \
-		./Utilities/time.c \
-		./Utilities/eat.c \
-		./Utilities/sleep.c \
-		./Utilities/print.c
+		./Utilities/init/init.c \
+		./Utilities/func/dead.c \
+		./Utilities/func/eat.c \
+		./Utilities/func/print.c \
+		./Utilities/func/sleep.c \
+		./Utilities/func/time.c
 
 OBJS = $(SRCS:.c=.o)
 

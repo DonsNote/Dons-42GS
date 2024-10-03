@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/03 16:02:46 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/03 19:37:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ typedef struct s_data
 int		check_error(int i);
 int		ft_atoi(const char *str);
 t_data	*data_init(int c, char **av);
-long	get_time(int start_time);
-int		print(t_data *data, int i);
-int		eat(t_data *data);
-int		sleep(t_data *data);
-int		dead(t_data *data);
+long	get_time(long start_time);
+int		philo_print(t_data *data, int i);
+int		philo_eat(t_data *data);
+int		philo_sleep(t_data *data);
+int		philo_dead(t_data *data);
 int		dead_check(t_data *data);
 
 #endif
