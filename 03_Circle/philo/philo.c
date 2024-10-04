@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/03 22:53:33 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:40:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	main(int ac, char **av)
 	while (i < data->info->number_of_philosophers)
 	{
 		pthread_create(&(data[i].thread), NULL, start_thd, (void *)&(data[i]));
+		usleep(100);
 		++i;
 	}
-	destroid(data);
 	join(data);
+	destroid(data);
 	return (0);
 }
 
@@ -45,13 +46,13 @@ void	destroid(t_data *data)
 
 	i = 0;
 	pthread_mutex_destroy(&data->death->mutex);
+	free(data->death);
 	while (i < data->info->number_of_philosophers)
 	{
 		pthread_mutex_destroy(&(data->fork[i]));
 		++i;
 	}
 	free(data->fork);
-	free(data->death);
 	return ;
 }
 
@@ -75,7 +76,7 @@ void	*start_thd(void *data)
 	{
 		if (philo_eat((t_data *)data) == 1)
 			break ;
-		if (dead_check((t_data *)data) == 1)
+		if (dead_check((t_data *)data, 3) == 1)
 			break ;
 	}
 	return (0);

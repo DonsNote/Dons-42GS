@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:37:36 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/03 20:24:05 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:48:46 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@ int	philo_sleep(t_data *data)
 {
 	long	now;
 
-	if (dead_check(data))
+	if (dead_check(data, 2))
 		return (1);
-	printf("check : sleep\n");
 	philo_print(data, 3);
 	data->time_sleep = get_time(0);
-	while (1)
+	while (get_time(data->time_sleep) < data->info->time_to_sleep)
 	{
-		if (get_time(now) - data->time_sleep >= data->info->time_to_sleep)
-			break ;
-		if (dead_check(data))
+		if (dead_check(data, 2))
 			return (1);
 	}
 	data->time_sleep = 0;
