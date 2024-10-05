@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dead.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:08:50 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/04 23:09:48 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/05 22:06:09 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	eat_dead(t_data *data)
 
 int	sleep_dead(t_data *data)
 {
-	if (get_time(data->time_sleep) > data->info->time_to_die)
+	if (get_time(data->time_last_eat) > data->info->time_to_die)
 	{
 		philo_dead(data);
 		philo_print(data, 1);
@@ -44,7 +44,7 @@ int	sleep_dead(t_data *data)
 
 int	think_dead(t_data *data)
 {
-	if (get_time(data->time_think) > data->info->time_to_die)
+	if (get_time(data->time_last_eat) > data->info->time_to_die)
 	{
 		philo_dead(data);
 		philo_print(data, 1);

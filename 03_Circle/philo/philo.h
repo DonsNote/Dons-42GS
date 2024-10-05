@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/04 14:05:11 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/05 21:19:43 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ typedef struct s_data
 	int				id;
 	long			cnt_eat;
 	long			time_eat;
-	long			time_sleep;
-	long			time_think;
+	long			time_last_eat;
 }	t_data;
 
 int		check_error(int i);
