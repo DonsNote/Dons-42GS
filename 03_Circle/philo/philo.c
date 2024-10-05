@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/04 16:40:12 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/04 23:18:23 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 		++i;
 	}
 	join(data);
-	destroid(data);
+	// destroid(data);
 	return (0);
 }
 
@@ -49,7 +49,7 @@ void	destroid(t_data *data)
 	free(data->death);
 	while (i < data->info->number_of_philosophers)
 	{
-		pthread_mutex_destroy(&(data->fork[i]));
+		pthread_mutex_destroy(&data->fork[i]);
 		++i;
 	}
 	free(data->fork);
