@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/06 08:08:39 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/06 16:29:55 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_data
 	int				id;
 	long			cnt_eat;
 	long			time_eat;
-	long			time_last_eat;
 	long			time_sleep;
 }	t_data;
 
@@ -58,5 +57,6 @@ int		philo_eat(t_data *data);
 int		philo_sleep(t_data *data);
 int		philo_dead(t_data *data);
 int		dead_check(t_data *data);
+int		dead_print_check(t_data *data);
 
 #endif
