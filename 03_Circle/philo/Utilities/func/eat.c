@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/05 22:05:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/06 08:47:11 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	philo_eat(t_data *data)
 	philo_print(data, 2);
 	while (get_time(data->time_eat) < data->info->time_to_eat)
 	{
-		if (dead_check(data, 1))
+		if (dead_check(data))
 		{
 			down_fork(data);
 			return (1);

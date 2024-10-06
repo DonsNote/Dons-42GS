@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/05 21:24:40 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/06 08:19:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_info	*info_init(int ac, char **av)
 	sol = (t_info *)malloc(sizeof(t_info));
 	if (sol == NULL)
 		return (NULL);
+	pthread_mutex_init(&(sol->mutex), NULL);
 	sol->start_time = get_time(0);
 	sol->number_of_philosophers = (long)ft_atoi(av[1]);
 	sol->time_to_die = (long)ft_atoi(av[2]);
@@ -98,5 +99,6 @@ void	souce_init(t_data *data)
 	data->cnt_eat = 0;
 	data->time_eat = 0;
 	data->time_last_eat = 0;
+	data->time_sleep = 0;
 	return ;
 }

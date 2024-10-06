@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/05 21:54:30 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/06 07:45:31 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,29 @@ int	main(int ac, char **av)
 	return (0);
 }
 
+void	*start_thd(void *data)
+{
+	while (1)
+	{
+		if (philo_eat((t_data *)data))
+			break ;
+	}
+	return (0);
+}
+
+void	join(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->info->number_of_philosophers)
+	{
+		pthread_join((data[i].thread), NULL);
+		++i;
+	}
+	return ;
+}
+
 void	destroid(t_data *data)
 {
 	int	i;
@@ -55,27 +78,4 @@ void	destroid(t_data *data)
 	free(data->info);
 	free(data);
 	return ;
-}
-
-void	join(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->info->number_of_philosophers)
-	{
-		pthread_join((data[i].thread), NULL);
-		++i;
-	}
-	return ;
-}
-
-void	*start_thd(void *data)
-{
-	while (1)
-	{
-		if (philo_eat((t_data *)data))
-			break ;
-	}
-	return (0);
 }
