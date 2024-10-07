@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/06 22:08:45 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/07 20:23:57 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 		usleep(100);
 		++i;
 	}
+	moniter(data);
 	join(data);
 	destroid(data);
 	return (0);

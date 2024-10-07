@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/06 16:30:01 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/07 18:34:53 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_data	*data_init(int ac, char **av)
 		sol[i].fork = fork;
 		sol[i].death = dead;
 		sol[i].id = i + 1;
+		pthread_mutex_init(&sol[i].mutex, NULL);
 		souce_init(&(sol[i]));
 		++i;
 	}
@@ -98,6 +99,7 @@ void	souce_init(t_data *data)
 {
 	data->cnt_eat = 0;
 	data->time_eat = get_time(0);
-	data->time_sleep = 0;
+	data->time_sleep = get_time(0);
+	data->time_think = get_time(0);
 	return ;
 }
