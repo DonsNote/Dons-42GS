@@ -6,11 +6,22 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:21:26 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 17:09:05 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/08 21:04:24 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
+
+void	eat_check(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (1)
+	{
+		pthread_mutex_lock(&data[i].cnt_eat)
+	}
+}
 
 void	moniter(t_data *data)
 {

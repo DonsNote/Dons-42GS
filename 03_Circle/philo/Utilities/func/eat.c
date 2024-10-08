@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 17:28:52 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/08 21:00:11 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,13 @@ void	down_fork(t_data *data)
 
 int	philo_eat(t_data *data)
 {
-	usleep(100);
+	if (data->cnt_eat == data->info->number_of_times_each_philosopher_must_eat)
+	{
+		pthread_mutex_lock(&data->mutex);
+		data->time_eat = get_time(0);
+		pthread_mutex_unlock(&data->mutex);
+		return (0);
+	}
 	if (take_fork_r(data))
 		return (1);
 	if (take_fork_l(data))
