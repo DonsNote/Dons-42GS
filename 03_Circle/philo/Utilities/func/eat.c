@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 07:25:53 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/08 17:28:52 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,17 @@ int	take_fork_l(t_data *data)
 	if (dead_check(data))
 	{
 		if (data->id % 2 == 0)
+		{
 			pthread_mutex_unlock(&data->fork[data->id
 				% data->info->number_of_philosophers]);
-		else
 			pthread_mutex_unlock(&data->fork[data->id - 1]);
+		}
+		else
+		{
+			pthread_mutex_unlock(&data->fork[data->id
+				% data->info->number_of_philosophers]);
+			pthread_mutex_unlock(&data->fork[data->id - 1]);
+		}
 		return (1);
 	}
 	philo_print(data, 5);
@@ -71,6 +78,7 @@ void	down_fork(t_data *data)
 
 int	philo_eat(t_data *data)
 {
+	usleep(100);
 	if (take_fork_r(data))
 		return (1);
 	if (take_fork_l(data))
@@ -88,6 +96,7 @@ int	philo_eat(t_data *data)
 		}
 	}
 	down_fork(data);
+	data->cnt_eat += 1;
 	if (philo_sleep(data))
 		return (1);
 	return (0);
