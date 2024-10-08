@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:37:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 15:28:04 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/08 23:31:07 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_data	*data_init(int ac, char **av)
 		sol[i].death = dead;
 		sol[i].id = i + 1;
 		pthread_mutex_init(&sol[i].mutex, NULL);
+		pthread_mutex_init(&sol[i].cnt, NULL);
 		souce_init(&(sol[i]));
 		++i;
 	}

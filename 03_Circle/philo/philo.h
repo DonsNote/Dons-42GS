@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 15:25:46 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/08 23:30:37 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_data
 {
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	mutex;
+	pthread_mutex_t	cnt;
 	pthread_t		thread;
 	t_info			*info;
 	t_death			*death;
@@ -59,6 +60,5 @@ int		philo_eat(t_data *data);
 int		philo_sleep(t_data *data);
 int		dead_check(t_data *data);
 void	moniter(t_data *data);
-
 
 #endif
