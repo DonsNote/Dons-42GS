@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 23:37:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:07:45 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,17 @@ int	main(int ac, char **av)
 	t_data	*data;
 
 	if (ac != 5 && ac != 6)
-		return (check_error(-1));
-	if (ft_atoi(av[1]) < 1)
-		return (check_error(-1));
+		return (error_print(1));
+	if (check_error(ac, av))
+		return (2);
 	data = data_init(ac, av);
 	if (data == NULL)
-		return (check_error(-1));
+		return (error_print(2));
 	i = 0;
 	while (i < data->info->number_of_philosophers)
 	{
 		pthread_create(&(data[i].thread), NULL, start_thd, (void *)&(data[i]));
+		usleep(100);
 		++i;
 	}
 	moniter(data);
@@ -45,8 +46,6 @@ void	*start_thd(void *data)
 	while (1)
 	{
 		if (philo_eat((t_data *)data))
-			break ;
-		if (dead_check((t_data *)data))
 			break ;
 	}
 	return (0);

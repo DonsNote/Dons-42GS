@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 23:37:04 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:20:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,12 @@ int	cnt_check(t_data *data)
 	if (data->cnt_eat == data->info->number_of_times_each_philosopher_must_eat)
 	{
 		pthread_mutex_unlock(&data->cnt);
-		pthread_mutex_lock(&data->mutex);
-		data->time_eat = get_time(0);
-		pthread_mutex_unlock(&data->mutex);
+		while (dead_check(data) == 0)
+		{
+			pthread_mutex_lock(&data->mutex);
+			data->time_eat = get_time(0);
+			pthread_mutex_unlock(&data->mutex);
+		}
 		return (1);
 	}
 	pthread_mutex_unlock(&data->cnt);
@@ -94,7 +97,7 @@ int	cnt_check(t_data *data)
 int	philo_eat(t_data *data)
 {
 	if (cnt_check(data))
-		return (0);
+		return (1);
 	if (take_fork_r(data))
 		return (1);
 	if (take_fork_l(data))
@@ -103,7 +106,7 @@ int	philo_eat(t_data *data)
 	data->time_eat = get_time(0);
 	pthread_mutex_unlock(&data->mutex);
 	philo_print(data, 2);
-	while (get_time(data->time_eat) < data->info->time_to_eat)
+	while (get_time(data->time_eat) <= data->info->time_to_eat)
 	{
 		if (dead_check(data))
 		{
@@ -112,7 +115,9 @@ int	philo_eat(t_data *data)
 		}
 	}
 	down_fork(data);
+	pthread_mutex_lock(&data->cnt);
 	data->cnt_eat += 1;
+	pthread_mutex_unlock(&data->cnt);
 	if (philo_sleep(data))
 		return (1);
 	return (0);

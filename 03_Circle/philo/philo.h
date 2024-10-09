@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/08 23:30:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/09 11:18:07 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ typedef struct s_data
 	long			time_think;
 }	t_data;
 
-int		check_error(int i);
+int		check_error(int ac, char **av);
+int		error_print(int i);
 int		ft_atoi(const char *str);
 t_data	*data_init(int c, char **av);
 long	get_time(long start_time);
