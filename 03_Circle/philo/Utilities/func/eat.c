@@ -6,53 +6,20 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 14:20:34 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:52:41 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../philo.h"
 
-int	take_fork_r(t_data *data)
+int	take_fork(t_data *data)
 {
-	if (data->id % 2 == 0)
-		pthread_mutex_lock(&data->fork[data->id - 1]);
-	else
-		pthread_mutex_lock(&data->fork[data->id
-			% data->info->number_of_philosophers]);
+	pthread_mutex_lock(&data->fork[data->id - 1]);
+	pthread_mutex_lock(&data->fork[data->id % data->info->philosophers]);
 	if (dead_check(data))
 	{
-		if (data->id % 2 == 0)
-			pthread_mutex_unlock(&data->fork[data->id - 1]);
-		else
-			pthread_mutex_unlock(&data->fork[data->id
-				% data->info->number_of_philosophers]);
-		return (1);
-	}
-	philo_print(data, 5);
-	return (0);
-}
-
-int	take_fork_l(t_data *data)
-{
-	if (data->id % 2 == 0)
-		pthread_mutex_lock(&data->fork[data->id
-			% data->info->number_of_philosophers]);
-	else
-		pthread_mutex_lock(&data->fork[data->id - 1]);
-	if (dead_check(data))
-	{
-		if (data->id % 2 == 0)
-		{
-			pthread_mutex_unlock(&data->fork[data->id
-				% data->info->number_of_philosophers]);
-			pthread_mutex_unlock(&data->fork[data->id - 1]);
-		}
-		else
-		{
-			pthread_mutex_unlock(&data->fork[data->id
-				% data->info->number_of_philosophers]);
-			pthread_mutex_unlock(&data->fork[data->id - 1]);
-		}
+		pthread_mutex_unlock(&data->fork[data->id % data->info->philosophers]);
+		pthread_mutex_unlock(&data->fork[data->id - 1]);
 		return (1);
 	}
 	philo_print(data, 5);
@@ -63,15 +30,13 @@ void	down_fork(t_data *data)
 {
 	if (data->id % 2 == 0)
 	{
-		pthread_mutex_unlock(&data->fork[data->id
-			% data->info->number_of_philosophers]);
+		pthread_mutex_unlock(&data->fork[data->id % data->info->philosophers]);
 		pthread_mutex_unlock(&data->fork[data->id - 1]);
 	}
 	else
 	{
 		pthread_mutex_unlock(&data->fork[data->id - 1]);
-		pthread_mutex_unlock(&data->fork[data->id
-			% data->info->number_of_philosophers]);
+		pthread_mutex_unlock(&data->fork[data->id % data->info->philosophers]);
 	}
 	return ;
 }
@@ -79,7 +44,7 @@ void	down_fork(t_data *data)
 int	cnt_check(t_data *data)
 {
 	pthread_mutex_lock(&data->cnt);
-	if (data->cnt_eat == data->info->number_of_times_each_philosopher_must_eat)
+	if (data->cnt_eat == data->info->must_eat)
 	{
 		pthread_mutex_unlock(&data->cnt);
 		while (dead_check(data) == 0)
@@ -98,9 +63,7 @@ int	philo_eat(t_data *data)
 {
 	if (cnt_check(data))
 		return (1);
-	if (take_fork_r(data))
-		return (1);
-	if (take_fork_l(data))
+	if (take_fork(data))
 		return (1);
 	pthread_mutex_lock(&data->mutex);
 	data->time_eat = get_time(0);

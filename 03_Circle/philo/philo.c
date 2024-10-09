@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 14:07:45 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:42:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int	main(int ac, char **av)
 	if (data == NULL)
 		return (error_print(2));
 	i = 0;
-	while (i < data->info->number_of_philosophers)
+	while (i < data->info->philosophers)
 	{
+		if (data[i].id % 2 == 0)
+			usleep(100);
 		pthread_create(&(data[i].thread), NULL, start_thd, (void *)&(data[i]));
-		usleep(100);
 		++i;
 	}
 	moniter(data);
@@ -56,7 +57,7 @@ void	join(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->info->number_of_philosophers)
+	while (i < data->info->philosophers)
 	{
 		pthread_join((data[i].thread), NULL);
 		++i;
@@ -71,7 +72,7 @@ void	destroid(t_data *data)
 	i = 0;
 	pthread_mutex_destroy(&data->death->mutex);
 	free(data->death);
-	while (i < data->info->number_of_philosophers)
+	while (i < data->info->philosophers)
 	{
 		pthread_mutex_destroy(&data->fork[i]);
 		++i;

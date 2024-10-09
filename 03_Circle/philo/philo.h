@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 11:18:07 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:39:15 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 typedef struct s_info
 {
 	pthread_mutex_t	mutex;
-	int				number_of_philosophers;
+	int				philosophers;
 	long			time_to_die;
 	long			time_to_eat;
 	long			time_to_sleep;
-	long			number_of_times_each_philosopher_must_eat;
+	long			must_eat;
 	long			start_time;
 }	t_info;
 
