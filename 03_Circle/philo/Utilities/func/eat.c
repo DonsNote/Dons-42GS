@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 17:52:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/10 01:35:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	cnt_check(t_data *data)
 			pthread_mutex_lock(&data->mutex);
 			data->time_eat = get_time(0);
 			pthread_mutex_unlock(&data->mutex);
+			usleep(5);
 		}
 		return (1);
 	}
@@ -69,7 +70,7 @@ int	philo_eat(t_data *data)
 	data->time_eat = get_time(0);
 	pthread_mutex_unlock(&data->mutex);
 	philo_print(data, 2);
-	while (get_time(data->time_eat) <= data->info->time_to_eat)
+	while (get_time(data->time_eat) < data->info->time_to_eat)
 	{
 		if (dead_check(data))
 		{
