@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:48:48 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 20:33:20 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 19:20:23 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	philo_print(t_data *data, int i)
 {
-	pthread_mutex_lock(&(data->info->mutex));
+	pthread_mutex_lock(&(data->mutex->print));
 	if (i == 1)
 	{
 		printf("%ld %d died\n", get_time(data->info->start_time), data->id);
-		pthread_mutex_unlock(&(data->info->mutex));
+		pthread_mutex_unlock(&(data->mutex->print));
 		return ;
 	}
 	if (i == 2)
@@ -36,6 +36,6 @@ void	philo_print(t_data *data, int i)
 		printf("%ld %d has taken a fork\n", get_time(data->info->start_time),
 			data->id);
 	}
-	pthread_mutex_unlock(&(data->info->mutex));
+	pthread_mutex_unlock(&(data->mutex->print));
 	return ;
 }

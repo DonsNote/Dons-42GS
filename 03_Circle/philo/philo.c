@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/12 16:00:03 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 20:36:18 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,17 @@ int	main(int ac, char **av)
 
 void	*start_thd(void *data)
 {
+	t_data		*philo;
+
+	philo = (t_data *)data;
 	while (1)
 	{
-		if (philo_eat((t_data *)data))
-			break ;
+		if (philo_eat(philo))
+			return (0);
+		if (dead_check(philo))
+			return (0);
+		if (philo_sleep(philo))
+			return (0);
 	}
 	return (0);
 }
@@ -70,14 +77,17 @@ void	destroid(t_data *data)
 
 	i = 0;
 	pthread_mutex_destroy(&data->mutex->dead);
-	pthread_mutex_destroy(&data->mutex->eat);
 	pthread_mutex_destroy(&data->mutex->print);
+	pthread_mutex_destroy(&data->mutex->eat_d);
 	while (i < data->info->philos)
 	{
+		pthread_mutex_destroy(&data->mutex->eat[i]);
 		pthread_mutex_destroy(&data->mutex->fork[i]);
 		++i;
 	}
 	free(data->mutex->fork);
+	free(data->mutex->eat);
+	free(data->mutex);
 	free(data->info);
 	return ;
 }

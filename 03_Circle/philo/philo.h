@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/12 15:59:22 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 19:04:25 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ typedef struct s_info
 typedef struct s_mutex
 {
 	pthread_mutex_t	*fork;
+	pthread_mutex_t	*eat;
 	pthread_mutex_t	dead;
-	pthread_mutex_t	eat;
+	pthread_mutex_t	eat_d;
 	pthread_mutex_t	print;
 	int				dflag;
-	int				eflag;
+	int				eat_done;
 }	t_mutex;
 
 typedef struct s_data
