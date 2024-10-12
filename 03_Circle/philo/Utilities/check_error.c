@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:54:22 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 13:15:47 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/10 02:24:47 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	error_print(int i)
 	if (i == 2)
 		printf("Allocate Fail!\n");
 	if (i == 3)
-		printf("Plz input Only num!\n");
+		printf("Plz input Only Num!\n");
 	if (i == 4)
 		printf("Don`t input the Minus!\n");
 	if (i == 5)

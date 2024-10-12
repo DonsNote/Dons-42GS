@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 14:23:02 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/10/07 20:21:59 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/10/10 02:29:07 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = philo.c \
 		./Utilities/ft_atoi.c \
 		./Utilities/check_error.c \
 		./Utilities/init/init.c \
+		./Utilities/init/mutex.c \
 		./Utilities/func/dead.c \
 		./Utilities/func/eat.c \
 		./Utilities/func/print.c \

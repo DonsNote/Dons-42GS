@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 20:40:51 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:00:22 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	cnt_check(t_data *data)
 			pthread_mutex_lock(&data->mutex);
 			data->time_eat = get_time(0);
 			pthread_mutex_unlock(&data->mutex);
+			usleep(5);
 		}
 		return (1);
 	}

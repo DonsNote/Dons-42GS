@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:21:26 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 20:08:24 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:01:42 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	eat_check(t_data *data)
 
 	i = 0;
 	cnt = 0;
-	while (i < data->info->philosophers)
+	while (i < data->info->philos)
 	{
 		if (data->info->must_eat == -1)
 			return (0);
@@ -48,22 +48,23 @@ void	moniter(t_data *data)
 	i = 0;
 	while (1)
 	{
-		pthread_mutex_lock(&data[i].mutex);
-		if (get_time(data[i].time_eat) > data[i].info->time_to_die)
+		i = 0;
+		while (i < data->info->philosophers)
 		{
+			pthread_mutex_lock(&data[i].mutex);
+			if (get_time(data[i].time_eat) > data[i].info->time_to_die)
+			{
+				pthread_mutex_unlock(&data[i].mutex);
+				pthread_mutex_lock(&data[i].death->mutex);
+				data->death->check = 1;
+				pthread_mutex_unlock(&data[i].death->mutex);
+				philo_print(&data[i], 1);
+				return ;
+			}
 			pthread_mutex_unlock(&data[i].mutex);
-			pthread_mutex_lock(&data[i].death->mutex);
-			data->death->check = 1;
-			pthread_mutex_unlock(&data[i].death->mutex);
-			philo_print(&data[i], 1);
-			return ;
+			++i;
+			if (eat_check(data))
+				return ;
 		}
-		pthread_mutex_unlock(&data[i].mutex);
-		if (i == (data[i].info->philosophers - 1))
-			i = -1;
-		++i;
-		if (eat_check(data))
-			return ;
 	}
-	return ;
 }

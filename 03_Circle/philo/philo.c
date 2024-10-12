@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/12 15:40:03 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:00:03 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,15 @@ int	main(int ac, char **av)
 	if (data == NULL)
 		return (error_print(2));
 	i = 0;
-	while (i < data->info->philosophers)
+	while (i < data->info->philos)
 	{
-		if (data[i].id % 2 == 0)
-			usleep(100);
 		pthread_create(&(data[i].thread), NULL, start_thd, (void *)&(data[i]));
 		++i;
 	}
 	moniter(data);
 	join(data);
 	destroid(data);
+	free(data);
 	return (0);
 }
 
@@ -57,7 +56,7 @@ void	join(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->info->philosophers)
+	while (i < data->info->philos)
 	{
 		pthread_join((data[i].thread), NULL);
 		++i;
@@ -70,15 +69,15 @@ void	destroid(t_data *data)
 	int	i;
 
 	i = 0;
-	pthread_mutex_destroy(&data->death->mutex);
-	free(data->death);
-	while (i < data->info->philosophers)
+	pthread_mutex_destroy(&data->mutex->dead);
+	pthread_mutex_destroy(&data->mutex->eat);
+	pthread_mutex_destroy(&data->mutex->print);
+	while (i < data->info->philos)
 	{
-		pthread_mutex_destroy(&data->fork[i]);
+		pthread_mutex_destroy(&data->mutex->fork[i]);
 		++i;
 	}
-	free(data->fork);
+	free(data->mutex->fork);
 	free(data->info);
-	free(data);
 	return ;
 }
