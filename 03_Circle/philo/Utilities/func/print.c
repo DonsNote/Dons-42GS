@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:48:48 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/12 19:20:23 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 21:34:29 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ void	philo_print(t_data *data, int i)
 	if (i == 4)
 		printf("%ld %d is thinking\n", get_time(data->info->start_time),
 			data->id);
-	if (i == 5)
-	{
+	if (i == 5 || i == 6)
 		printf("%ld %d has taken a fork\n", get_time(data->info->start_time),
 			data->id);
+	if (i == 6)
 		printf("%ld %d has taken a fork\n", get_time(data->info->start_time),
 			data->id);
-	}
 	pthread_mutex_unlock(&(data->mutex->print));
 	return ;
 }

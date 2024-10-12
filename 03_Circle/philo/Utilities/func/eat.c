@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 21:07:11 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/12 20:55:53 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/12 21:34:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,12 @@ int	take_fork(t_data *data)
 	{
 		usleep(100);
 		pthread_mutex_lock(&data->mutex->fork[data->id - 1]);
+		if (data->info->philos == 1)
+		{
+			philo_print(data, 5);
+			usleep(data->info->time_to_die + 100);
+			return (1);
+		}
 		pthread_mutex_lock(&data->mutex->fork[data->id % data->info->philos]);
 	}
 	else
@@ -60,7 +66,7 @@ int	take_fork(t_data *data)
 		down_fork(data);
 		return (1);
 	}
-	philo_print(data, 5);
+	philo_print(data, 6);
 	return (0);
 }
 
