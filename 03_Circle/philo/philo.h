@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:26:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/09 17:39:15 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/10/09 20:37:55 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ int		philo_eat(t_data *data);
 int		philo_sleep(t_data *data);
 int		dead_check(t_data *data);
 void	moniter(t_data *data);
+int		cnt_check(t_data *data);
+int		take_fork(t_data *data);
+void	down_fork(t_data *data);
 
 #endif
