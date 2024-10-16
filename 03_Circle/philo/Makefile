@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 14:23:02 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/10/12 16:25:49 by dohyuki2         ###   ########.fr        #
+#    Updated: 2024/10/16 09:14:41 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = cc
 
-CFLAG = -g -Wall -Wextra -Werror
+CFLAG = -Wall -Wextra -Werror
 
 INC = philo.h
 
