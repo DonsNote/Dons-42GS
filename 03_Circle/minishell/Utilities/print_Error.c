@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   print_Error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 09:11:37 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/17 15:30:08 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/10/17 15:18:03 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/10/17 15:21:16 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
-int	main(int ac, char **av, char **envp)
+int	print_Error(int i)
 {
-	(void)ac;
-	(void)av;
-	(void)envp;
-	char *str;
-
-	while (1)
-	{
-		str = readline("Mini : ");
-		if (str)
-			if (check_Param(str))
-				return (print_error(1));
-		else
-			break ;
-		add_history(str);
-		free(str);
-	}
-	return (0);
+	if (i == 1)
+		printf("Error!\n");
+	return (2);
 }
