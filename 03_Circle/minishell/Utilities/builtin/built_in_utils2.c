@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_Error.c                                      :+:      :+:    :+:   */
+/*   built_in_utils2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: junseyun <junseyun@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 15:18:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/10/17 15:21:16 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/12/31 04:27:52 by junseyun          #+#    #+#             */
+/*   Updated: 2024/12/31 06:58:46 by junseyun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-int	print_Error(int i)
+void	execute_cmd_operator(t_token *token, t_info *info)
 {
-	if (i == 1)
-		printf("Error!\n");
-	return (2);
+	t_token	*temp;
+
+	temp = token;
+	if (!check_pipe(temp) && check_redirection(temp))
+		redirection_cmd(temp, info);
+	else
+		exec_cmd(temp, info);
 }

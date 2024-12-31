@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:36:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/28 11:56:28 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2024/12/26 00:29:30 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sol = 0;
 	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	while (str[i] != '\0' && ((str[i] >= 9 && str[i] <= 13) || str[i] == 32))
 		++i;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -27,7 +27,7 @@ int	ft_atoi(const char *str)
 			sign = sign * -1;
 		++i;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] != '\0' && (str[i] >= 48 && str[i] <= 57))
 	{
 		sol = (sol * 10) + (str[i] - 48);
 		++i;
