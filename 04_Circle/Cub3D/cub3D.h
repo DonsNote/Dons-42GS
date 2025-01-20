@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/20 22:18:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/20 22:42:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/time.h>
 # include <fcntl.h>
 # include <string.h>
+# include "./minilibx-linux/mlx.h"
+# include "./minilibx-linux/mlx_int.h"
 
 
 #endif
