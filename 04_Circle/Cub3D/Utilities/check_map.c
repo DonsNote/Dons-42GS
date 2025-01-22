@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 15:17:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/21 17:18:45 by dohyuki2         ###   ########.fr       */
+/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/21 17:22:51 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
 
-int	main(int ac, char **av)
+int	check_map(int map)
 {
-	int	map;
-
-	if (ac < 2)
-		return (error_print(1));
-	map = open(av[1], O_RDONLY);
-	if (map == -1)
-		return (error_print(1));
-	if (check_map(map))
-		return (error_print(1));
 	return (0);
 }
-
