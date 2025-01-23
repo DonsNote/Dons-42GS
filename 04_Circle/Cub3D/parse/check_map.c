@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/22 11:07:26 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:20:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	check_map(int map)
 {
+	char	*line;
 	
 	return (0);
 }

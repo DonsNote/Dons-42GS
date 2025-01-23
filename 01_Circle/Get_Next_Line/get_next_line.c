@@ -6,39 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2024/04/30 09:34:53 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:07:04 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-int	ft_strlen(char *s)
-{
-	int	i;
-
-	if (s == 0)
-		return (0);
-	i = 0;
-	while (s[i] != '\0')
-		++i;
-	return (i);
-}
-
-int	ft_check_enter(char *sol)
-{
-	int	i;
-
-	i = 0;
-	if (sol == 0)
-		return (1);
-	while (sol[i] != '\0')
-	{
-		if (sol[i] == '\n')
-			return (0);
-		++i;
-	}
-	return (1);
-}
 
 char	*get_next_line(int fd)
 {
@@ -46,11 +18,11 @@ char	*get_next_line(int fd)
 	static char	*sol;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
-		return (0);
+		return (NULL);
 	while (ft_check_enter(sol))
 	{
 		buf = ft_read_file(fd);
-		if (buf == 0)
+		if (buf == NULL)
 		{
 			buf = sol;
 			sol = NULL;
@@ -60,7 +32,7 @@ char	*get_next_line(int fd)
 	}
 	buf = ft_return_line(sol);
 	sol = ft_next_line(sol);
-	if (*sol == '\0')
+	if (sol[0] == '\0' || sol == NULL)
 	{
 		free(sol);
 		sol = NULL;

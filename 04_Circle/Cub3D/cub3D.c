@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:17:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/22 11:09:09 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:19:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,16 @@ int	main(int ac, char **av)
 
 int	check_file_name(char *file_name)
 {
-	
+	int		i;
+	char	*cub;
+
+	i = ft_strlen(file_name) - 4;
+	cub = ".cub";
+	while (file_name[i] != '\0')
+	{
+		if (file_name[i] != cub[i])
+			return (1);
+		++i;
+	}
+	return (0);
 }
