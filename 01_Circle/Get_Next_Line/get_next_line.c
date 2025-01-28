@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:02 by don               #+#    #+#             */
-/*   Updated: 2025/01/23 14:40:30 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:03:05 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@ int	main(void)
 
 	i = 0;
 	fd = open("./test", O_RDONLY);
-	line = NULL;
+	line = get_next_line(fd);
 	while (line)
 	{
-		line = get_next_line(fd);
-		printf ("%d line : %s==\n", i, line);
+		printf ("%d line : %s", i, line);
 		free (line);
+		line = get_next_line(fd);
 		i++;
 	}
-	printf("%d line : %s\n", i, line);
 	free (line);
 	close(fd);
 	return (0);

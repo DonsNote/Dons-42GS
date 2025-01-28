@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:05:08 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/05 21:05:10 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:12:00 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	ft_putendl_fd(char *s, int fd)
 		++i;
 	}
 	write(fd, "\n", 1);
+	return ;
 }

@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 14:37:16 by dohyuki2          #+#    #+#              #
-#    Updated: 2025/01/23 14:38:47 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/01/23 15:03:48 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = get_nex_line
+NAME = get_next_line
 
 CC = cc
 CFLAG = -Wall -Wextra -Werror

@@ -3,14 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:37:57 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/06 11:37:41 by don              ###   ########.fr       */
+/*   Updated: 2025/01/23 15:14:22 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	input_num(long long n, int i, char *sol);
+static char	*make_mem(long long *n, int *i, int *sign);
+static int	check_len(long long n);
+
+char	*ft_itoa(int n)
+{
+	int			i;
+	int			sign;
+	char		*sol;
+	long long	nb;
+
+	nb = (long long)n;
+	i = check_len(nb);
+	sign = 1;
+	sol = make_mem(&nb, &i, &sign);
+	if (sol == 0)
+		return (0);
+	if (sign < 0)
+	{
+		sol[0] = '-';
+		input_num(nb, i, &sol[1]);
+	}
+	else
+		input_num(nb, i, sol);
+	return (sol);
+}
 
 static void	input_num(long long n, int i, char *sol)
 {
@@ -44,7 +71,7 @@ static char	*make_mem(long long *n, int *i, int *sign)
 	return (sol);
 }
 
-static int	check_l(long long n)
+static int	check_len(long long n)
 {
 	int	i;
 
@@ -57,27 +84,4 @@ static int	check_l(long long n)
 	if (i == 0)
 		++i;
 	return (i);
-}
-
-char	*ft_itoa(int n)
-{
-	int			i;
-	int			sign;
-	char		*sol;
-	long long	nb;
-
-	nb = (long long)n;
-	i = check_l(nb);
-	sign = 1;
-	sol = make_mem(&nb, &i, &sign);
-	if (sol == 0)
-		return (0);
-	if (sign < 0)
-	{
-		sol[0] = '-';
-		input_num(nb, i, &sol[1]);
-	}
-	else
-		input_num(nb, i, sol);
-	return (sol);
 }

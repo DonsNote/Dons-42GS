@@ -3,31 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:58:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/02 00:26:35 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:14:45 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_needle(const char *s, const char *n, size_t i, size_t len)
-{
-	size_t	j;
-	size_t	n_len;
-
-	j = 0;
-	n_len = ft_strlen(n);
-	while (n[j] != '\0' && s[i] == n[j])
-	{
-		++i;
-		++j;
-	}
-	if (j == n_len && i <= len)
-		return (1);
-	return (0);
-}
+static int	check_needle(const char *s, const char *n, size_t i, size_t len);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -48,4 +33,21 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		++i;
 	}
 	return ((char *)0);
+}
+
+static int	check_needle(const char *s, const char *n, size_t i, size_t len)
+{
+	size_t	j;
+	size_t	n_len;
+
+	j = 0;
+	n_len = ft_strlen(n);
+	while (n[j] != '\0' && s[i] == n[j])
+	{
+		++i;
+		++j;
+	}
+	if (j == n_len && i <= len)
+		return (1);
+	return (0);
 }
