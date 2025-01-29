@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/23 13:16:22 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:27:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@
 # include "./minilibx-linux/mlx.h"
 # include "./minilibx-linux/mlx_int.h"
 
-// Utilities
+/* Utilities */
 int	ft_strlen(char *str);
+
+/* Parse */
+int	check_map(int map);
 
 #endif
