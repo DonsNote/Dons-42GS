@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:48:01 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/07 20:32:32 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:30:18 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, int n)
 {
-	size_t	i;
+	int	i;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{
@@ -23,5 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return (&((unsigned char *)s)[i]);
 		++i;
 	}
-	return ((void *)0);
+	return (NULL);
 }

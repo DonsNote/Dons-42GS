@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:18:08 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/23 15:11:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:53:05 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_bzero(void *s, size_t n)
 	}
 	return ;
 }
-/*
+/* test example
 #include <strings.h>
 #include <stdio.h>
 

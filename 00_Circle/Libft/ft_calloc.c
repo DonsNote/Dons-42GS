@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:59:20 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/23 15:10:48 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:53:15 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(sol, total);
 	return (sol);
 }
-/*
+/* test example
 #include <stdio.h>
 #include <stdlib.h>
 

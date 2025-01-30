@@ -3,19 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:36:56 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/02/26 14:10:46 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/30 00:13:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, int n)
 {
-	size_t	i;
+	int	i;
 
+	if (dest == NULL)
+		return (NULL);
+	if (src == NULL)
+		return (dest);
 	i = 0;
 	while (i < n)
 	{
@@ -30,14 +34,14 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 int	main(void)
 {
-	const char src[] = "hello";
-	char	a[] = "aaaaa";
-	char	*b;
+	const char *src = "hello";
+	char	*a = "aaaaa";
+	char	*b = "aaaaa";
 
-//	ft_memcpy(a, src, 5);
-	b = memcpy(b, src, 6);
+	a = ft_memcpy(a, src,  5);
+	b = memcpy(b, src, 5);
 
-//	printf("%s\n", a);
+	printf("%s\n", a);
 	printf("%s\n", b);
 	printf("%p\n", src);
 	printf("%p\n", a);

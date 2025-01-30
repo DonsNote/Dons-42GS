@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:08:33 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/07 20:09:22 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:13:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*nlist;
+	t_list	*tmp;
 	t_list	*temp;
 
-	nlist = *lst;
-	while (nlist)
+	tmp = *lst;
+	while (tmp != NULL)
 	{
-		temp = nlist->next;
-		del(nlist->content);
-		free(nlist);
-		nlist = temp;
+		temp = tmp->next;
+		del(tmp->content);
+		free(tmp);
+		tmp = temp;
 	}
-	*lst = (t_list *)0;
+	*lst = NULL;
+	return ;
 }

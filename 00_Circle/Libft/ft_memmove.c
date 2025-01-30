@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:58:46 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/06 10:33:05 by don              ###   ########.fr       */
+/*   Updated: 2025/01/30 00:59:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (dest == (void *)0 && src == (void *)0)
+	if (dest == NULL && src == NULL)
 		return (dest);
 	if (dest > src && n > 0)
 	{

@@ -3,20 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:38:30 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/02 00:15:09 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:55:43 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalpha(int c)
 {
+	if (c == NULL)
+		return (NULL);
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1);
 	return (0);
 }
-/*
+/* test example
 #include <ctype.h>
 #include <stdio.h>
 

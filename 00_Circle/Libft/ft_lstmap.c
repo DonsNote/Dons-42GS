@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:09:23 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/07 20:10:55 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:25:44 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*nlist;
+	t_list	*tmp;
 	t_list	*temp;
-	void	*tcon;
+	void	*content;
 
-	new = 0;
-	nlist = lst;
-	while (nlist)
+	if (lst == NULL)
+		return (NULL);
+	new = NULL;
+	tmp = lst;
+	while (tmp != NULL)
 	{
-		tcon = f(nlist->content);
-		temp = ft_lstnew(tcon);
-		if (temp == 0)
+		content = f(tmp->content);
+		temp = ft_lstnew(content);
+		if (temp == NULL)
 		{
-			free(tcon);
+			free(content);
 			ft_lstclear(&new, del);
-			return (0);
+			return (NULL);
 		}
 		ft_lstadd_back(&new, temp);
-		nlist = nlist->next;
+		tmp = tmp->next;
 	}
 	return (new);
 }
