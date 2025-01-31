@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 22:11:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/31 22:26:25 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ typedef enum e_img_type
 	EA
 }	t_img_type;
 
-typedef struct s_img
+typedef struct s_asset
 {
 	void		*img;
 	t_img_type	type;
-}	t_img;
+}	t_asset;
 
 /* Parse */
 int	check_map(int map);

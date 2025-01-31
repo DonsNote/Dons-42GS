@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/31 22:57:54 by dohyuki2          #+#    #+#              #
+#    Updated: 2025/01/31 23:09:15 by dohyuki2         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 CC = cc
@@ -40,7 +52,7 @@ SRCS = ft_atoi.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
 	ft_lstadd_back.c \
 	ft_lstadd_front.c \
 	ft_lstclear.c \
@@ -60,9 +72,6 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-%.o : %.c
-	$(CC) $(CFLAGS) $(INCS) -c $<
-
 clean :
 	rm -f $(OBJS)
 
@@ -72,4 +81,4 @@ fclean :
 
 re : fclean all
 
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re

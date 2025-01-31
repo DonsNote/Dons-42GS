@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 22:02:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/31 23:03:01 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,5 @@ char	*gnl_read_file(int fd);
 char	*gnl_return_line(char *sol);
 char	*gnl_next_line(char *sol);
 char	*gnl_join_free(char *sol, char *buf);
-
-
 
 #endif

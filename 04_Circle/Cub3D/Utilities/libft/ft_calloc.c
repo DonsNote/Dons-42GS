@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:59:20 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/29 20:53:15 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/31 23:10:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
 	size_t	total;
 	void	*sol;
 
-	i = 0;
 	total = nmemb * size;
 	sol = (void *)malloc(total);
 	if (sol == NULL)

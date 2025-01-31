@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:09:29 by dohyuki2          #+#    #+#              #
-#    Updated: 2025/01/31 22:07:45 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/01/31 22:56:26 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-CC = c
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 MLX_DIR = ./minilibx-linux/
@@ -29,20 +29,18 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	make -C $(MLX_DIR)
 	make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) -g -o $(NAME) $^ -lft -L$(LIBFT_DIR) -L$(MLX_DIR) - lmlx_Linux - lXext - lx11 -lbsd
+	make -C $(MLX_DIR)
+	$(CC) $(CFLAGS) -g -o $(NAME) $^ -L$(LIBFT_DIR) -lft -L$(MLX_DIR) - lmlx_Linux - lXext - lx11 -lbsd
 
 clean : 
 		rm -f $(OBJS)
-		make $(MLX_DIR) clean
-		make $(LIBFT_DIR) clean
 
 fclean : 
 		make clean
+		rm -f $(NAME)
 		make -C $(MLX_DIR) fclean
 		make -C $(LIBFT_DIR) fclean
-		rm -f $(NAME)
 
 re : 
 		make fclean

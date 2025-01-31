@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:36:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/29 20:50:44 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/01/31 23:09:56 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 	int	sign;
 
 	if (str == NULL)
-		return (NULL);
+		return (0);
 	i = 0;
 	sol = 0;
 	sign = 1;
