@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/05 21:04:56 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/23 16:11:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+static void	re_put(long long n, int fd);
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*line;
+	long long	nb;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	nb = (long long)n;
+	if (nb < 0)
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		write(fd, "-", 1);
+		nb = nb * -1;
 	}
-	return (0);
+	re_put(nb, fd);
+}
+
+static void	re_put(long long n, int fd)
+{
+	if (n < 10)
+	{
+		ft_putchar_fd((char)n + 48, fd);
+		return ;
+	}
+	re_put(n / 10, fd);
+	ft_putchar_fd((char)((n % 10) + 48), fd);
 }

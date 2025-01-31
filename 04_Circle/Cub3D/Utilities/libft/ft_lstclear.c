@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/07 18:08:33 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/29 23:13:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*line;
+	t_list	*tmp;
+	t_list	*temp;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	tmp = *lst;
+	while (tmp != NULL)
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		temp = tmp->next;
+		del(tmp->content);
+		free(tmp);
+		tmp = temp;
 	}
-	return (0);
+	*lst = NULL;
+	return ;
 }

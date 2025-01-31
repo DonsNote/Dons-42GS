@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/28 11:58:06 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/29 23:31:32 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+int	ft_memcmp(const void *s1, const void *s2, int n)
 {
-	char	*line;
+	int	i;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < n)
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		++i;
 	}
 	return (0);
 }

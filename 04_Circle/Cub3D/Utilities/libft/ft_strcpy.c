@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2025/01/31 19:52:10 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/31 19:53:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+void	ft_strcpy(char *dest, char *src, int i)
 {
-	char	*line;
+	int	j;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	j = 0;
+	while (src[j] != '\0')
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		dest[i] = src[j];
+		++j;
+		++i;
 	}
-	return (0);
+	return ;
 }

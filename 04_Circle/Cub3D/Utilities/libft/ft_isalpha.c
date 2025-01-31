@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/26 12:38:30 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/29 20:55:43 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+int	ft_isalpha(int c)
 {
-	char	*line;
-
-	line = get_next_line(map);
-	while (line != NULL)
-	{
-		if (check_line(line))
-			return (1);
-		free(line);
-	}
+	if (c == NULL)
+		return (NULL);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
 	return (0);
 }
+/* test example
+#include <ctype.h>
+#include <stdio.h>
+
+int main(void)
+{
+    printf("%d\n", ft_isalpha(97));
+    printf("%d\n", isalpha(97));
+    return (0);
+}
+*/

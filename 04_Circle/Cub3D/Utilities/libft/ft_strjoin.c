@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/29 20:34:07 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/31 19:56:23 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*line;
+	int		i;
+	char	*sol;
 
-	line = get_next_line(map);
-	while (line != NULL)
-	{
-		if (check_line(line))
-			return (1);
-		free(line);
-	}
-	return (0);
+	i = ft_strlen(s1);
+	sol = (char *)malloc(sizeof(char) * (i + ft_strlen(s2) + 1));
+	if (sol == NULL)
+		return (NULL);
+	ft_strcyp_for_join(sol, (char *)s1, 0);
+	ft_strcyp_for_join(sol, (char *)s2, i);
+	ft_strcpy(sol, s1, 0);
+	ft_strcpy(sol, s2, i);
+	return (sol);
 }

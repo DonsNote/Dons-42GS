@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/26 17:52:25 by dohyuki2          #+#    #+#             */
+/*   Updated: 2024/02/26 18:00:47 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
-
-int	check_map(int map)
+int	ft_toupper(int c)
 {
-	char	*line;
+	if (c >= 97 && c <= 122)
+		c = c - 32;
+	return (c);
+}
+/*
+#include <stdio.h>
+#include <ctype.h>
 
-	line = get_next_line(map);
-	while (line != NULL)
-	{
-		if (check_line(line))
-			return (1);
-		free(line);
-	}
+int	main(void)
+{
+	char a = '\0';
+
+	printf("%c\n", ft_toupper(a));
+	printf("%c\n", toupper(a));
 	return (0);
 }
+*/

@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/02/26 14:58:46 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/30 00:59:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*line;
+	size_t	i;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	i = 0;
+	if (dest == NULL && src == NULL)
+		return (dest);
+	if (dest > src && n > 0)
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		n = n - 1;
+		while (1)
+		{
+			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
+			if (n == 0)
+				break ;
+			--n;
+		}
 	}
-	return (0);
+	else
+	{
+		while (i < n)
+		{
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			++i;
+		}
+	}
+	return (dest);
 }

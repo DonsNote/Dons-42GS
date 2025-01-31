@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/07 18:08:58 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/29 23:16:15 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*line;
+	t_list	*tmp;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	if (lst == NULL)
+		return ;
+	tmp = lst;
+	while (tmp != NULL)
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		f(tmp->content);
+		tmp = tmp->next;
 	}
-	return (0);
+	return ;
 }

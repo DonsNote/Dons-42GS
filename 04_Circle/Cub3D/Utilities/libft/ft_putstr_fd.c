@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/05 21:04:45 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/23 16:11:08 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*line;
+	int	i;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		write(fd, &s[i], 1);
+		++i;
 	}
-	return (0);
+	return ;
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 19:31:42 by dohyuki2         ###   ########.fr       */
+/*   Created: 2024/03/07 18:06:48 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/01/29 23:10:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3D.h"
+#include "libft.h"
 
-int	check_map(int map)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*line;
+	t_list	*tmp;
 
-	line = get_next_line(map);
-	while (line != NULL)
+	if (*lst == NULL)
 	{
-		if (check_line(line))
-			return (1);
-		free(line);
+		*lst = new;
+		return ;
 	}
-	return (0);
+	tmp = *lst;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	return ;
 }
