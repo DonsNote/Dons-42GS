@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/31 23:03:01 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:04:38 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ typedef struct s_list
 
 /* str */
 char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s);
+char	*ft_strdup(char *str);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strlcat(char *dest, char *src, int size);
 void	ft_strcpy(char *dest, char *src, int i);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlen(const char *s);
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-char	*ft_strrchr(const char *s, int c);
-char	*ft_strtrim(char const *s1, char const *set);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		ft_strlcpy(char *dest, char *src, int size);
+int		ft_strlen(char *str);
+char	*ft_strmapi(char *str, char (*f)(unsigned int, char));
+int		ft_strncmp(char *s1, char *s2, int n);
+char	*ft_strnstr(char *haystack, char *needle, int size);
+char	*ft_strrchr(char *str, int c);
+char	*ft_strtrim(char *str, char *set);
+char	*ft_substr(char *str, int start, int len);
 
 /* allocate */
 void	ft_bzero(void *s, size_t n);

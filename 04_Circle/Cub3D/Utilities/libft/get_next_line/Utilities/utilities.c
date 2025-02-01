@@ -6,11 +6,11 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:52 by don               #+#    #+#             */
-/*   Updated: 2025/01/31 22:01:24 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:06:44 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../../libft.h"
 
 char	*gnl_join_free(char *sol, char *buf)
 {

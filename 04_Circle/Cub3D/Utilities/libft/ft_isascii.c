@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:42:35 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/29 22:53:55 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:16:16 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	ft_isascii(int c)
 {
-	if (c == NULL)
-		return (NULL);
 	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);

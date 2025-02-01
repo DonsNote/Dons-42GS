@@ -6,48 +6,48 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:58:19 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/23 16:14:45 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:46:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check_needle(const char *s, const char *n, size_t i, size_t len);
+static int	str_compare(char *str, char *word, int size);
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(char *str, char *word, int size)
 {
-	size_t	i;
-	size_t	n_len;
+	int	i;
+	int	n_len;
 
 	i = 0;
-	n_len = ft_strlen(needle);
+	n_len = ft_strlen(word);
 	if (n_len == 0)
-		return ((char *)haystack);
-	while (haystack[i] != '\0' && i < len)
+		return (str);
+	while (str[i] != '\0')
 	{
-		if (haystack[i] == needle[0])
+		if (str[i] == word[0])
 		{
-			if (check_needle(haystack, needle, i, len))
-				return (&((char *)haystack)[i]);
+			if (str_compare(&str[i], word, size))
+				return (&str[i]);
 		}
 		++i;
 	}
-	return ((char *)0);
+	return (NULL);
 }
 
-static int	check_needle(const char *s, const char *n, size_t i, size_t len)
+static int	str_compare(char *str, char *word, int size)
 {
-	size_t	j;
-	size_t	n_len;
+	int	i;
 
-	j = 0;
-	n_len = ft_strlen(n);
-	while (n[j] != '\0' && s[i] == n[j])
+	i = 0;
+	while (str[i] == word[i])
 	{
+		if (str[i] == '\0' && word[i] != '\0')
+			return (0);
+		if (word[i] == '\0' || size <= 0)
+			return (1);
 		++i;
-		++j;
+		--size;
 	}
-	if (j == n_len && i <= len)
-		return (1);
 	return (0);
 }

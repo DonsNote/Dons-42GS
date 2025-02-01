@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:37:57 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/29 23:05:23 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:16:54 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_itoa(int n)
 	char		*sol;
 	long long	nb;
 
-	i = check_len(nb);
 	nb = (long long)n;
+	i = check_len(nb);
 	sign = 1;
 	sol = make_mem(&nb, &i, &sign);
 	if (sol == NULL)

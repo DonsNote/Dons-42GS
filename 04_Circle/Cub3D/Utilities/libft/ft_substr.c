@@ -3,33 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: don <don@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 20:33:28 by dohyuki2          #+#    #+#             */
-/*   Updated: 2024/03/06 11:04:00 by don              ###   ########.fr       */
+/*   Updated: 2025/02/01 21:03:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *str, int start, int len)
 {
-	size_t	i;
-	size_t	s_len;
+	int		i;
+	int		s_len;
 	char	*sol;
 
+	if (start < 0)
+		return (NULL);
 	i = 0;
-	s_len = ft_strlen(s);
+	s_len = ft_strlen(str);
 	if (s_len <= start)
 		return ((char *)ft_calloc(1, sizeof(char)));
 	if (s_len - start < len)
 		len = s_len - start;
 	sol = (char *)ft_calloc(len + 1, sizeof(char));
-	if (sol == 0)
-		return (0);
+	if (sol == NULL)
+		return (NULL);
 	while (i < len)
 	{
-		sol[i] = s[i + start];
+		sol[i] = str[i + start];
 		++i;
 	}
 	return (sol);

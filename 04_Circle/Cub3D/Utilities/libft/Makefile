@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohyuki2 <dohyuki2@student.42gyeongsan.    +#+  +:+       +#+         #
+#    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 22:57:54 by dohyuki2          #+#    #+#              #
-#    Updated: 2025/01/31 23:09:15 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/02/01 16:21:21 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRCS = ft_atoi.c \
 	ft_striteri.c \
 	ft_strjoin.c \
 	ft_strlcat.c \
+	ft_strcpy.c \
 	ft_strlcpy.c \
 	ft_strlen.c \
 	ft_strmapi.c \
