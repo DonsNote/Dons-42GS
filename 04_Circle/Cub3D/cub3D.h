@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/01 21:20:10 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:03:53 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,18 @@
 # include <sys/time.h>
 # include <fcntl.h>
 # include <string.h>
+# include <stdbool.h>
 # include "./Utilities/libft/libft.h"
 # include "./minilibx-linux/mlx.h"
 # include "./minilibx-linux/mlx_int.h"
+
+typedef struct s_check_map
+{
+	bool	no;
+	bool	so;
+	bool	we;
+	bool	ea;
+}	t_check_map;
 
 typedef enum e_img_type
 {
