@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:17:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/01/29 09:24:36 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:02:11 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 		return (error_print(2));
 	if (check_map(map))
 		return (error_print(3));
+	init_texture(map);
 	return (0);
 }
 

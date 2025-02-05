@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:43:14 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/01 21:04:38 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:23:17 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_strcpy(char *dest, char *src, int i);
 int		ft_strlcpy(char *dest, char *src, int size);
 int		ft_strlen(char *str);
 char	*ft_strmapi(char *str, char (*f)(unsigned int, char));
+int		ft_strcmp(char *str, char *compare);
 int		ft_strncmp(char *s1, char *s2, int n);
 char	*ft_strnstr(char *haystack, char *needle, int size);
 char	*ft_strrchr(char *str, int c);

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/03 10:03:53 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:41:22 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,20 @@ typedef struct s_check_map
 	bool	ea;
 }	t_check_map;
 
-typedef enum e_img_type
+typedef enum e_direction
 {
-	NO,
+	NO = 0,
 	SO,
 	WE,
 	EA
-}	t_img_type;
+}	t_direcion;
 
 typedef struct s_asset
 {
-	void		*img;
-	t_img_type	type;
+	void	*no_texture;
+	void	*so_texture;
+	void	*we_texture;
+	void	*ea_texture;
 }	t_asset;
 
 /* Parse */
