@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/07 14:49:11 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:04:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,17 @@ typedef struct s_check_map
 	t_direcion	where;
 }	t_check_map;
 
-
-typedef struct s_asset
+typedef struct s_src
 {
+	void	*mlx;
+	void	*win;
 	void	*no_texture;
 	void	*so_texture;
 	void	*we_texture;
 	void	*ea_texture;
-}	t_asset;
+	int		wid;
+	int		hei;
+}	t_src;
 
 /* Utilities */
 
