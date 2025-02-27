@@ -6,17 +6,17 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/07 16:13:06 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:16:10 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
 t_check_map	*init_check_map(void);
-int			check_line(char *line, t_asset *asset);
+int			check_line(char *line, t_src *src);
 int			check_path(char *line);
 
-int	check_init_map(int map, t_asset *asset)
+int	check_init_map(int map, t_src *src)
 {
 	char		*line;
 	t_check_map	*check_direction;
@@ -25,7 +25,7 @@ int	check_init_map(int map, t_asset *asset)
 	line = get_next_line(map);
 	while (line != NULL)
 	{
-		if (check_line(line, asset))
+		if (check_line(line, src))
 			return (1);
 		free(line);
 	}
@@ -47,7 +47,7 @@ t_check_map	*init_check_map(void)
 	return (tmp);
 }
 
-int	check_line(char *line, t_asset *asset)
+int	check_line(char *line, t_src *src)
 {
 	int	i;
 
