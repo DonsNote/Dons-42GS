@@ -6,29 +6,34 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:17:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/20 14:16:30 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/21 01:55:44 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
+#include "key_code.h"
 
 int	check_file_name(char *file_name);
 
 int	main(int ac, char **av)
 {
-	int		map;
 	t_src	*src;
 
-	if (ac < 2 || check_file_name(av[1]))
+	if (ac != 2 || check_file_name(av[1]))
 		return (error_print(1));
-	map = open(av[1], O_RDONLY);
-	if (map == -1)
-		return (error_print(2));
-	src = (t_src *)malloc(sizeof(t_src) * 1);
-	if (src == NULL)
-		return (error_print(4));
-	if (check_init_map(map, src))
-		return (error_print(3));
+	src = check_init_map(av[1]);
+	check_texture(src);
+	check_sprite(src);
+	init_vectors(src);
+	door_action(src);
+	mlx_hook(src->win, EVENT_KEY_PRESS, 0, press_key, src);
+	mlx_hook(src->win, EVENT_WINDOW_CLOSE, 0, exit_on_event, NULL);
+	mlx_hook(src->win, EVENT_MOUSE_MOVE, 0, mouse_move, src);
+	mlx_loop_hook(src->mlx, frame, src);
+	mlx_mouse_hide();
+	mlx_loop(src->mlx);
+	destroy_canvas(&src->canvas);
+	destroy_src(src);
 	return (0);
 }
 
@@ -39,6 +44,8 @@ int	check_file_name(char *file_name)
 	char	*cub;
 
 	i = ft_strlen(file_name) - 4;
+	if (i < 4)
+		return (1);
 	j = 0;
 	cub = ".cub";
 	while (file_name[i] != '\0')
@@ -49,13 +56,4 @@ int	check_file_name(char *file_name)
 		++j;
 	}
 	return (0);
-}
-
-int	*init_src(t_src *src)
-{
-	tmp->no_texture = NULL;
-	tmp->so_texture = NULL;
-	tmp->we_texture = NULL;
-	tmp->ea_texture = NULL;
-	return (tmp);
 }
