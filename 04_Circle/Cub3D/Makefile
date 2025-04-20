@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:09:29 by dohyuki2          #+#    #+#              #
-#    Updated: 2025/02/07 14:49:29 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/04/21 02:05:11 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,17 @@ $(NAME) : $(OBJS)
 	make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) -g -o $(NAME) $^ -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lbsd
 
-clean : 
+clean	:
 		rm -f $(OBJS)
 		make -C $(LIBFT_DIR) clean
 		make -C $(MLX_DIR) clean
-fclean : 
+fclean	:
 		make clean
 		rm -f $(NAME)
-		make -C $(LIBFT_DIR) fclean
-		make -C $(MLX_DIR) clean
+		make fclean -C $(LIBFT_DIR)
+		make clean -C $(MLX_DIR)
 
-re : 
+re		:
 		make fclean
 		make all
 
