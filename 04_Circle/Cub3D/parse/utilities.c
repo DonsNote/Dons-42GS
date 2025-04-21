@@ -6,22 +6,114 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:34:21 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/07 15:44:51 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/21 16:22:40 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-int	jump_sp(char *str)
-{
-	int	i;
+int		get_color(char *color_data);
+int		count_num_of_commas(char *str);
+_Bool	is_color(char *arg);
+void	free_split(char **str);
 
-	if (str == NULL)
+void	inter_line(t_src *src, char **str)
+{
+	int				i;
+	static char		*type[] = {"NO", "SO", "WE", "EA", "F", "C", NULL};
+	static _Bool	set[] = {0, 0, 0, 0, 0, 0};
+	const void		*elem[] = {&(src->textures[NORTH].path),
+		&(src->textures[SOUTH].path), &(src->textures[WEST].path),
+		&(src->textures[EAST].path), &(src->f_color), &(src->c_color)};
+
+	i = -1;
+	while (type[++i] != NULL)
+	{
+		if (ft_strncmp(str[0], type[i], -(size_t)1) != 0)
+			continue ;
+		if (set[i])
+			error_handle(e_map);
+		if (i < WALL_SIZE)
+			*(char **)elem[i] = ft_strdup(str[1]);
+		else
+			*(int *)elem[i] = get_color(str[1]);
+		set[i] = 1;
+		return ;
+	}
+	error_handle(e_map);
+}
+
+void	free_split(char **str)
+{
+	char	**tmp;
+
+	tmp = str;
+	while (*tmp != NULL)
+	{
+		free(*tmp);
+		tmp++;
+	}
+	free(str);
+}
+
+_Bool	is_color(char *arg)
+{
+	int	base;
+	int	sign;
+
+	sign = 1;
+	if (*arg == '-' || *arg == '+')
+		sign = 1 - 2 * (*arg++ == '-');
+	if (sign == -1 || *arg == '\0')
 		return (0);
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32 || str[i] != '\0')
-		++i;
-	if (str[i] == '\0')
-		return (0);
-	return (i);
+	base = 0;
+	while (*arg != '\0')
+	{
+		if (*arg < '0' || *arg > '9')
+			return (0);
+		if (base > UCHAR_MAX / 10 || (base == UCHAR_MAX / 10 && *arg > '5'))
+			return (0);
+		base = base * 10 + (*arg - '0');
+		arg++;
+	}
+	return (1);
+}
+
+int	get_color(char *color_data)
+{
+	char	**color_strs;
+	int		num_of_chunk;
+	int		color;
+
+	if (count_num_of_commas(color_data) != 2)
+		error_handle(e_map);
+	color_strs = ft_split(color_data, ',');
+	num_of_chunk = 0;
+	while (color_strs[num_of_chunk] != NULL)
+		num_of_chunk++;
+	if (num_of_chunk != 3)
+		error_handle(e_map);
+	if (!is_color_string(color_strs[0])
+		|| !is_color_string(color_strs[1])
+		|| !is_color_string(color_strs[2]))
+		error_handle(e_map);
+	color = 0;
+	color |= ft_atoi(color_strs[0]) << 16;
+	color |= ft_atoi(color_strs[1]) << 8;
+	color |= ft_atoi(color_strs[2]);
+	free_split(color_strs);
+	return (color);
+}
+
+int	count_num_of_commas(char *str)
+{
+	int		num_of_commas;
+	char	*cur;
+
+	num_of_commas = 0;
+	cur = str;
+	while (*cur != '\0')
+		if (*(cur++) == ',')
+			num_of_commas++;
+	return (num_of_commas);
 }
