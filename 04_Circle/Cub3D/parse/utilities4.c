@@ -6,15 +6,16 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:21:18 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/21 17:37:59 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/22 00:50:37 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-t_stack	*init_stack(void);
+void	dfs(t_src *src, t_vector pos, t_stack *stack);
+void	check_invalid(t_src *src, t_vector next_pos);
 
-void	check_surrounded(t_src *src)
+void	check_surround(t_src *src)
 {
 	t_vector	pos;
 
@@ -60,4 +61,11 @@ void	dfs(t_src *src, t_vector pos, t_stack *stack)
 		}
 	}
 	free_stack(&stack);
+}
+
+void	check_invalid(t_src *src, t_vector next_pos)
+{
+	if (src->map[(int)next_pos.y][(int)next_pos.x] != '1'
+		&& src->map[(int)next_pos.y][(int)next_pos.x] != ' ')
+		error_handle(e_map);
 }

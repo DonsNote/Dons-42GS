@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:17:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/21 16:33:12 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/22 00:55:09 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	main(int ac, char **av)
 	t_src	*src;
 
 	if (ac != 2 || check_file_name(av[1]))
-		return (error_print(1));
+		error_handle(e_arg);
 	src = check_init(av[1]);
+	src->canvas = init_canvas(WIDTH, HEIGHT);
 	check_texture(src);
-	check_sprite(src);
 	init_vectors(src);
 	mlx_hook(src->canvas->win, EVENT_KEY_PRESS, 0, press_key, src);
 	mlx_hook(src->canvas->win, EVENT_WINDOW_CLOSE, 0, exit_on_event, NULL);

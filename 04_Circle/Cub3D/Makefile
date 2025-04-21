@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:09:29 by dohyuki2          #+#    #+#              #
-#    Updated: 2025/04/21 17:11:53 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/04/22 01:05:18 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,11 @@ SRCS = cub3D.c \
 		./parse/utilities.c \
 		./parse/utilities2.c \
 		./parse/utilities3.c \
-		./Utilities/error_handle.c
+		./parse/utilities4.c \
+		./parse/utilities5.c \
+		./Utilities/error_handle.c \
+		./draw/canvas.c
+
 
 OBJS = $(SRCS:.c=.o)
 

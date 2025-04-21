@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/21 17:37:13 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/22 01:12:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ void		push(t_stack *stack, t_vector data);
 t_vector	pop(t_stack *stack);
 void		free_stack(t_stack **stack);
 t_stack		*init_stack(void);
+void		check_texture(t_src *src);
 
 /* Parse */
 t_src		*check_init(char *av);
