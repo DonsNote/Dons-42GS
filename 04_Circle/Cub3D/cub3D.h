@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 17:19:04 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:26:14 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,18 @@ typedef struct s_drawing
 	int			pos;
 }	t_drawing;
 
+typedef struct s_texture
+{
+	void	*img;
+	int		width;
+	int		height;
+	char	*path;
+	char	*data;
+	int		bits_pixel;
+	int		size_line;
+	int		endian;
+}	t_texture;
+
 typedef struct s_src
 {
 	t_texture	textures[WALL_SIZE];
@@ -122,18 +134,6 @@ typedef struct s_src
 	t_draw		*canvas;
 	float		buffer[WIDTH];
 }	t_src;
-
-typedef struct s_texture
-{
-	void	*img;
-	int		width;
-	int		height;
-	char	*path;
-	char	*data;
-	int		bits_pixel;
-	int		size_line;
-	int		endian;
-}	t_texture;
 
 typedef union u_data
 {
@@ -155,12 +155,12 @@ typedef struct s_node2
 	t_vector		data;
 }	t_node2;
 
-typedef struct s_list
+typedef struct s_lists
 {
 	t_node		*head;
 	t_node		*tail;
 	int			size;
-}	t_list;
+}	t_lists;
 
 typedef struct s_stack
 {
@@ -216,6 +216,12 @@ int			input_exit(void);
 t_vector	r_matrix(t_vector vec, float radian);
 
 /* draw */
+t_draw		*init_canvas(int width, int height);
+void		init_vector(t_src *src);
+void		draw_pixel(t_draw *this, int w, int h, int color);
+void		canvas_show(t_draw *this);
+void		destroy_canvas(t_draw **this_ref);
+
 int			draw(t_src *src);
 void		drawing(t_src *src);
 void		draw_line(t_src *src, t_dda *dda, int i);

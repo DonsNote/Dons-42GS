@@ -6,13 +6,14 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:17:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 17:21:07 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:29:49 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	check_file_name(char *file_name);
+int		check_file_name(char *file_name);
+void	destroy_src(t_src *src);
 
 int	main(int ac, char **av)
 {
@@ -23,7 +24,7 @@ int	main(int ac, char **av)
 	src = check_init(av[1]);
 	src->canvas = init_canvas(WIDTH, HEIGHT);
 	check_texture(src);
-	init_vectors(src);
+	init_vector(src);
 	mlx_hook(src->canvas->win, EVENT_KEY_PRESS, 0, input_key, src);
 	mlx_hook(src->canvas->win, EVENT_WINDOW_CLOSE, 0, input_exit, NULL);
 	mlx_hook(src->canvas->win, EVENT_MOUSE_MOVE, 0, m_move, src);
@@ -55,3 +56,25 @@ int	check_file_name(char *file_name)
 	}
 	return (0);
 }
+
+void	destroy_src(t_src *src)
+{
+	int	i;
+
+	i = -1;
+	while (++i < WALL_SIZE)
+	{
+		mlx_destroy_image(src->canvas->mlx, src->textures[i].img);
+		if (i < WALL_SIZE)
+			free(src->textures[i].path);
+	}
+	i = -1;
+	while (++i < src->height)
+	{
+		free(src->map[i]);
+	}
+	free(src->map);
+	free(src);
+	return ;
+}
+

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/22 00:50:43 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:31:09 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ t_src	*check_init(char *av)
 
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
-		error_handler(e_open);
+		error_handle(e_open);
 	src = init_src();
 	read_elems(src, fd);
 	read_map(src, fd);
 	if (src->player.x == 0.f && src->player.y == 0.f)
-		error_handler(e_map);
+		error_handle(e_map);
 	close(fd);
 	check_side(src);
 	check_surround(src);
@@ -42,7 +42,7 @@ t_src	*init_src(void)
 
 	src = (t_src *)ft_calloc(1, sizeof(t_src));
 	if (src == NULL)
-		error_handler(e_allocate);
+		error_handle(e_allocate);
 	return (src);
 }
 
@@ -76,7 +76,7 @@ void	read_elems(t_src *src, int fd)
 
 void	read_map(t_src *src, int fd)
 {
-	t_list	*list;
+	t_lists	*list;
 	char	*line;
 	int		width;
 
