@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/22 01:12:27 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:19:04 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@
 # include <stdbool.h>
 # include <math.h>
 # include <limits.h>
+# include "./input/input_code.h"
 # include "./Utilities/libft/libft.h"
 # include "./minilibx-linux/mlx.h"
 # include "./minilibx-linux/mlx_int.h"
+
+# define TRUE 1
+# define FALSE 0
 
 # define WIDTH 1280
 # define HEIGHT 720
@@ -38,6 +42,15 @@
 
 # define ELEMS 6
 # define WALL_SIZE 4
+
+# define ROTATE_DEGREE 2.f
+# define MOVE_SPEED 0.1f
+# define FAT 0.15f
+# define RIGHT -1
+# define LEFT 1
+
+# define RENDER 10
+# define OVERFLOW 0xFF000000
 
 typedef enum e_error_type
 {
@@ -72,17 +85,27 @@ typedef struct s_vector
 	float	y;
 }	t_vector;
 
-typedef struct s_canvas
+typedef struct s_draw
 {
-	void	(*draw_pixel)(struct s_canvas *this, int w, int h, int color);
-	void	(*show)(struct s_canvas *this);
+	void	(*draw_pixel)(struct s_draw *this, int w, int h, int color);
+	void	(*show)(struct s_draw *this);
 
 	void	*mlx;
 	void	*win;
 	int		width;
 	int		height;
 	t_image	img;
-}	t_canvas;
+}	t_draw;
+
+typedef struct s_drawing
+{
+	t_vector	t_pos;
+	float		t_step;
+	int			line_h;
+	int			line_s;
+	int			line_e;
+	int			pos;
+}	t_drawing;
 
 typedef struct s_src
 {
@@ -96,8 +119,8 @@ typedef struct s_src
 	t_vector	player;
 	t_vector	dir;
 	t_vector	plane;
-	t_canvas	*canvas;
-	float		**buffer[WIDTH];
+	t_draw		*canvas;
+	float		buffer[WIDTH];
 }	t_src;
 
 typedef struct s_texture
@@ -145,6 +168,18 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+typedef struct s_dda
+{
+	t_vector	cur;
+	t_vector	dist;
+	t_vector	inter;
+	t_vector	step;
+	t_vector	ray;
+	float		w_dist;
+	_Bool		hit;
+	char		target;
+}	t_dda;
+
 /* Utilities */
 _Bool		is_color(char *arg);
 int			get_color(char *color_data);
@@ -165,8 +200,28 @@ t_vector	pop(t_stack *stack);
 void		free_stack(t_stack **stack);
 t_stack		*init_stack(void);
 void		check_texture(t_src *src);
+void		dfs(t_src *src, t_vector pos, t_stack *stack);
+void		check_invalid(t_src *src, t_vector next_pos);
+void		check_surround(t_src *src);
 
 /* Parse */
 t_src		*check_init(char *av);
+
+/* input */
+int			input_key(int key, t_src *src);
+void		rotate(int key, t_src *src);
+void		move(int key, t_src *src);
+int			m_move(int x, int y, t_src *src);
+int			input_exit(void);
+t_vector	r_matrix(t_vector vec, float radian);
+
+/* draw */
+int			draw(t_src *src);
+void		drawing(t_src *src);
+void		draw_line(t_src *src, t_dda *dda, int i);
+t_drawing	init_drawing(t_src *src, t_dda *dda, t_texture *texture);
+int			get_num(t_dda *dda);
+int			get_pixel(t_texture *texture, int x, int y);
+int			get_tex_x(t_src *src, t_dda *dda, t_texture *texture);
 
 #endif

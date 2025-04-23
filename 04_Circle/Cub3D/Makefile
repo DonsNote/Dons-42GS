@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:09:29 by dohyuki2          #+#    #+#              #
-#    Updated: 2025/04/22 01:05:18 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/04/23 14:11:52 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ MLX_DIR = ./minilibx-linux/
 LIBFT_DIR = ./Utilities/libft/
 
 INC = cub3D.h \
-		key_code.h
+		./input/input_code.h
 
 SRCS = cub3D.c \
 		./parse/check_init.c \

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_code.h                                         :+:      :+:    :+:   */
+/*   input_code.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 01:52:37 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/21 01:54:57 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:09:57 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_CODE_H
-# define KEY_CODE_H
+#ifndef INPUT_CODE_H
+# define INPUT_CODE_H
 
 # define EVENT_KEY_PRESS		2
 # define EVENT_KEY_RELEASE		3
