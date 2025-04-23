@@ -6,17 +6,17 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:25:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/21 17:15:07 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:01:00 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-t_data	get_front(t_list *list);
+t_data	get_front(t_lists *lists);
 void	check_valid(t_src *src, char c, t_vector pos);
-void	free_list(t_list **list);
+void	free_list(t_lists **lists);
 
-void	set_map(t_src *new, t_list *list)
+void	set_map(t_src *new, t_lists *lists)
 {
 	int		w;
 	int		h;
@@ -32,21 +32,21 @@ void	set_map(t_src *new, t_list *list)
 			error_handle(e_allocate);
 		ft_memset(new->map[h], ' ', new->width);
 		w = 0;
-		while (get_front(list).str[w] != '\n'
-			&& get_front(list).str[w] != '\0')
+		while (get_front(lists).str[w] != '\n'
+			&& get_front(lists).str[w] != '\0')
 		{
-			check_valid(new, get_front(list).str[w], (t_vector){w, h});
-			new->map[h][w] = get_front(list).str[w];
+			check_valid(new, get_front(lists).str[w], (t_vector){w, h});
+			new->map[h][w] = get_front(lists).str[w];
 			++w;
 		}
-		pop_front(list);
+		pop_front(lists);
 		++h;
 	}
 }
 
-t_data	get_front(t_list *list)
+t_data	get_front(t_lists *lists)
 {
-	return (list->head->data);
+	return (lists->head->data);
 }
 
 void	check_valid(t_src *src, char c, t_vector pos)
@@ -63,14 +63,14 @@ void	check_valid(t_src *src, char c, t_vector pos)
 	return ;
 }
 
-void	free_list(t_list **list)
+void	free_list(t_lists **lists)
 {
 	t_node	*cur;
 	t_node	*next;
 
-	if (list == NULL || *list == NULL)
+	if (lists == NULL || *lists == NULL)
 		return ;
-	cur = (*list)->head;
+	cur = (*lists)->head;
 	while (cur != NULL)
 	{
 		next = cur->next;
@@ -78,6 +78,6 @@ void	free_list(t_list **list)
 		free(cur);
 		cur = next;
 	}
-	free(*list);
-	*list = NULL;
+	free(*lists);
+	*lists = NULL;
 }

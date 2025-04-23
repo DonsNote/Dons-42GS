@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 17:31:09 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 00:37:29 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,28 @@ void	read_elems(t_src *src, int fd)
 		if (line == NULL)
 			error_handle(e_map);
 		str = ft_split(line, ' ');
+		num = 0;
 		while (str[num] != NULL)
 			num++;
 		if (num == 2)
 		{
 			inter_line(src, str);
+			i++;
 		}
-		else if (num != 0)
+		else if (num != 1 && str[num][0] != '\n')
 			error_handle(e_map);
 		free(line);
 		free_split(str);
 	}
-	return ;
 }
 
 void	read_map(t_src *src, int fd)
 {
-	t_lists	*list;
+	t_lists	*lists;
 	char	*line;
 	int		width;
 
-	list = init_list();
+	lists = init_list();
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -94,13 +95,13 @@ void	read_map(t_src *src, int fd)
 		width = ft_strlen(line) - 1;
 		if (width > src->width)
 			src->width = width;
-		push_back(list, (t_data){.str = line});
+		push_back(lists, (t_data){.str = line});
 	}
-	src->height = list->size;
+	src->height = lists->size;
 	if (src->height < 3 || src->width < 3)
 		error_handle(e_map);
-	set_map(src, list);
-	free_list(&list);
+	set_map(src, lists);
+	free_list(&lists);
 }
 
 void	check_side(t_src *src)

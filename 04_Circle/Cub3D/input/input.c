@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:06:24 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 14:50:34 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 20:10:08 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	input_key(int key, t_src *src)
 	if (key == KEY_LEFT || key == KEY_RIGHT)
 		rotate(key, src);
 	else if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
-		move(key, KEY_ESC);
+		move(key, src);
 	else if (key == KEY_ESC)
 		exit(0);
 	return (0);
@@ -46,7 +46,7 @@ void	move(int key, t_src *src)
 
 	r_dir = r_matrix(src->dir, to_radian(90.f));
 	move = get_move(key, src, r_dir);
-	if (is_col(key, src, r_dir, move))
+	if (is_collid(key, src, r_dir, move))
 		return ;
 	src->player.x += move.x * MOVE_SPEED;
 	src->player.y += move.y * MOVE_SPEED;

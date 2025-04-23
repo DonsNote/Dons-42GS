@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 17:26:14 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 00:41:49 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,20 @@
 # define FAT 0.15f
 # define RIGHT -1
 # define LEFT 1
+
+# define MINI_POS 25
+# define MINI_SIZE 250
+# define BORDER 5
+# define CUB 8
+# define CENTER 14
+
+# define B 0x00000000
+# define G 0x00555555
+# define W 0x00FFFFFF
+# define Y 0x00FFFF00
+# define R 0x00FF0000
+# define GR 0x00009900
+# define BU 0x003333FF
 
 # define RENDER 10
 # define OVERFLOW 0xFF000000
@@ -181,39 +195,43 @@ typedef struct s_dda
 }	t_dda;
 
 /* Utilities */
+void		error_handle(t_error_type type);
+
+/* Parse */
+t_src		*check_init(char *av);
+t_lists		*init_list(void);
+t_stack		*init_stack(void);
 _Bool		is_color(char *arg);
 int			get_color(char *color_data);
-int			count_num_of_commas(char *str);
-void		error_handle(t_error_type type);
+int			count_commas(char *str);
 void		free_split(char **str);
 void		inter_line(t_src *src, char **str);
-void		push_back(t_list *list, t_data data);
-void		push_front(t_list *list, t_data data);
-void		pop_back(t_list *list);
-void		pop_front(t_list *list);
-t_list		*init_list(void);
-t_data		get_front(t_list *list);
+void		push_back(t_lists *lists, t_data data);
+void		push_front(t_lists *lists, t_data data);
+void		pop_back(t_lists *lists);
+void		pop_front(t_lists *lists);
+t_data		get_front(t_lists *lists);
+void		set_map(t_src *new, t_lists *lists);
 void		check_valid(t_src *src, char c, t_vector pos);
-void		free_list(t_list **list);
+void		free_list(t_lists **lists);
 void		push(t_stack *stack, t_vector data);
 t_vector	pop(t_stack *stack);
 void		free_stack(t_stack **stack);
-t_stack		*init_stack(void);
 void		check_texture(t_src *src);
 void		dfs(t_src *src, t_vector pos, t_stack *stack);
 void		check_invalid(t_src *src, t_vector next_pos);
 void		check_surround(t_src *src);
 
-/* Parse */
-t_src		*check_init(char *av);
-
 /* input */
 int			input_key(int key, t_src *src);
 void		rotate(int key, t_src *src);
 void		move(int key, t_src *src);
-int			m_move(int x, int y, t_src *src);
 int			input_exit(void);
 t_vector	r_matrix(t_vector vec, float radian);
+float		to_radian(float degree);
+t_vector	get_move(int key, t_src *src, t_vector r_dir);
+_Bool		is_collid(int key, t_src *src, t_vector r_dir, t_vector m_dir);
+t_vector	get_player_side(int key, t_src *src, t_vector r_dir, int side);
 
 /* draw */
 t_draw		*init_canvas(int width, int height);
@@ -228,6 +246,19 @@ void		draw_line(t_src *src, t_dda *dda, int i);
 t_drawing	init_drawing(t_src *src, t_dda *dda, t_texture *texture);
 int			get_num(t_dda *dda);
 int			get_pixel(t_texture *texture, int x, int y);
-int			get_tex_x(t_src *src, t_dda *dda, t_texture *texture);
+int			get_tex(t_src *src, t_dda *dda, t_texture *texture);
+t_dda		*init_dda(t_src *src, t_vector ray);
+void		step(t_dda *dda);
+_Bool		is_collided(t_src *src, t_dda *dda);
+t_dda		*raycasting(t_src *src, t_vector ray);
+int			max(int a, int b);
+int			min(int a, int b);
+
+/* mini */
+void		draw_background(t_src *src);
+void		draw_minimap(t_src *src, t_vector start_pos);
+int			set_color(t_src *src, t_vector cur);
+void		big_draw(t_src *src, t_vector cur, t_vector start_pos, int color);
+void		render_minimap(t_src *src);
 
 #endif

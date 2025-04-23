@@ -6,14 +6,16 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:49:03 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 17:18:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:58:27 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
 int	get_pixel(t_texture *texture, int x, int y);
-int	get_tex_x(t_src *src, t_dda *dda, t_texture *texture);
+int	get_tex(t_src *src, t_dda *dda, t_texture *texture);
+int	max(int a, int b);
+int	min(int a, int b);
 
 int	get_num(t_dda *dda)
 {
@@ -53,4 +55,20 @@ int	get_tex(t_src *src, t_dda *dda, t_texture *texture)
 	if ((!dda->hit && dda->ray.x > 0) || (dda->hit && dda->ray.y < 0))
 		tex_x = texture->width - tex_x - 1;
 	return (tex_x);
+}
+
+int	max(int a, int b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
+}
+
+int	min(int a, int b)
+{
+	if (a <= b)
+		return (a);
+	else
+		return (b);
 }

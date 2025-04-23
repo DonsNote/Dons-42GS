@@ -6,31 +6,31 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:07:13 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/21 17:11:22 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:53:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-void	push_back(t_list *list, t_data data);
-void	push_front(t_list *list, t_data data);
-void	pop_back(t_list *list);
-void	pop_front(t_list *list);
+void	push_back(t_lists *lists, t_data data);
+void	push_front(t_lists *lists, t_data data);
+void	pop_back(t_lists *lists);
+void	pop_front(t_lists *lists);
 
-t_list	*init_list(void)
+t_lists	*init_list(void)
 {
-	t_list	*list;
+	t_lists	*lists;
 
-	list = (t_list *)malloc(sizeof(t_list));
-	if (list == NULL)
+	lists = (t_lists *)malloc(sizeof(t_lists));
+	if (lists == NULL)
 		error_handle(e_allocate);
-	list->head = NULL;
-	list->tail = NULL;
-	list->size = 0;
-	return (list);
+	lists->head = NULL;
+	lists->tail = NULL;
+	lists->size = 0;
+	return (lists);
 }
 
-void	push_back(t_list *list, t_data data)
+void	push_back(t_lists *list, t_data data)
 {
 	t_node	*new_node;
 
@@ -55,7 +55,7 @@ void	push_back(t_list *list, t_data data)
 	++(list->size);
 }
 
-void	push_front(t_list *list, t_data data)
+void	push_front(t_lists *lists, t_data data)
 {
 	t_node	*node;
 
@@ -65,61 +65,61 @@ void	push_front(t_list *list, t_data data)
 	node->data.str = NULL;
 	node->data = data;
 	node->next = NULL;
-	if (list->size == 0)
+	if (lists->size == 0)
 	{
-		list->head = node;
-		list->tail = node;
+		lists->head = node;
+		lists->tail = node;
 		node->prev = NULL;
 	}
 	else
 	{
-		list->head->prev = node;
-		node->next = list->head;
-		list->head = node;
+		lists->head->prev = node;
+		node->next = lists->head;
+		lists->head = node;
 	}
-	++(list->size);
+	++(lists->size);
 }
 
-void	pop_back(t_list *list)
+void	pop_back(t_lists *lists)
 {
 	t_node	*tmp;
 
-	if (list->size == 0)
+	if (lists->size == 0)
 		return ;
-	tmp = list->tail;
-	if (list->size == 1)
+	tmp = lists->tail;
+	if (lists->size == 1)
 	{
-		list->head = NULL;
-		list->tail = NULL;
+		lists->head = NULL;
+		lists->tail = NULL;
 	}
 	else
 	{
-		list->tail->prev->next = NULL;
-		list->tail = list->tail->prev;
+		lists->tail->prev->next = NULL;
+		lists->tail = lists->tail->prev;
 	}
 	free(tmp->data.str);
 	free(tmp);
-	--(list->size);
+	--(lists->size);
 }
 
-void	pop_front(t_list *list)
+void	pop_front(t_lists *lists)
 {
 	t_node	*tmp;
 
-	if (list->size == 0)
+	if (lists->size == 0)
 		return ;
-	tmp = list->head;
-	if (list->size == 1)
+	tmp = lists->head;
+	if (lists->size == 1)
 	{
-		list->head = NULL;
-		list->tail = NULL;
+		lists->head = NULL;
+		lists->tail = NULL;
 	}
 	else
 	{
-		list->head->next->prev = NULL;
-		list->head = list->head->next;
+		lists->head->next->prev = NULL;
+		lists->head = lists->head->next;
 	}
 	free(tmp->data.str);
 	free(tmp);
-	--(list->size);
+	--(lists->size);
 }

@@ -6,7 +6,7 @@
 #    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 15:09:29 by dohyuki2          #+#    #+#              #
-#    Updated: 2025/04/23 14:11:52 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/04/23 20:10:32 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,21 @@ INC = cub3D.h \
 		./input/input_code.h
 
 SRCS = cub3D.c \
+		./Utilities/error_handle.c \
 		./parse/check_init.c \
 		./parse/utilities.c \
 		./parse/utilities2.c \
 		./parse/utilities3.c \
 		./parse/utilities4.c \
 		./parse/utilities5.c \
-		./Utilities/error_handle.c \
-		./draw/canvas.c
-
+		./parse/utilities6.c \
+		./input/input.c \
+		./input/utilities.c \
+		./draw/canvas.c \
+		./draw/draw.c \
+		./draw/raycasting.c \
+		./draw/utilities.c \
+		./draw/mini.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -40,7 +46,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	make -C $(LIBFT_DIR)
 	make -C $(MLX_DIR)
-	$(CC) $(CFLAGS) -g -o $(NAME) $^ -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lbsd
+	$(CC) $(CFLAGS) -g -o $(NAME) $^ -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lbsd -lm
 
 clean	:
 		rm -f $(OBJS)

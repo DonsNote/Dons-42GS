@@ -6,14 +6,14 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:34:21 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/21 16:22:40 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 01:09:10 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
 int		get_color(char *color_data);
-int		count_num_of_commas(char *str);
+int		count_commas(char *str);
 _Bool	is_color(char *arg);
 void	free_split(char **str);
 
@@ -29,7 +29,8 @@ void	inter_line(t_src *src, char **str)
 	i = -1;
 	while (type[++i] != NULL)
 	{
-		if (ft_strncmp(str[0], type[i], -(size_t)1) != 0)
+		printf("test : inter %s\n", str[1]);
+		if (ft_strncmp(str[0], type[i], -1) != 0)
 			continue ;
 		if (set[i])
 			error_handle(e_map);
@@ -67,8 +68,9 @@ _Bool	is_color(char *arg)
 	if (sign == -1 || *arg == '\0')
 		return (0);
 	base = 0;
-	while (*arg != '\0')
+	while (*arg != '\0' || *arg != '\n')
 	{
+		printf("test : color %s\n", arg);
 		if (*arg < '0' || *arg > '9')
 			return (0);
 		if (base > UCHAR_MAX / 10 || (base == UCHAR_MAX / 10 && *arg > '5'))
@@ -82,20 +84,19 @@ _Bool	is_color(char *arg)
 int	get_color(char *color_data)
 {
 	char	**color_strs;
-	int		num_of_chunk;
+	int		num;
 	int		color;
 
-	if (count_num_of_commas(color_data) != 2)
+	if (count_commas(color_data) != 2)
 		error_handle(e_map);
 	color_strs = ft_split(color_data, ',');
-	num_of_chunk = 0;
-	while (color_strs[num_of_chunk] != NULL)
-		num_of_chunk++;
-	if (num_of_chunk != 3)
+	num = 0;
+	while (color_strs[num] != NULL)
+		num++;
+	if (num != 3)
 		error_handle(e_map);
-	if (!is_color_string(color_strs[0])
-		|| !is_color_string(color_strs[1])
-		|| !is_color_string(color_strs[2]))
+	if (!is_color(color_strs[0]) || !is_color(color_strs[1])
+		|| !is_color(color_strs[2]))
 		error_handle(e_map);
 	color = 0;
 	color |= ft_atoi(color_strs[0]) << 16;
@@ -105,7 +106,7 @@ int	get_color(char *color_data)
 	return (color);
 }
 
-int	count_num_of_commas(char *str)
+int	count_commas(char *str)
 {
 	int		num_of_commas;
 	char	*cur;

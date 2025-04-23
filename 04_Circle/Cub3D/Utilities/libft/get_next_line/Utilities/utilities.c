@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:52 by don               #+#    #+#             */
-/*   Updated: 2025/02/03 09:50:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/23 23:15:28 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*gnl_join_free(char *sol, char *buf)
 {
 	char	*tmp;
 
+	if (sol == NULL)
+		return (buf);
 	tmp = ft_strjoin(sol, buf);
 	free(sol);
 	free(buf);
