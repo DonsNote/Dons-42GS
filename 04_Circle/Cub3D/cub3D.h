@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/24 00:41:49 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:19:35 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,7 +226,7 @@ void		check_surround(t_src *src);
 int			input_key(int key, t_src *src);
 void		rotate(int key, t_src *src);
 void		move(int key, t_src *src);
-int			input_exit(void);
+int			input_exit(t_src *src);
 t_vector	r_matrix(t_vector vec, float radian);
 float		to_radian(float degree);
 t_vector	get_move(int key, t_src *src, t_vector r_dir);
@@ -260,5 +260,8 @@ void		draw_minimap(t_src *src, t_vector start_pos);
 int			set_color(t_src *src, t_vector cur);
 void		big_draw(t_src *src, t_vector cur, t_vector start_pos, int color);
 void		render_minimap(t_src *src);
+
+int			check_file_name(char *file_name);
+void		destroy_src(t_src *src);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/24 00:37:29 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:02:51 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	read_elems(t_src *src, int fd)
 			inter_line(src, str);
 			i++;
 		}
-		else if (num != 1 && str[num][0] != '\n')
+		else if (num != 1 || str[0][0] != '\n')
 			error_handle(e_map);
 		free(line);
 		free_split(str);

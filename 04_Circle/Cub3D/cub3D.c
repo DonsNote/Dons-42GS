@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:17:04 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 20:27:55 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:38:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ int	main(int ac, char **av)
 	src->canvas = init_canvas(WIDTH, HEIGHT);
 	check_texture(src);
 	init_vector(src);
-	mlx_hook(src->canvas->win, EVENT_KEY_PRESS, 0, input_key, src);
-	mlx_hook(src->canvas->win, EVENT_WINDOW_CLOSE, 0, input_exit, NULL);
+	mlx_hook(src->canvas->win, EVENT_KEY_PRESS, 1L << 0, input_key, src);
+	mlx_hook(src->canvas->win, EVENT_WINDOW_CLOSE, 0, input_exit, src);
 	mlx_loop_hook(src->canvas->mlx, draw, src);
 	mlx_loop(src->canvas->mlx);
-	destroy_canvas(&src->canvas);
-	destroy_src(src);
 	return (0);
 }
 
@@ -68,11 +66,8 @@ void	destroy_src(t_src *src)
 	}
 	i = -1;
 	while (++i < src->height)
-	{
 		free(src->map[i]);
-	}
 	free(src->map);
 	free(src);
 	return ;
 }
-

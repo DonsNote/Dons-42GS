@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:34:21 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/24 01:09:10 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:02:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	inter_line(t_src *src, char **str)
 	i = -1;
 	while (type[++i] != NULL)
 	{
-		printf("test : inter %s\n", str[1]);
 		if (ft_strncmp(str[0], type[i], -1) != 0)
 			continue ;
 		if (set[i])
@@ -68,9 +67,8 @@ _Bool	is_color(char *arg)
 	if (sign == -1 || *arg == '\0')
 		return (0);
 	base = 0;
-	while (*arg != '\0' || *arg != '\n')
+	while (*arg != '\0' && *arg != '\n')
 	{
-		printf("test : color %s\n", arg);
 		if (*arg < '0' || *arg > '9')
 			return (0);
 		if (base > UCHAR_MAX / 10 || (base == UCHAR_MAX / 10 && *arg > '5'))

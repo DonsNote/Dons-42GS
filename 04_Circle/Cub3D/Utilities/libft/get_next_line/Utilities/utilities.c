@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:58:52 by don               #+#    #+#             */
-/*   Updated: 2025/04/23 23:15:28 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:08:31 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ char	*gnl_next_line(char *sol)
 	char	*tmp;
 
 	i = 0;
-	while (sol[i] != '\n')
+	while (sol[i] != '\n' && sol[i] != '\0')
 		++i;
 	i = i + 1;
-	tmp = (char *)malloc(sizeof(char) * (ft_strlen(sol) - i));
+	tmp = (char *)malloc(sizeof(char) * (ft_strlen(sol) - i + 1));
 	if (tmp == NULL)
 		return (NULL);
 	j = 0;

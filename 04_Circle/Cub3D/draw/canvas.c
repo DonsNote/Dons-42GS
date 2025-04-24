@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 01:00:57 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 15:00:12 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:03:23 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,4 @@ void	draw_pixel(t_draw *this, int w, int h, int color)
 void	canvas_show(t_draw *this)
 {
 	mlx_put_image_to_window(this->mlx, this->win, this->img.img, 0, 0);
-}
-
-void	destroy_canvas(t_draw **this_ref)
-{
-	t_draw	*this;
-
-	this = *this_ref;
-	mlx_destroy_image(this->mlx, this->img.img);
-	free(this);
-	*this_ref = NULL;
 }

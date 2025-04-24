@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:25:43 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 19:01:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:39:03 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	check_valid(t_src *src, char c, t_vector pos)
 {
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
-		if (src->player.x != 0 || src->player.y !=0)
+		if (src->player.x != 0 || src->player.y != 0)
 			error_handle(e_map);
 		src->player.x = pos.x + 0.5f;
 		src->player.y = pos.y + 0.5f;

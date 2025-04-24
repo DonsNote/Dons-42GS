@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:49:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/02/01 16:23:55 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:37:12 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ char	*ft_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	sol = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	if (str[ft_strlen(str) - 1] == '\n')
+		sol = (char *)malloc(sizeof(char) * (ft_strlen(str)));
+	else
+		sol = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
 	if (sol == NULL)
 		return (NULL);
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i] != '\0' && str[i] != '\n')
 	{
 		sol[i] = str[i];
 		++i;

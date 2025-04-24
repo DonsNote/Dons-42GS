@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:06:24 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/23 20:10:08 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:36:02 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		rotate(int key, t_src *src);
 void		move(int key, t_src *src);
-int			input_exit(void);
+int			input_exit(t_src *src);
 t_vector	r_matrix(t_vector vec, float radian);
 
 int	input_key(int key, t_src *src)
@@ -24,7 +24,7 @@ int	input_key(int key, t_src *src)
 	else if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		move(key, src);
 	else if (key == KEY_ESC)
-		exit(0);
+		input_exit(src);
 	return (0);
 }
 
@@ -52,10 +52,30 @@ void	move(int key, t_src *src)
 	src->player.y += move.y * MOVE_SPEED;
 }
 
-int	input_exit(void)
+int	input_exit(t_src *src)
 {
+	int	i;
+
+	i = -1;
+	mlx_loop_end(src->canvas->mlx);
+	while (++i < WALL_SIZE)
+	{
+		mlx_destroy_image(src->canvas->mlx, src->textures[i].img);
+		free(src->textures[i].path);
+	}
+	mlx_destroy_image(src->canvas->mlx, src->canvas->img.img);
+	src->canvas->img.data = NULL;
+	free(src->canvas->img.data);
+	i = -1;
+	while (++i < src->height)
+		free(src->map[i]);
+	free(src->map);
+	mlx_destroy_window(src->canvas->mlx, src->canvas->win);
+	mlx_destroy_display(src->canvas->mlx);
+	free(src->canvas->mlx);
+	free(src->canvas);
+	free(src);
 	exit(0);
-	return (1);
 }
 
 t_vector	r_matrix(t_vector vec, float radian)
