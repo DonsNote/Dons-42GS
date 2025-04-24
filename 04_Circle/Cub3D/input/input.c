@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:06:24 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/24 18:36:02 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/24 20:29:16 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	input_exit(t_src *src)
 		free(src->textures[i].path);
 	}
 	mlx_destroy_image(src->canvas->mlx, src->canvas->img.img);
-	src->canvas->img.data = NULL;
-	free(src->canvas->img.data);
+	// src->canvas->img.data = NULL;
+	// free(src->canvas->img.data);
 	i = -1;
 	while (++i < src->height)
 		free(src->map[i]);
