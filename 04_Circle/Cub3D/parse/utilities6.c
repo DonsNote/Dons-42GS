@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 01:10:00 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/24 14:34:20 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:28:54 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,36 @@ void	check_texture(t_src *src)
 	}
 	return ;
 }
+
+// void free_(t_src *src)
+// {
+// 	size_t i;
+
+// 	i = 0;
+// 	while (i < 3)
+// 	{
+// 		src->textures[i].img = mlx_xpm_file_to_image(src->canvas->mlx,
+// 			src->textures[i].path, &src->textures[i].width,
+// 			&src->textures[i].height);
+// 		if (src->textures[i].img == NULL)
+// 		{
+// 			break;
+// 		}
+// 		++i;
+// 	}
+// 	if (i == 4)
+// 	{
+// 		return ;
+// 	}
+// 	i = 0;
+// 	while 
+// 	(i < 3)
+// 	{
+// 		if (src->textures[i].img != NULL)
+// 		{
+// 			free();
+// 		}
+// 		++i;
+// 	}
+
+// }
