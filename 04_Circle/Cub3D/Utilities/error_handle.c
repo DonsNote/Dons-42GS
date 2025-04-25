@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:18:56 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/25 15:42:55 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:27:13 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	line_error_handle(t_src *src)
 		++i;
 	}
 	free(src);
-	printf("Invalid map data\n");
+	printf("Invalid map data : 1\n");
 	exit(0);
 }
