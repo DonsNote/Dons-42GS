@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/25 15:41:17 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/26 19:43:55 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,14 +196,15 @@ typedef struct s_dda
 
 /* Utilities */
 void		error_handle(t_error_type type);
-void		line_error_handle(t_src *src);
+void		line_error_handle(t_src *src, char **str, char **str1);
+void		texture_error_handle(t_src *src);
 
 /* Parse */
 t_src		*check_init(char *av);
 t_lists		*init_list(void);
 t_stack		*init_stack(void);
 _Bool		is_color(char *arg);
-int			get_color(t_src *src, char *color_data);
+int			get_color(t_src *src, char **color_data);
 int			count_commas(char *str);
 void		free_split(char **str);
 void		inter_line(t_src *src, char **str);

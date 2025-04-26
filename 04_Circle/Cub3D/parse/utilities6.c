@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 01:10:00 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/25 16:28:54 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/26 19:43:37 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	check_texture(t_src *src)
 				src->textures[i].path, &src->textures[i].width,
 				&src->textures[i].height);
 		if (src->textures[i].img == NULL)
-			error_handle(e_map);
+			texture_error_handle(src);
 		src->textures[i].data = mlx_get_data_addr(src->textures[i].img,
 				&src->textures[i].bits_pixel, &src->textures[i].size_line,
 				&src->textures[i].endian);
 		if (src->textures[i].data == NULL)
-			error_handle(e_map);
+			texture_error_handle(src);
 		++i;
 	}
 	return ;

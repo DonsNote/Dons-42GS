@@ -6,13 +6,13 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:34:21 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/25 15:41:08 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/26 15:49:26 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
-int		get_color(t_src *src, char *color_data);
+int		get_color(t_src *src, char **color_data);
 int		count_commas(char *str);
 _Bool	is_color(char *arg);
 void	free_split(char **str);
@@ -32,15 +32,15 @@ void	inter_line(t_src *src, char **str)
 		if (ft_strncmp(str[0], type[i], -1) != 0)
 			continue ;
 		if (set[i])
-			line_error_handle(src);
+			line_error_handle(src, str, NULL);
 		if (i < WALL_SIZE)
 			*(char **)elem[i] = ft_strdup(str[1]);
 		else
-			*(int *)elem[i] = get_color(src, str[1]);
+			*(int *)elem[i] = get_color(src, str);
 		set[i] = 1;
 		return ;
 	}
-	line_error_handle(src);
+	line_error_handle(src, str, NULL);
 }
 
 void	free_split(char **str)
@@ -79,23 +79,23 @@ _Bool	is_color(char *arg)
 	return (1);
 }
 
-int	get_color(t_src *src, char *color_data)
+int	get_color(t_src *src, char **color_data)
 {
 	char	**color_strs;
 	int		num;
 	int		color;
 
-	if (count_commas(color_data) != 2)
-		line_error_handle(src);
-	color_strs = ft_split(color_data, ',');
+	if (count_commas(color_data[1]) != 2)
+		line_error_handle(src, color_data, NULL);
+	color_strs = ft_split(color_data[1], ',');
 	num = 0;
 	while (color_strs[num] != NULL)
 		num++;
 	if (num != 3)
-		line_error_handle(src);
+		line_error_handle(src, color_data, color_strs);
 	if (!is_color(color_strs[0]) || !is_color(color_strs[1])
 		|| !is_color(color_strs[2]))
-		line_error_handle(src);
+		line_error_handle(src, color_data, color_strs);
 	color = 0;
 	color |= ft_atoi(color_strs[0]) << 16;
 	color |= ft_atoi(color_strs[1]) << 8;

@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/25 15:46:00 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/26 15:49:41 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	read_elems(t_src *src, int fd)
 		if (line == NULL)
 			error_handle(e_map);
 		str = ft_split(line, ' ');
+		free(line);
 		num = 0;
 		while (str[num] != NULL)
 			num++;
@@ -69,8 +70,7 @@ void	read_elems(t_src *src, int fd)
 			i++;
 		}
 		else if (num != 1 || str[0][0] != '\n')
-			error_handle(e_map);
-		free(line);
+			line_error_handle(src, str, NULL);
 		free_split(str);
 	}
 }
