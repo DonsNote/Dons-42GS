@@ -6,14 +6,14 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:21:18 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/22 00:50:37 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/27 02:39:17 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3D.h"
 
 void	dfs(t_src *src, t_vector pos, t_stack *stack);
-void	check_invalid(t_src *src, t_vector next_pos);
+void	check_invalid(t_src *src, t_vector next_pos, t_stack *stack);
 
 void	check_surround(t_src *src)
 {
@@ -55,7 +55,7 @@ void	dfs(t_src *src, t_vector pos, t_stack *stack)
 				|| src->map[(int)next_pos.y][(int)next_pos.x] == '1'
 				|| src->map[(int)next_pos.y][(int)next_pos.x] == 'X')
 				continue ;
-			check_invalid(src, next_pos);
+			check_invalid(src, next_pos, stack);
 			push(stack, next_pos);
 			src->map[(int)next_pos.y][(int)next_pos.x] = 'X';
 		}
@@ -63,9 +63,9 @@ void	dfs(t_src *src, t_vector pos, t_stack *stack)
 	free_stack(&stack);
 }
 
-void	check_invalid(t_src *src, t_vector next_pos)
+void	check_invalid(t_src *src, t_vector next_pos, t_stack *stack)
 {
 	if (src->map[(int)next_pos.y][(int)next_pos.x] != '1'
 		&& src->map[(int)next_pos.y][(int)next_pos.x] != ' ')
-		error_handle(e_map);
+		valid_error_handle(src, NULL, stack);
 }

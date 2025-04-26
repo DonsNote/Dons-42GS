@@ -1,0 +1,9 @@
+NO ./asset/1.xpm
+SO ./asset/2.xpm
+WE ./asset/3.xpm
+EA ./asset/4.xpm
+
+F 10,100,0
+C 254,30,0
+
+1111111111111

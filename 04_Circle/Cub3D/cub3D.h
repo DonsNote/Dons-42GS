@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:19:10 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/26 19:43:55 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/27 02:39:34 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,6 @@ typedef enum e_error_type
 	e_arg = 3,
 	e_map = 4
 }	t_error_type;
-
-typedef struct s_check_map
-{
-	bool	no;
-	bool	so;
-	bool	we;
-	bool	ea;
-	int		where;
-}	t_check_map;
 
 typedef struct s_image
 {
@@ -198,6 +189,7 @@ typedef struct s_dda
 void		error_handle(t_error_type type);
 void		line_error_handle(t_src *src, char **str, char **str1);
 void		texture_error_handle(t_src *src);
+void		valid_error_handle(t_src *src, t_lists *lists, t_stack *stack);
 
 /* Parse */
 t_src		*check_init(char *av);
@@ -221,7 +213,7 @@ t_vector	pop(t_stack *stack);
 void		free_stack(t_stack **stack);
 void		check_texture(t_src *src);
 void		dfs(t_src *src, t_vector pos, t_stack *stack);
-void		check_invalid(t_src *src, t_vector next_pos);
+void		check_invalid(t_src *src, t_vector next_pos, t_stack *stack);
 void		check_surround(t_src *src);
 
 /* input */

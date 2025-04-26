@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:17:27 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/26 15:49:41 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/27 02:48:04 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	read_elems(t_src *src, int fd)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
-			error_handle(e_map);
+			error_handle(e_open);
 		str = ft_split(line, ' ');
 		free(line);
 		num = 0;
@@ -99,7 +99,7 @@ void	read_map(t_src *src, int fd)
 	}
 	src->height = lists->size;
 	if (src->height < 3 || src->width < 3)
-		error_handle(e_map);
+		valid_error_handle(src, lists, NULL);
 	set_map(src, lists);
 	free_list(&lists);
 }
@@ -120,7 +120,7 @@ void	check_side(t_src *src)
 				continue ;
 			if (src->map[pos_y][pos_x] != '1'
 				&& src->map[pos_y][pos_x] != ' ')
-				error_handle(e_map);
+				valid_error_handle(src, NULL, NULL);
 		}
 		++pos_y;
 	}
