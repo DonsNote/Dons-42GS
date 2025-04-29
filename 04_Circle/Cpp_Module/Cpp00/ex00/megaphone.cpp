@@ -6,7 +6,7 @@
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 16:00:09 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/04/29 10:09:54 by dohyuki2         ###   ########.fr       */
+/*   Updated: 2025/04/29 22:05:39 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,11 @@ int	main(int ac, char **av)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
-
-	int	i;
-	int	j;
-
-	i = 1;
-	while (av[i] != NULL)
+	for (size_t i = 1; i < ac; ++i)
 	{
-		j = 0;
-		while (av[i][j] != '\0')
-		{
-			if (av[i][j] >= 'a' && av[i][j] <= 'z')
-				std::cout << (char)(av[i][j] - 32);
-			else
-				std::cout << av[i][j];
-			++j;
-		}
-		++i;
+		std::string str = av[i];
+		for (size_t j = 0; j < str.length(); ++j)
+			std::cout << std::toupper(str[j]);
 	}
 	std::cout << std::endl;
 }
