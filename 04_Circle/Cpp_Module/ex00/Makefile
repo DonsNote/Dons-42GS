@@ -6,33 +6,31 @@
 #    By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/31 16:09:05 by dohyuki2          #+#    #+#              #
-#    Updated: 2024/12/31 16:13:08 by dohyuki2         ###   ########.fr        #
+#    Updated: 2025/04/29 10:03:43 by dohyuki2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-SRCS = magaphone.cpp
-
-OBJS = $(SRCS:.cpp=.o)
-
-CC = c++
-
+CXX = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-all : $(NAME)
+SRCS = megaphone.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-$(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $^
+all		: $(NAME)
 
-clean : 
+$(NAME)	: $(OBJS)
+	$(CXX) $(CFLAGS) -o $(NAME) $^
+
+clean	:
 		rm -f $(OBJS)
 
-fclean : 
+fclean	:
 		make clean
 		rm -f $(NAME)
 
-re : 
+re		:
 		make fclean
 		make all
 
