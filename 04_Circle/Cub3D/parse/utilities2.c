@@ -13,7 +13,7 @@
 #include "../cub3D.h"
 
 t_data	get_front(t_lists *lists);
-void	check_valid(t_src *src, char c, t_vector pos);
+void	check_valid(t_src *src, char c, t_vector pos, t_lists *lists);
 void	free_list(t_lists **lists);
 
 void	set_map(t_src *new, t_lists *lists)
@@ -35,7 +35,7 @@ void	set_map(t_src *new, t_lists *lists)
 		while (get_front(lists).str[w] != '\n'
 			&& get_front(lists).str[w] != '\0')
 		{
-			check_valid(new, get_front(lists).str[w], (t_vector){w, h});
+			check_valid(new, get_front(lists).str[w], (t_vector){w, h}, lists);
 			new->map[h][w] = get_front(lists).str[w];
 			++w;
 		}
@@ -49,17 +49,29 @@ t_data	get_front(t_lists *lists)
 	return (lists->head->data);
 }
 
-void	check_valid(t_src *src, char c, t_vector pos)
+void	check_valid(t_src *src, char c, t_vector pos, t_lists *lists)
 {
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 	{
 		if (src->player.x != 0 || src->player.y != 0)
+		{
+			free_map(src);
+			free_textures_path(src);
+			free(src);
+			free_list(&lists);
 			error_handle(e_map);
+		}
 		src->player.x = pos.x + 0.5f;
 		src->player.y = pos.y + 0.5f;
 	}
 	else if (c != '0' && c != '1' && c != ' ')
+	{
+		free_map(src);
+		free_textures_path(src);
+		free(src);
+		free_list(&lists);
 		error_handle(e_map);
+	}
 	return ;
 }
 

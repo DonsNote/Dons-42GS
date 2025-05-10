@@ -29,7 +29,12 @@ t_src	*check_init(char *av)
 	read_elems(src, fd);
 	read_map(src, fd);
 	if (src->player.x == 0.f && src->player.y == 0.f)
+	{
+		free_map(src);
+		free_textures_path(src);
+		free(src);
 		error_handle(e_map);
+	}
 	close(fd);
 	check_side(src);
 	check_surround(src);

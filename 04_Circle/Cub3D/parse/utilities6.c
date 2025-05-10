@@ -33,36 +33,3 @@ void	check_texture(t_src *src)
 	}
 	return ;
 }
-
-// void free_(t_src *src)
-// {
-// 	size_t i;
-
-// 	i = 0;
-// 	while (i < 3)
-// 	{
-// 		src->textures[i].img = mlx_xpm_file_to_image(src->canvas->mlx,
-// 			src->textures[i].path, &src->textures[i].width,
-// 			&src->textures[i].height);
-// 		if (src->textures[i].img == NULL)
-// 		{
-// 			break;
-// 		}
-// 		++i;
-// 	}
-// 	if (i == 4)
-// 	{
-// 		return ;
-// 	}
-// 	i = 0;
-// 	while 
-// 	(i < 3)
-// 	{
-// 		if (src->textures[i].img != NULL)
-// 		{
-// 			free();
-// 		}
-// 		++i;
-// 	}
-
-// }

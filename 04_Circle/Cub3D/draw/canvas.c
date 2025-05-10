@@ -15,7 +15,6 @@
 void	init_vector(t_src *src);
 void	draw_pixel(t_draw *this, int w, int h, int color);
 void	canvas_show(t_draw *this);
-void	destroy_canvas(t_draw **this_ref);
 
 t_draw	*init_canvas(int width, int height)
 {

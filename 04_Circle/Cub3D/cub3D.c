@@ -13,7 +13,6 @@
 #include "cub3D.h"
 
 int		check_file_name(char *file_name);
-void	destroy_src(t_src *src);
 
 int	main(int ac, char **av)
 {

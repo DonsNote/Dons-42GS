@@ -190,6 +190,11 @@ void		error_handle(t_error_type type);
 void		line_error_handle(t_src *src, char **str, char **str1);
 void		texture_error_handle(t_src *src);
 void		valid_error_handle(t_src *src, t_lists *lists, t_stack *stack);
+void		free_textures(t_src *src);
+void		free_mlx(t_src *src);
+void		free_map(t_src *src);
+void		free_all_resources(t_src *src);
+void		free_textures_path(t_src *src);
 
 /* Parse */
 t_src		*check_init(char *av);
@@ -206,7 +211,7 @@ void		pop_back(t_lists *lists);
 void		pop_front(t_lists *lists);
 t_data		get_front(t_lists *lists);
 void		set_map(t_src *new, t_lists *lists);
-void		check_valid(t_src *src, char c, t_vector pos);
+void		check_valid(t_src *src, char c, t_vector pos, t_lists *lists);
 void		free_list(t_lists **lists);
 void		push(t_stack *stack, t_vector data);
 t_vector	pop(t_stack *stack);
@@ -232,7 +237,6 @@ t_draw		*init_canvas(int width, int height);
 void		init_vector(t_src *src);
 void		draw_pixel(t_draw *this, int w, int h, int color);
 void		canvas_show(t_draw *this);
-void		destroy_canvas(t_draw **this_ref);
 
 int			draw(t_src *src);
 void		drawing(t_src *src);
@@ -255,6 +259,5 @@ int			set_color(t_src *src, t_vector cur);
 void		big_draw(t_src *src, t_vector cur, t_vector start_pos, int color);
 void		render_minimap(t_src *src);
 int			check_file_name(char *file_name);
-void		destroy_src(t_src *src);
 
 #endif

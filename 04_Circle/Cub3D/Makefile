@@ -24,6 +24,7 @@ INC = cub3D.h \
 
 SRCS = cub3D.c \
 		./Utilities/error_handle.c \
+		./Utilities/memory_utils.c \
 		./parse/check_init.c \
 		./parse/utilities.c \
 		./parse/utilities2.c \

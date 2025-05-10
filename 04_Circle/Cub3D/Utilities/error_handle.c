@@ -31,11 +31,7 @@ void	line_error_handle(t_src *src, char **str, char **str1)
 	int	i;
 
 	i = 0;
-	while (src->textures[i].path != NULL)
-	{
-		free(src->textures[i].path);
-		++i;
-	}
+	free_textures_path(src);
 	free(src);
 	if (str != NULL)
 		free_split(str);
@@ -46,25 +42,7 @@ void	line_error_handle(t_src *src, char **str, char **str1)
 
 void	texture_error_handle(t_src *src)
 {
-	int	i;
-
-	i = -1;
-	while (++i < WALL_SIZE)
-	{
-		if (src->textures[i].img != NULL)
-			mlx_destroy_image(src->canvas->mlx, src->textures[i].img);
-		free(src->textures[i].path);
-	}
-	mlx_destroy_image(src->canvas->mlx, src->canvas->img.img);
-	i = -1;
-	while (++i < src->height)
-		free(src->map[i]);
-	free(src->map);
-	mlx_destroy_window(src->canvas->mlx, src->canvas->win);
-	mlx_destroy_display(src->canvas->mlx);
-	free(src->canvas->mlx);
-	free(src->canvas);
-	free(src);
+	free_all_resources(src);
 	error_handle(e_map);
 }
 
@@ -77,12 +55,8 @@ void	valid_error_handle(t_src *src, t_lists *lists, t_stack *stack)
 	if (stack != NULL)
 		free_stack(&stack);
 	i = -1;
-	while (++i < WALL_SIZE)
-		free(src->textures[i].path);
-	i = -1;
-	while (++i < src->height)
-		free(src->map[i]);
-	free(src->map);
+	free_textures_path(src);
+	free_map(src);
 	free(src);
 	error_handle(e_map);
 }
