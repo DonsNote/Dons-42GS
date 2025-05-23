@@ -1,32 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Account.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohyuki2 <dohyuki2@student.42Gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 16:20:29 by dohyuki2          #+#    #+#             */
-/*   Updated: 2025/05/19 16:16:07 by dohyuki2         ###   ########.fr       */
+/*   Created: 2025/05/19 15:35:46 by dohyuki2          #+#    #+#             */
+/*   Updated: 2025/05/19 15:35:47 by dohyuki2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-
-#include <iostream>
-#include <string>
-
-class PhoneBook
-{
-	private	:
-		std::string Name;
-		std::string Num;
-	public	:
-		Contact();
-		ADD();
-		SEARCH();
-		EXIT();
-	
-};
-
-#endif
